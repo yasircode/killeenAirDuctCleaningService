@@ -1,290 +1,233 @@
 import React from 'react';
 
-const Killeen = () => {
+const KilleenPage = () => {
   return (
-    <div className="killeen-page-container">
+    <div className="page-wrapper">
       <style>
         {`
-          .killeen-page-container {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            line-height: 1.5;
-            background-color: #fff;
-            overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+          :root {
+            --primary-blue: #003366;
+            --accent-blue: #0056b3;
+            --light-blue: #eef4fb;
+            --text-dark: #2d3436;
+            --white: #ffffff;
           }
 
-          .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 15px; /* Slightly tighter for mobile */
+          .page-wrapper {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fcfcfc;
           }
 
           /* --- Hero Section --- */
-          .hero-section {
-            padding: 40px 0; /* Reduced padding for mobile */
+          .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #001a33 100%);
+            color: var(--white);
+            padding: 80px 20px;
             text-align: center;
-            background: linear-gradient(to bottom, #fcfcfc, #fff);
+            border-bottom: 8px solid var(--accent-blue);
           }
 
-          .hero-content { 
-            max-width: 100%; 
-          }
+          .hero-container { max-width: 900px; margin: 0 auto; }
           
           .badge {
-            background: #e11d24;
-            color: white;
-            padding: 4px 10px;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
             display: inline-block;
           }
 
-          .hero-content h1 {
-            font-size: 28px; /* Optimized for mobile screens */
-            margin: 15px 0;
-            color: #1a1a1a;
-            line-height: 1.2;
+          .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; line-height: 1.1; }
+          .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+
+          .btn-call {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
           }
 
-          .hero-content .subtext {
-            font-size: 18px;
-            color: #e11d24;
-            font-weight: 600;
-            margin-bottom: 15px;
-            display: block;
-          }
-
-          .hero-features {
-            display: flex;
-            flex-direction: column; /* Stack vertically on small screens */
-            gap: 10px;
-            margin-top: 20px;
-            font-weight: 600;
-            font-size: 14px;
-            align-items: center;
-          }
+          /* --- Intro Section --- */
+          .intro { padding: 60px 20px; text-align: center; background: white; }
+          .container { max-width: 1100px; margin: 0 auto; }
 
           /* --- Services Grid --- */
-          .services-section {
-            padding: 50px 0;
-            background-color: #f9f9f9;
-          }
-
-          .section-title {
-            text-align: center;
-            font-size: 26px;
-            margin-bottom: 30px;
-            color: #111;
-          }
-
-          .services-grid {
-            display: grid;
-            grid-template-columns: 1fr; /* Default to 1 column for mobile */
-            gap: 20px;
-          }
-
-          .service-box {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            border-top: 4px solid #e11d24;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-          }
-
-          .service-box h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: #111;
-          }
-
-          .service-box ul {
-            padding-left: 18px;
-            margin-top: 10px;
-            font-size: 14px;
-          }
-
-          /* --- CTA Banner --- */
-          .cta-section { margin: 40px 0; }
-
-          .cta-banner {
-            background: #1a1a1a;
-            color: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            text-align: center;
+          .services-section { padding: 80px 20px; }
+          .grid {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
           }
 
-          .cta-text h2 { font-size: 24px; margin-bottom: 8px; }
-          .cta-text p { font-size: 14px; opacity: 0.9; }
-          
-          .cta-button {
-            background: #e11d24;
-            color: white;
-            padding: 16px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
+          .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--accent-blue);
+            transition: 0.3s;
           }
 
-          /* --- FAQ Section --- */
-          .faq-section { padding: 40px 0; }
+          .card:hover { transform: translateY(-5px); }
+          .card h3 { color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid var(--light-blue); padding-bottom: 10px; }
+          .card ul { padding-left: 20px; margin-top: 15px; }
+          .card li { margin-bottom: 8px; font-size: 0.95rem; list-style: square; }
 
-          .faq-item {
-            margin-bottom: 25px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-          }
+          /* --- FAQ --- */
+          .faq { background: var(--light-blue); padding: 80px 20px; border-radius: 40px 40px 0 0; }
+          .faq-item { background: white; padding: 20px; border-radius: 10px; margin-bottom: 15px; }
+          .faq-item h4 { color: var(--accent-blue); margin-bottom: 10px; }
 
-          .faq-item h4 {
-            font-size: 17px;
-            color: #e11d24;
-            margin-bottom: 8px;
-            line-height: 1.4;
-          }
-          
-          .faq-item p { font-size: 14px; }
-
-          /* --- Desktop Optimization --- */
+          /* --- Desktop Responsive --- */
           @media (min-width: 768px) {
-            .hero-content h1 { font-size: 45px; }
-            .hero-features { flex-direction: row; justify-content: center; font-size: 16px; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .cta-banner { flex-direction: row; text-align: left; padding: 50px; justify-content: space-between; }
-            .section-title { font-size: 36px; }
+            .grid {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+            }
           }
-          
+
           @media (min-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .grid {
+              grid-template-columns: repeat(3, 1fr);
+            }
           }
         `}
       </style>
 
-      {/* --- HERO --- */}
-      <div className="container">
-        <section className="hero-section">
-          <div className="hero-content">
-            <span className="badge">Killeen's Best Service</span>
-            <h1>Air Duct Cleaning in Killeen, TX | Killeen Air Duct Cleaners</h1>
-            <span className="subtext">Pure Air For Fort Cavazos & Surrounding Areas</span>
-            <p style={{ fontSize: '15px' }}>
-              We provide professional air duct cleaning, HVAC maintenance, and energy-saving solutions across Killeen. 
-              Improve your indoor air quality and lower your monthly bills today.
-            </p>
-            <div className="hero-features">
-              <div>✓ Certified Pros</div>
-              <div>✓ Locally Owned</div>
-              <div>✓ HEPA Filtration</div>
-            </div>
-          </div>
-        </section>
-      </div>
+      {/* Hero Section */}
+      <header className="hero">
+        <div className="hero-container">
+          <span className="badge">Serving Killeen & Fort Cavazos</span>
+          <h1>Professional Air Duct Cleaning in Killeen, TX</h1>
+          <p>Your trusted experts for HVAC cleaning, duct replacement, and energy-saving attic insulation solutions.</p>
+          <a href="tel:YOUR_NUMBER" className="btn-call">📞 Call Now: Get Free Estimate</a>
+        </div>
+      </header>
 
-      {/* --- SERVICES --- */}
+      {/* Intro */}
+      <section className="intro">
+        <div className="container">
+          <p style={{fontSize: '1.1rem', color: '#555'}}>
+            Killeen ki shadeed garmi aur AC ke lagataar istemal se ducts mein dhool aur allergens jama ho jate hain. 
+            Hum <strong>Fort Cavazos</strong> aur <strong>Rancier Avenue</strong> ke ilaqon mein professional safai aur energy efficiency provide karte hain.
+          </p>
+        </div>
+      </section>
+
+      {/* Services Section */}
       <section className="services-section">
         <div className="container">
-          <h2 className="section-title">Professional Services</h2>
-          <div className="services-grid">
-            <div className="service-box">
+          <h2 style={{textAlign: 'center', color: 'var(--primary-blue)', marginBottom: '50px', fontSize: '2.5rem'}}>Our Professional Services</h2>
+          <div className="grid">
+            
+            <div className="card">
               <h3>Air Duct Cleaning</h3>
-              <p>Eliminate dust, pet dander, and mold for maximum airflow in Killeen’s dry conditions.</p>
+              <p>Full system cleaning for supply and return vents.</p>
               <ul>
-                <li>Complete supply & return cleaning</li>
-                <li>High-powered vacuum extraction</li>
-                <li>Full airflow inspection</li>
+                <li>Dust & Pet Dander removal</li>
+                <li>Mold spores elimination</li>
+                <li>Improved airflow performance</li>
               </ul>
             </div>
 
-            <div className="service-box">
+            <div className="card" style={{borderColor: '#00cc66'}}>
               <h3>HVAC System Cleaning</h3>
-              <p>Clean internal components like blower motors and coils to prevent system strain.</p>
+              <p><strong>High-Ticket Service:</strong> Deep cleaning of mechanical components.</p>
               <ul>
-                <li>Blower motor & Coil cleaning</li>
-                <li>Air handler cleaning</li>
-                <li>Increased energy efficiency</li>
+                <li>Blower Motor Cleaning</li>
+                <li>Evaporator Coil Cleaning</li>
+                <li>Air Handler & Return Plenum</li>
               </ul>
             </div>
 
-            <div className="service-box">
-              <h3>Dryer Vent Cleaning</h3>
-              <p>Reduce fire risks and drying times with our deep-cleaning vent service.</p>
-              <ul>
-                <li>Lint buildup removal</li>
-                <li>Fire hazard prevention</li>
-                <li>Lower energy costs</li>
-              </ul>
-            </div>
-
-            <div className="service-box">
-              <h3>Attic Insulation</h3>
-              <p>Keep your home cool during brutal Texas summers with modern insulation upgrades.</p>
-              <ul>
-                <li>Blown-in insulation</li>
-                <li>Energy efficiency boost</li>
-                <li>Reduced HVAC strain</li>
-              </ul>
-            </div>
-
-            <div className="service-box">
+            <div className="card">
               <h3>Duct Replacement</h3>
-              <p>Replace old, leaky, or rodent-damaged ductwork to improve your home's air quality.</p>
+              <p>Upgrade old or damaged ductwork for better efficiency.</p>
               <ul>
-                <li>New duct installation</li>
-                <li>Mold & damage repair</li>
-                <li>Properly sized systems</li>
+                <li>New Duct Installation</li>
+                <li>Rodent damage repair</li>
+                <li>Leakage prevention</li>
               </ul>
             </div>
 
-            <div className="service-box">
+            <div className="card">
+              <h3>Attic Insulation</h3>
+              <p>The best way to lower energy bills in Texas summers.</p>
+              <ul>
+                <li>Blown-in Insulation</li>
+                <li>Old Insulation Removal</li>
+                <li>Thermal barrier protection</li>
+              </ul>
+            </div>
+
+            <div className="card">
+              <h3>Dryer Vent Cleaning</h3>
+              <p>Professional lint removal to prevent house fires.</p>
+              <ul>
+                <li>Fire hazard prevention</li>
+                <li>Faster drying times</li>
+                <li>Annual safety maintenance</li>
+              </ul>
+            </div>
+
+            <div className="card">
+              <h3>UV Light Purification</h3>
+              <p>Indoor air sanitation using medical-grade UV lights.</p>
+              <ul>
+                <li>Bacteria neutralization</li>
+                <li>Mold growth prevention</li>
+                <li>Healthier indoor air quality</li>
+              </ul>
+            </div>
+
+            <div className="card">
               <h3>Chimney Sweep</h3>
-              <p>Safety-first chimney cleaning and inspection before the cold months arrive.</p>
+              <p>Fall and winter prep for your fireplace.</p>
               <ul>
                 <li>Creosote removal</li>
-                <li>Full safety assessment</li>
-                <li>Draft correction</li>
+                <li>Safety inspection</li>
+                <li>Smoke draft correction</li>
               </ul>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* --- CTA --- */}
-      <div className="container">
-        <section className="cta-section">
-          <div className="cta-banner">
-            <div className="cta-text">
-              <h2>Ready for Cleaner Air?</h2>
-              <p>Contact Killeen Air Duct Cleaners for a free estimate.</p>
-            </div>
-            <a href="tel:YOUR_NUMBER" className="cta-button">📞 Call (Insert Number)</a>
-          </div>
-        </section>
-      </div>
-
-      {/* --- FAQ --- */}
-      <section className="faq-section">
+      {/* FAQ Section */}
+      <section className="faq">
         <div className="container">
-          <h2 className="section-title">FAQs</h2>
-          <div className="faq-container">
-            <div className="faq-item">
-              <h4>How often should ducts be cleaned?</h4>
-              <p>In Killeen, we recommend cleaning every 2–3 years due to high dust levels.</p>
-            </div>
-            <div className="faq-item">
-              <h4>Does insulation lower bills?</h4>
-              <p>Yes. Proper attic insulation can significantly reduce cooling costs in Central Texas.</p>
-            </div>
+          <h2 style={{textAlign: 'center', color: 'var(--primary-blue)', marginBottom: '40px'}}>Frequently Asked Questions</h2>
+          <div className="faq-item">
+            <h4>How do I know if my air ducts need replacement?</h4>
+            <p>Agar ducts 15 saal se purani hain, torn hain, ya airflow kam hai to replacement behtar hai.</p>
+          </div>
+          <div className="faq-item">
+            <h4>Does attic insulation lower energy bills?</h4>
+            <p>Ji haan! Proper insulation Texas ki garmi mein AC par load kam karti hai jis se bills kam aate hain.</p>
+          </div>
+          <div className="faq-item">
+            <h4>What is the difference between duct and HVAC cleaning?</h4>
+            <p>Duct cleaning sirf vents saaf karti hai, jabke HVAC cleaning internal blower aur coils ko bhi saaf karti hai.</p>
           </div>
         </div>
       </section>
+
+      <footer style={{background: 'var(--primary-blue)', color: 'white', padding: '40px 20px', textAlign: 'center'}}>
+        <p>© 2026 Killeen Air Duct Cleaners. All Rights Reserved.</p>
+      </footer>
     </div>
   );
 };
 
-export default Killeen;
+export default KilleenPage;
