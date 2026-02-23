@@ -95,8 +95,8 @@ const DuctLandingPage = () => {
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110123.456789!2d-97.7277!3d31.1171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86454bc5f2e8f77d%3A0x868b8b9b8b8b8b8b!2sKilleen%2C%20TX!5e0!3m2!1sen!2sus!4v1234567890" 
                 className="google-map-iframe"
-                width="50%"
-                height="100" // Map ki height 300 se kam karke 180 kar di hai
+                width="%"
+                height="180" // Map ki height 300 se kam karke 180 kar di hai
                 style={{ border: 0 }}
                 allowFullScreen="" 
                 loading="lazy" 

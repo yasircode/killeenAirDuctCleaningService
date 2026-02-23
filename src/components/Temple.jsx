@@ -1,259 +1,198 @@
 import React from 'react';
-import Banner from './Banner';
-import DuctLandingPage from '../DuctLandingPage';
 
 const Temple = () => {
-  // --- Yahan Company ka content aur image paths hain ---
-  const serviceData = [
-    {
-      title: "BENEFITS OF CLEANING YOUR AIR DUCTS",
-      content: "Cleaning your air ducts does wonders for your home. It gets rid of dust and other nasty stuff, making the air cleaner and fresher. This means less coughing and sneezing. Also, your air system works smoother, which can lower your energy bills.",
-      cta: "Want cleaner air in your home? Get your air ducts cleaned today and breathe easier!",
-      image: "/013.jpeg",
-      imageLeft: false
+  // --- INTERNAL STYLES (Mobile & Desktop Responsive) ---
+  const styles = {
+    container: {
+      fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+      color: '#2d3436',
+      lineHeight: '1.7',
+      margin: '0 auto',
+      padding: '0',
+      backgroundColor: '#ffffff',
     },
-    {
-      title: "ELEVATE YOUR HOME'S AIR QUALITY WITH OUR EXPERT SERVICES",
-      content: "We offer a variety of services to keep your home's air clean and your family healthy:",
-      list: [
-        "Air Duct Cleaning: Get rid of dust, allergens, and pollutants.",
-        "Dryer Vent Cleaning: Reduce fire risk and increase efficiency.",
-        "HVAC System Cleaning: Ensure smooth running and lower bills.",
-        "Air Quality Testing: Target problem areas effectively."
-      ],
-      cta: "Ready for cleaner air in your home? Call Killeen Air Duct Cleaner today!",
-      image: "/1000.png", 
-      imageLeft: true
+    hero: {
+      background: 'linear-gradient(rgba(0, 41, 107, 0.85), rgba(0, 41, 107, 0.85)), url("https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      color: 'white',
+      padding: '80px 20px',
+      textAlign: 'center',
     },
-    {
-      title: "DRYER VENT CLEANING IN KILLEEN, TEXAS",
-      content: "Cleaning your dryer vent stops fires and cuts down on your energy bills. Lint can block your vent, but cleaning it makes your dryer work faster and safer. This simple step keeps your home safe and saves you money.",
-      cta: "Want to dry your clothes safely and save money? Book our service today!",
-      image: "/015.jpeg", 
-      imageLeft: false
+    section: {
+      maxWidth: '1000px',
+      margin: '40px auto',
+      padding: '0 20px',
     },
-    {
-      title: "REPAIRING OR REPLACING YOUR AIR DUCTS",
-      content: "Sometimes air ducts need fixing or even replacing. If your ducts are old or damaged, they might not work well, making your system struggle. Fixing them can make your home more comfortable.",
-      cta: "Noticing issues? Reach out to Killeen Air Duct Cleaner today!",
-      image: "/016.jpeg", 
-      imageLeft: true
+    h1: { fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '15px', fontWeight: '800' },
+    h2: { 
+      fontSize: '1.8rem', 
+      color: '#00296b', 
+      borderLeft: '5px solid #d9534f', 
+      paddingLeft: '15px',
+      marginTop: '40px',
+      marginBottom: '20px'
+    },
+    grid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: '25px',
+      marginTop: '20px'
+    },
+    card: {
+      backgroundColor: '#f8f9fa',
+      padding: '25px',
+      borderRadius: '10px',
+      boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+      border: '1px solid #e9ecef'
+    },
+    ctaBox: {
+      backgroundColor: '#00296b',
+      color: 'white',
+      padding: '50px 20px',
+      textAlign: 'center',
+      borderRadius: '15px',
+      margin: '60px 20px'
+    },
+    button: {
+      backgroundColor: '#d9534f',
+      color: 'white',
+      padding: '16px 35px',
+      fontSize: '1.2rem',
+      fontWeight: 'bold',
+      border: 'none',
+      borderRadius: '50px',
+      cursor: 'pointer',
+      textDecoration: 'none',
+      display: 'inline-block',
+      marginTop: '20px',
+      transition: 'transform 0.2s'
+    },
+    faqContainer: {
+      backgroundColor: '#f1f3f5',
+      padding: '40px 20px',
+      borderRadius: '10px'
+    },
+    faqItem: {
+      marginBottom: '25px',
+      paddingBottom: '15px',
+      borderBottom: '1px solid #dee2e6'
     }
-  ];
+  };
 
   return (
-    <div className="killeen-air-duct-page">
-      
-      {/* --- Inline CSS (Updated with Video Styles) --- */}
-      <style>
-        {`
-          .video-section {
-            position: relative;
-            width: 100%;
-            height: 60vh; /* Adjust height as needed */
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-          }
+    <div style={styles.container}>
+      <br></br>
+      <br></br>
+      {/* HERO SECTION */}
+      <header style={styles.hero}>
+        <div style={{maxWidth: '900px', margin: '0 auto'}}>
+          <h1 style={styles.h1}>Air Duct Cleaning in Temple, TX | Killeen Air Duct Cleaners</h1>
+          <p style={{fontSize: '1.2rem', opacity: '0.9'}}>Professional Air Quality Solutions for Central Texas Homes & Businesses</p>
+        </div>
+      </header>
 
-          .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-          }
+      {/* INTRO SECTION */}
+      <section style={styles.section}>
+        <p>
+          The <strong>Texas heat</strong> is relentless, and your AC works overtime to keep you cool. In Temple, this heavy usage leads to a rapid buildup of <strong>dust, allergens, and debris</strong> within your ventilation system. At Killeen Air Duct Cleaners, we focus on maximizing your home’s <strong>energy efficiency</strong> and ensuring the air your family breathes is clean and safe.
+        </p>
+      </section>
 
-          .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Video ke upar dark layer */
-            z-index: 0;
-          }
+      {/* AIR DUCT CLEANING SECTION */}
+      <section style={styles.section}>
+        <h2 style={styles.h2}>Air Duct Cleaning in Temple, TX</h2>
+        <p>Our comprehensive <strong>duct cleaning Temple TX</strong> service ensures every corner of your system is addressed. We don't just vacuum vents; we perform a deep medical-grade cleaning.</p>
+        <div style={styles.grid}>
+          <div style={styles.card}>
+            <strong>Full System Cleaning:</strong> We clean both supply and return vents to eliminate pet dander, dust, and mold spores.
+          </div>
+          <div style={styles.card}>
+            <strong>Improved Airflow:</strong> Professional <strong>vent cleaning Temple</strong> removes blockages, allowing your HVAC to breathe easier.
+          </div>
+        </div>
+      </section>
 
-          .video-content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-          }
+      {/* HVAC SYSTEM CLEANING SECTION */}
+      <section style={styles.section}>
+        <h2 style={styles.h2}>HVAC System Cleaning in Temple, TX</h2>
+        <p>To target higher efficiency and bigger energy savings, our <strong>HVAC cleaning Temple TX</strong> includes the internal components that most cleaners skip.</p>
+        <div style={styles.grid}>
+          <ul style={{paddingLeft: '20px'}}>
+            <li><strong>Blower Motor Cleaning:</strong> Improves mechanical longevity.</li>
+            <li><strong>Evaporator Coil Cleaning:</strong> Boosts cooling performance.</li>
+            <li><strong>Air Handler Cleaning:</strong> Ensures pure air at the source.</li>
+          </ul>
+          <ul style={{paddingLeft: '20px'}}>
+            <li><strong>Lower Energy Bills:</strong> A clean system runs cheaper.</li>
+            <li><strong>Prevent Breakdowns:</strong> Reduce <strong>AC system cleaning Temple</strong> emergency calls.</li>
+          </ul>
+        </div>
+      </section>
 
-          .video-content h1 {
-            font-size: clamp(30px, 6vw, 50px);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-weight: 800;
-          }
+      {/* DRYER VENT & CHIMNEY SECTION */}
+      <section style={styles.section}>
+        <div style={styles.grid}>
+          <div>
+            <h2 style={styles.h2}>Dryer Vent Cleaning</h2>
+            <p>Lint is a major fire hazard. Our Temple team provides expert lint removal for faster drying times and <strong>fire hazard prevention</strong>.</p>
+          </div>
+          <div>
+            <h2 style={styles.h2}>Chimney Sweep</h2>
+            <p>Prepare for the cooler months with our <strong>creosote removal</strong> and fireplace inspection services in Temple, TX.</p>
+          </div>
+        </div>
+      </section>
 
-          .services-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-          }
+      {/* DUCT REPLACEMENT SECTION */}
+      <section style={styles.section}>
+        <h2 style={styles.h2}>Air Duct Replacement in Temple, TX</h2>
+        <p>Sometimes cleaning isn't enough. If you have <strong>new ductwork Temple</strong> needs, we provide high-ticket replacement services for:</p>
+        <ul>
+          <li>Old or torn flexible ductwork (15+ years old).</li>
+          <li>Significant mold contamination or rodent damage.</li>
+          <li>Crushed ducts causing poor airflow in specific rooms.</li>
+        </ul>
+        <p><em>Benefit: Total control over your indoor climate and maximum energy savings.</em></p>
+      </section>
 
-          .service-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-            margin-bottom: 100px;
-          }
+      {/* ATTIC INSULATION SECTION */}
+      <section style={styles.section}>
+        <h2 style={styles.h2}>Attic Insulation Services in Temple, TX</h2>
+        <p>In Texas, your attic can reach 150°F. Our <strong>attic insulation Temple TX</strong> services include blown-in insulation that acts as a thermal shield, drastically reducing the strain on your HVAC system.</p>
+      </section>
 
-          .service-row.reverse {
-            flex-direction: row-reverse;
-          }
-
-          .text-container {
-            flex: 1;
-          }
-
-          .image-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-          }
-
-          .image-container img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-          }
-
-          .title {
-            font-size: clamp(24px, 4vw, 32px);
-            font-weight: 900;
-            color: #111;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-          }
-
-          .description {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 15px;
-          }
-
-          .points-list {
-            margin-bottom: 25px;
-            padding-left: 20px;
-          }
-
-          .points-list li {
-            margin-bottom: 10px;
-            font-weight: 500;
-            color: #333;
-          }
-
-          .cta-text {
-            font-size: 17px;
-            margin-bottom: 30px;
-            color: #000;
-            display: block;
-          }
-
-          .call-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: #a51d24;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s transform;
-          }
-
-          .call-btn:hover {
-            transform: translateY(-3px);
-            background-color: #8a181d;
-          }
-
-          @media (max-width: 900px) {
-            .video-section { height: 40vh; }
-            .service-row, .service-row.reverse {
-              flex-direction: column;
-              text-align: center;
-              gap: 30px;
-              margin-bottom: 60px;
-            }
-            .image-container { order: -1; }
-            .points-list { text-align: left; display: inline-block; }
-            .call-btn { width: 100%; justify-content: center; }
-          }
-        `}
-      </style>
-
-      {/* --- Top Video Section --- */}
-      <div className="video-section">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className="hero-video"
-        >
-          {/* Apni video file ka path yahan badlein */}
-          <source src="/red.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="video-overlay"></div>
-        <div className="video-content">
-          <h1>KILLEEN Air Duct Cleaning</h1>
-          <p style={{fontSize: '20px'}}>Professional Cleaning Services in Temple, TX</p>
+      {/* CTA SECTION */}
+      <div style={styles.ctaBox}>
+        <h2 style={{color: 'white', border: 'none', padding: '0'}}>Get a Free Estimate in Temple, TX</h2>
+        <p>Call Killeen Air Duct Cleaners today for professional air duct cleaning, HVAC cleaning, duct replacement, and insulation.</p>
+        <div style={{display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap'}}>
+            <a href="tel:#" style={styles.button}>📞 Call Now</a>
+            <a href="#contact" style={{...styles.button, backgroundColor: '#ffffff', color: '#00296b'}}>📩 Request Estimate</a>
         </div>
       </div>
 
-      {/* --- Main Content Render --- */}
-      <div className="services-wrapper">
-        {serviceData.map((item, index) => (
-          <section 
-            key={index} 
-            className={`service-row ${item.imageLeft ? 'reverse' : ''}`}
-          >
-            <div className="text-container">
-              <h2 className="title">{item.title}</h2>
-              <p className="description">{item.content}</p>
-              
-              {item.list && (
-                <ul className="points-list">
-                  {item.list.map((point, i) => (
-                    <li key={i}>{point}</li>
-                  ))}
-                </ul>
-              )}
+      {/* FAQ SECTION */}
+      <section style={{...styles.section, ...styles.faqContainer}}>
+        <h2 style={{...styles.h2, border: 'none', textAlign: 'center'}}>Frequently Asked Questions</h2>
+        <div style={styles.faqItem}>
+          <h4 style={{marginBottom: '5px'}}>How do I know if my air ducts need replacement?</h4>
+          <p>If your ducts are over 15 years old, have visible tears, or if you notice consistent dust despite regular cleaning, it's time for a replacement.</p>
+        </div>
+        <div style={styles.faqItem}>
+          <h4 style={{marginBottom: '5px'}}>Does attic insulation really lower energy bills in Texas?</h4>
+          <p>Absolutely. Proper <strong>blown-in insulation Temple</strong> can lower your cooling costs by up to 20% by preventing heat transfer from the attic into your living space.</p>
+        </div>
+        <div style={styles.faqItem}>
+          <h4 style={{marginBottom: '5px'}}>What’s the difference between duct cleaning and HVAC cleaning?</h4>
+          <p>Duct cleaning focuses on the tubes (vents), while HVAC cleaning includes the mechanical parts like coils, blowers, and air handlers.</p>
+        </div>
+      </section>
 
-              <span className="cta-text"><strong>{item.cta}</strong></span>
-              
-              <a href="tel:(245)998-3484" className="call-btn">
-                <span style={{ marginRight: '10px' }}>📞</span> CALL US
-              </a>
-            </div>
-
-            <div className="image-container">
-              <img src={item.image} alt={item.title} />
-            </div>
-         
-          </section>
-        
-        ))}
-      </div>
-           <DuctLandingPage/>
+      {/* FOOTER AREA (Simple) */}
+      <footer style={{textAlign: 'center', padding: '40px', color: '#777', fontSize: '0.9rem'}}>
+        &copy; {new Date().getFullYear()} Killeen Air Duct Cleaners. Serving Temple, Belton, and surrounding areas.
+      </footer>
     </div>
   );
 };
