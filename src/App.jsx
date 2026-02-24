@@ -54,7 +54,7 @@ import Salado from './components/Salado';
 import Lampasas from './components/Lampasas';
 import Georgetown from './components/Georgetown';
 import LibertyHill from './components/LibertyHill';
-import FortHood from './components/FortHood';
+
 import Waco from './components/Waco';
 import Jarrell from './components/Jarrell';
 
@@ -136,7 +136,7 @@ function App() {
        <Route  path="/location/lampasas" element={<Lampasas/>}/>
         <Route path="/location/georgetown" element={<Georgetown />} />
         <Route path="/location/libertyhill" element={<LibertyHill />} />
-        <Route path="/location/forthood" element={<FortHood />} />
+        
         <Route path="/location/waco" element={<Waco />} />
         <Route path="/location/Jarrell" element={<Jarrell />} />
         
