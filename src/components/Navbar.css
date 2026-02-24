@@ -43,9 +43,9 @@
 }
 
 .site-logo {
-  height: 100px;
-  width: 100px;
-  border-radius: 80%;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
   border: 1px solid #0d47a1;
   object-fit: cover;
 }
@@ -233,5 +233,6 @@
     display: none;
   }
 }
+
 
 
