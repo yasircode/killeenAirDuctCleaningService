@@ -1,207 +1,205 @@
 import React from 'react';
-import Banner from './Banner';
-import Hero from './Hero';
-import IntroCard from './IntroCard';
-import ImageComparison from './ImageComparison';
-import DuctLandingPage from '../DuctLandingPage';
-import DuctServiceFAQ from '../DuctServiceFAQ';
-import Any from './Any';
-import YahooCard from './yahoo';
-import Gallery from '../Gallery';
-import Newadd from './Newadd';
 
+const GeorgetownDuctCleaning = () => {
+  const styles = {
+    wrapper: {
+      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      color: '#2d3436',
+      backgroundColor: '#f8f9fa',
+      lineHeight: '1.8',
+      margin: 0,
+    },
+    header: {
+      background: 'linear-gradient(rgba(0, 40, 80, 0.85), rgba(0, 40, 80, 0.85)), url("https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&q=80&w=1200")', 
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      color: 'white',
+      padding: '120px 20px',
+      textAlign: 'center',
+      borderBottom: '10px solid #c0392b', // Red accent for the "Most Beautiful Town Square" vibe
+    },
+    heroH1: {
+      fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+      margin: '0 0 20px 0',
+      fontWeight: '900',
+    },
+    container: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '40px 20px',
+    },
+    introBox: {
+      background: 'white',
+      padding: '50px',
+      borderRadius: '30px',
+      boxShadow: '0 25px 60px rgba(0,0,0,0.1)',
+      marginTop: '-110px',
+      position: 'relative',
+      zIndex: 2,
+    },
+    sectionTitle: {
+      color: '#002850',
+      fontSize: '2.5rem',
+      marginBottom: '25px',
+      fontWeight: '800',
+      borderLeft: '12px solid #c0392b',
+      paddingLeft: '25px'
+    },
+    serviceGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+      gap: '30px',
+      margin: '60px 0',
+    },
+    card: {
+      backgroundColor: '#ffffff',
+      padding: '45px',
+      borderRadius: '25px',
+      boxShadow: '0 12px 35px rgba(0,0,0,0.04)',
+      borderTop: '10px solid #002850',
+    },
+    ctaArea: {
+      backgroundColor: '#002850',
+      color: 'white',
+      padding: '80px 30px',
+      borderRadius: '45px',
+      textAlign: 'center',
+      margin: '80px 0',
+    },
+    btn: {
+      padding: '22px 55px',
+      fontSize: '1.3rem',
+      fontWeight: 'bold',
+      borderRadius: '60px',
+      border: 'none',
+      cursor: 'pointer',
+      margin: '15px',
+      backgroundColor: '#c0392b',
+      color: 'white',
+    }
+  };
 
-const Georgetown = () => {
   return (
-    <div style={{ width: '100%', overflowX: 'hidden' }}>
-      {/* 1. Scoped Styles for Georgetown & Video Hero */}
-      <style>
-        {`
-          .video-hero-wrapper {
-            position: relative;
-            width: 100%;
-            height: 65vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-          }
-
-          .hero-video-file {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-          }
-
-          .hero-video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark shade for text readability */
-            z-index: 0;
-          }
-
-          .hero-video-text {
-            position: relative;
-            z-index: 1;
-            padding: 0 20px;
-          }
-
-          .hero-video-text h1 {
-            font-size: clamp(32px, 5vw, 52px);
-            font-weight: 800;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-          }
-
-          .nolanville-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 60px 8%;
-            gap: 40px;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background-color: #ffffff;
-          }
-
-          .nolanville-content {
-            flex: 1.2;
-          }
-
-          .nolanville-image-box {
-            flex: 0.8;
-            display: flex;
-            justify-content: center;
-          }
-
-          .nolanville-image-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-          }
-
-          .nolanville-heading {
-            font-size: clamp(28px, 4vw, 42px);
-            font-weight: 800;
-            margin: 0;
-            color: #000;
-            line-height: 1.1;
-          }
-
-          .nolanville-subheading {
-            font-size: clamp(24px, 3.5vw, 38px);
-            color: #e11d24; 
-            margin-top: 5px;
-            margin-bottom: 25px;
-            font-weight: 700;
-          }
-
-          .nolanville-text {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 20px;
-          }
-
-          @media (max-width: 992px) {
-            .video-hero-wrapper { height: 45vh; }
-            .nolanville-section {
-              flex-direction: column;
-              padding: 40px 20px;
-              text-align: center;
-            }
-            .nolanville-image-box {
-              order: -1; 
-              width: 100%;
-            }
-          }
-        `}
-      </style>
-
-      {/* 2. Top Video Hero Section */}
-      <section className="video-hero-wrapper">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className="hero-video-file"
-        >
-          {/* Change video path here */}
-          <source src="/red.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="hero-video-overlay"></div>
-        <div className="hero-video-text">
-          <h1>Air Duct Cleaning in Georgetown, TX</h1>
-          <p style={{fontSize: '1.2rem', fontWeight: '500'}}>Breathe Cleaner, Healthier Air Today</p>
+    <div style={styles.wrapper}>
+      {/* --- HERO SECTION --- */}
+      <header style={styles.header}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <h1 style={styles.heroH1}>Air Duct Cleaning in Georgetown, TX</h1>
+          <p style={{ fontSize: '1.6rem', fontWeight: '300', opacity: 0.95 }}>
+            Elite Air Quality Services for the Most Beautiful Square in Texas.
+          </p>
         </div>
-      </section>
+      </header>
 
-      {/* Hero Component (Optional: Agar video ke neeche banner style chahiye) */}
-      <Hero />
-      
-      {/* 3. Georgetown Content Section */}
-      <section className="nolanville-section">
-        <div className="nolanville-content">
-          <h2 className="nolanville-heading">Local Air Duct Cleaning Services</h2>
-          <div className="nolanville-subheading">In Georgetown Area</div>
+      <div style={styles.container}>
+        {/* --- LOCALIZED INTRO --- */}
+        <section style={styles.introBox}>
+          <h2 style={{ color: '#002850', marginTop: 0 }}>Advanced Air Care for Georgetown Families</h2>
+          <p>
+            Georgetown is a blend of historic charm and modern living. From the retirement oasis of <strong>Sun City</strong> to the vibrant student life near <strong>Southwestern University</strong>, the demand for clean, allergen-free air has never been higher. With the expansion near <strong>Inner Space Cavern</strong> and new developments along <strong>IH-35</strong>, construction dust and Hill Country pollen are constant threats to your HVAC system.
+          </p>
+          <p>
+            At <strong>Killeen Air Duct Cleaners</strong>, we provide meticulous service that matches the high standards of Georgetown residents. We specialize in removing the microscopic irritants that settle in your vents, helping you enjoy a healthier, more energy-efficient home.
+          </p>
+        </section>
+
+        {/* --- SERVICE 1: AIR DUCT CLEANING --- */}
+        <div style={{ marginTop: '80px' }}>
+          <h2 style={styles.sectionTitle}>Breathe Pure: Duct Cleaning Georgetown TX</h2>
+          <p>
+            The limestone dust and cedar pollen in Williamson County can quickly overwhelm your home’s air distribution system. Our <strong>duct cleaning Georgetown TX</strong> service is designed for deep source removal, ensuring your family breathes air that is as clear as the water at <strong>Blue Hole</strong>.
+          </p>
+          <div style={styles.serviceGrid}>
+            <div style={styles.card}>
+              <h4 style={{color: '#c0392b'}}>Why Choose Our Georgetown Team:</h4>
+              <ul style={{ paddingLeft: '20px' }}>
+                <li>Precision <strong>vent cleaning Georgetown</strong> technology</li>
+                <li>HEPA-filtered extraction systems</li>
+                <li>Sanitization for pet dander & seasonal mold</li>
+                <li>Complete system-wide debris removal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* --- SERVICE 2: HVAC SYSTEM CLEANING --- */}
+        <div style={{ marginTop: '40px' }}>
+          <h2 style={styles.sectionTitle}>HVAC Optimization in Georgetown, TX</h2>
+          <p>
+            In a city that values sustainability, a dirty AC unit is your biggest energy drain. Our <strong>HVAC cleaning Georgetown TX</strong> targets the internal coils and blower motors that often get neglected. We help Georgetown homeowners reduce their carbon footprint—and their utility bills.
+          </p>
           
-          <p className="nolanville-text">
-            Searching for a reliable service to breathe fresh air into your home? Your search ends here! 
-            At <strong>Killeen Air Duct</strong>, cleanliness is our passion, and we’re ready to 
-            elevate your indoor air quality to new heights.
-          </p>
-
-          <p className="nolanville-text">
-            Say goodbye to dusty air ducts and clogged dryer vents; we’ve got you covered with our 
-            comprehensive services. From meticulous air duct repair to efficient dryer vent cleaning, 
-            and from top-notch AC maintenance to seamless replacements, we offer it all.
-          </p>
-
-          <p className="nolanville-text">
-            But we don’t stop there! What sets us apart is our commitment to going the extra mile. 
-            We leave no stone unturned in ensuring your entire HVAC system works optimally, 
-            bringing you true comfort.
-          </p>
+          <div style={styles.serviceGrid}>
+            <div style={{...styles.card, borderTopColor: '#c0392b'}}>
+              <h4 style={{color: '#002850'}}>Full System Decontamination:</h4>
+              <ul style={{ paddingLeft: '20px' }}>
+                <li><strong>AC system cleaning Georgetown</strong> expert care</li>
+                <li>Anti-microbial coil flushing</li>
+                <li>Blower housing & fan blade scrubbing</li>
+                <li>Condensate drain line clearing</li>
+              </ul>
+              <p style={{marginTop: '20px', color: '#636e72'}}><em>Essential for Sun City residents and sensitive respiratory health.</em></p>
+            </div>
+          </div>
         </div>
 
-        <div className="nolanville-image-box">
-          <img 
-            src="/013.jpeg"
-            alt="Killeen Air Duct Cleaning Team" 
-          />
+        {/* --- SERVICE 3: REPLACEMENT & INSULATION --- */}
+        <div style={styles.serviceGrid}>
+          <div style={{...styles.card, borderTopColor: '#27ae60'}}>
+            <h3 style={{color: '#27ae60'}}>🏠 Attic Insulation Services</h3>
+            <p>Georgetown's summer heat can reach triple digits. Our <strong>blown-in insulation Georgetown</strong> creates a thermal shield, keeping your modern home cool and your HVAC unit from working overtime.</p>
+          </div>
+          <div style={{...styles.card, borderTopColor: '#e17055'}}>
+            <h3 style={{color: '#d35400'}}>🛠️ Air Duct Replacement</h3>
+            <p>Older homes near the Historic Square often have leaking or outdated ductwork. We provide professional <strong>duct replacement Georgetown TX</strong> to modernize your airflow and efficiency.</p>
+          </div>
         </div>
-      </section>
-      
-      <br />
 
-      {/* 4. Other Components */}
-      <IntroCard />
-      <ImageComparison />
-      <YahooCard/>
-      <Gallery/>
-      <Newadd/>
-      
-      <Any/>
-      <Banner />
-      <DuctServiceFAQ />
-      <br />
-      <DuctLandingPage />
+        {/* --- SERVICE 4: DRYER VENTS & CHIMNEYS --- */}
+        <div style={styles.serviceGrid}>
+          <div style={styles.card}>
+            <h3>🧺 Dryer Vent Cleaning</h3>
+            <p>Don't risk a lint fire. We provide thorough cleaning for Georgetown laundry rooms, extending appliance life and ensuring safety.</p>
+          </div>
+          <div style={styles.card}>
+            <h3>🧹 Chimney Sweep</h3>
+            <p>Ready your home for the Central Texas winter. We offer creosote removal and inspections for Georgetown’s traditional fireplaces.</p>
+          </div>
+        </div>
+
+        {/* --- FAQ SECTION --- */}
+        <section style={{ margin: '80px 0', borderTop: '2px solid #eee', paddingTop: '50px' }}>
+          <h2 style={{textAlign: 'center', color: '#002850', marginBottom: '40px'}}>Georgetown Community FAQ</h2>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <div style={{ background: '#fff', padding: '30px', borderRadius: '15px', marginBottom: '20px' }}>
+              <p><strong>Is HVAC cleaning important for older homes near the Square?</strong></p>
+              <p>Absolutely. Historic homes often have original ductwork that has accumulated decades of dust. Deep cleaning restores airflow without damaging the property’s integrity.</p>
+            </div>
+            <div style={{ background: '#fff', padding: '30px', borderRadius: '15px', marginBottom: '20px' }}>
+              <p><strong>Do you service the Sun City area?</strong></p>
+              <p>Yes, we have many satisfied customers in Sun City. We focus on providing allergen-free air, which is vital for senior health and respiratory comfort.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* --- CALL TO ACTION --- */}
+        <div style={styles.ctaArea}>
+          <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>Experience a Cleaner Georgetown Home</h2>
+          <p style={{ fontSize: '1.4rem', opacity: '0.9', marginBottom: '50px' }}>
+            Healthier air is just a phone call away. Get your free estimate today.
+          </p>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button style={styles.btn}>📞 Call Now: (254) XXX-XXXX</button>
+            <button style={{ ...styles.btn, backgroundColor: 'white', color: '#002850' }}>📩 Request Quote</button>
+          </div>
+        </div>
+      </div>
+
+      <footer style={{ textAlign: 'center', padding: '60px', color: '#95a5a6', fontSize: '1rem' }}>
+        © 2026 Killeen Air Duct Cleaners | Serving Georgetown, Round Rock, and Jarrell.
+      </footer>
     </div>
   );
 };
 
-export default Georgetown;
+export default GeorgetownDuctCleaning;

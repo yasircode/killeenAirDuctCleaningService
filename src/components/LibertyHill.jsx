@@ -1,175 +1,205 @@
 import React from 'react';
-import DuctServiceFAQ from '../DuctServiceFAQ';
-import DuctLandingPage from '../DuctLandingPage'; 
-import Management from './Management';
 
-const LibertyHill = () => {
+const LibertyHillCleaning = () => {
+  const styles = {
+    wrapper: {
+      fontFamily: '"Segoe UI", Roboto, Arial, sans-serif',
+      color: '#2d3436',
+      backgroundColor: '#fcfcfc',
+      lineHeight: '1.8',
+      margin: 0,
+    },
+    header: {
+      background: 'linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url("https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=1200")', 
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      color: 'white',
+      padding: '120px 20px',
+      textAlign: 'center',
+      borderBottom: '8px solid #ffcc00',
+    },
+    heroH1: {
+      fontSize: 'clamp(1.8rem, 6vw, 3.2rem)',
+      margin: '0 0 20px 0',
+      fontWeight: '900',
+      textTransform: 'uppercase',
+    },
+    container: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '40px 20px',
+    },
+    introBox: {
+      background: 'white',
+      padding: '50px',
+      borderRadius: '25px',
+      boxShadow: '0 20px 50px rgba(0,0,0,0.07)',
+      marginTop: '-110px',
+      position: 'relative',
+      zIndex: 2,
+    },
+    sectionTitle: {
+      color: '#003366',
+      fontSize: '2.4rem',
+      marginBottom: '25px',
+      fontWeight: '800',
+      borderLeft: '10px solid #ffcc00',
+      paddingLeft: '20px',
+    },
+    serviceGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+      gap: '30px',
+      margin: '60px 0',
+    },
+    card: {
+      backgroundColor: '#ffffff',
+      padding: '40px',
+      borderRadius: '20px',
+      boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
+      borderTop: '6px solid #003366',
+      transition: 'transform 0.3s ease',
+    },
+    ctaArea: {
+      backgroundColor: '#003366',
+      color: 'white',
+      padding: '80px 30px',
+      borderRadius: '35px',
+      textAlign: 'center',
+      margin: '80px 0',
+    },
+    btnMain: {
+      padding: '20px 50px',
+      fontSize: '1.2rem',
+      fontWeight: 'bold',
+      borderRadius: '50px',
+      border: 'none',
+      cursor: 'pointer',
+      margin: '10px',
+      backgroundColor: '#ffcc00',
+      color: '#003366',
+    }
+  };
+
   return (
-    <div className="city-page">
-      {/* 1. Global Styles for this page */}
-      <style>
-        {`
-          .video-hero {
-            position: relative;
-            width: 100%;
-            height: 500px; 
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
+    <div style={styles.wrapper}>
+      {/* --- HERO SECTION --- */}
+      <header style={styles.header}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <h1 style={styles.heroH1}>Air Duct Cleaning in Liberty Hill, TX</h1>
+          <p style={{ fontSize: '1.5rem', fontWeight: '300', opacity: 0.9 }}>
+            Professional HVAC Restoration for Liberty Hill’s Expanding Communities.
+          </p>
+        </div>
+      </header>
 
-          .video-hero video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-          }
+      <div style={styles.container}>
+        {/* --- LOCALIZED INTRO --- */}
+        <section style={styles.introBox}>
+          <h2 style={{ color: '#003366', marginTop: 0 }}>Keeping the Hill Country Air Clean</h2>
+          <p>
+            Liberty Hill is one of the fastest-growing cities in the Texas Hill Country. While new neighborhoods rise along <strong>Hwy 29</strong> and near <strong>Wetzel Park</strong>, the heavy construction kicks up massive amounts of fine drywall dust and silica that bypasses standard air filters. 
+          </p>
+          <p>
+            At <strong>Killeen Air Duct Cleaners</strong>, we understand the local "LHTX" lifestyle. Whether you are in a brand-new build or an established home with a view, our mission is to remove the seasonal cedar pollen and construction debris that compromises your indoor air quality and spikes your energy bills.
+          </p>
+        </section>
 
-          .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Halka dark filter */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-
-          .video-overlay h1 {
-            color: #ffffff;
-            font-size: clamp(32px, 6vw, 52px);
-            font-weight: 900;
-            text-align: center;
-            padding: 0 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.7); /* Text ko prominent karne ke liye */
-          }
-
-          .nolanville-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 60px 8%;
-            gap: 40px;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background-color: #ffffff;
-          }
-
-          .nolanville-content {
-            flex: 1.2;
-          }
-
-          .nolanville-image-box {
-            flex: 0.8;
-            display: flex;
-            justify-content: center;
-          }
-
-          .nolanville-image-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-          }
-
-          .nolanville-heading {
-            font-size: clamp(28px, 4vw, 42px);
-            font-weight: 800;
-            margin: 0;
-            color: #000;
-            line-height: 1.1;
-          }
-
-          .nolanville-subheading {
-            font-size: clamp(24px, 3.5vw, 38px);
-            color: #e11d24; 
-            margin-top: 5px;
-            margin-bottom: 25px;
-            font-weight: 700;
-          }
-
-          .nolanville-text {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 20px;
-          }
-
-          @media (max-width: 992px) {
-            .video-hero { height: 400px; } /* Mobile pe height thori kam */
-            .nolanville-section {
-              flex-direction: column;
-              padding: 400px 20px;
-              text-align: center;
-            }
-            .nolanville-image-box {
-              order: -1; 
-              width: 100%;
-            }
-          }
-        `}
-      </style>
-
-      <div style={{ width: '100%', overflowX: 'hidden' }}>
-        
-        {/* --- Video Section --- */}
-        <div className="video-hero">
-          <video autoPlay muted loop playsInline>
-            <source src="/red.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div className="video-overlay">
-            <h1>Air Duct Cleaning in Nolanville, TX</h1>
+        {/* --- SERVICE 1: AIR DUCT CLEANING --- */}
+        <div style={{ marginTop: '80px' }}>
+          <h2 style={styles.sectionTitle}>Air Duct Cleaning in Liberty Hill, TX</h2>
+          <p>
+            Don't let construction dust settle in your new home’s lungs. Our <strong>duct cleaning Liberty Hill TX</strong> service is a deep-extraction process designed to pull out the most stubborn particulates. We ensure your supply and return vents are spotless.
+          </p>
+          <div style={styles.serviceGrid}>
+            <div style={styles.card}>
+              <h4 style={{color: '#003366'}}>Our Comprehensive Approach:</h4>
+              <ul style={{ paddingLeft: '20px' }}>
+                <li>Complete <strong>vent cleaning Liberty Hill</strong> for all registers</li>
+                <li>Powerful negative-pressure vacuum extraction</li>
+                <li>Removal of sawdust, dander, and Hill Country allergens</li>
+                <li>Microbial fogging options for a sanitized system</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* --- Text Content Section --- */}
-        <section className="nolanville-section">
-          <div className="nolanville-content">
-            <h2 className="nolanville-heading">Local Air Duct Cleaning Services</h2>
-            <div className="nolanville-subheading">In Nolanville & Killeen, Texas</div>
-            
-            <p className="nolanville-text">
-              Searching for a reliable service to breathe fresh air into your home? Your search ends here! 
-              At <strong>Killeen Air Duct</strong>, cleanliness is our passion, and we’re ready to 
-              elevate your indoor air quality to new heights.
-            </p>
-
-            <p className="nolanville-text">
-              Say goodbye to dusty air ducts and clogged dryer vents; we’ve got you covered with our 
-              comprehensive services. From meticulous air duct repair to efficient dryer vent cleaning, 
-              and from top-notch AC maintenance to seamless replacements, we offer it all.
-            </p>
-
-            <p className="nolanville-text">
-              But we don’t stop there! What sets us apart is our commitment to going the extra mile. 
-              We leave no stone unturned in ensuring your entire HVAC system works optimally, 
-              bringing you true comfort.
-            </p>
+        {/* --- SERVICE 2: HVAC SYSTEM CLEANING (The Energy Optimizer) --- */}
+        <div style={{ marginTop: '40px' }}>
+          <h2 style={styles.sectionTitle}>HVAC System Cleaning in Liberty Hill, TX</h2>
+          <p>
+            With the intense heat on the Liberty Hill ridge, your AC unit can easily overheat if the coils are dirty. Our <strong>HVAC cleaning Liberty Hill TX</strong> service focuses on the internal mechanics that drive your home's comfort. A clean system is a cheap-to-run system.
+          </p>
+          <div style={styles.serviceGrid}>
+            <div style={{...styles.card, borderTopColor: '#ffcc00'}}>
+              <h4 style={{color: '#003366'}}>Full System Restoration:</h4>
+              <ul style={{ paddingLeft: '20px' }}>
+                <li><strong>AC system cleaning Liberty Hill</strong> for evaporator coils</li>
+                <li>Blower wheel & motor housing deep-cleaning</li>
+                <li>Detailed air handler sanitization</li>
+                <li>Condensate line clearing to prevent summer mold</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="nolanville-image-box">
-            <img 
-              src="/013.jpeg"
-              alt="Killeen Air Duct Cleaning Team" 
-            />
+        {/* --- SERVICE 3: REPLACEMENT & INSULATION --- */}
+        <div style={styles.serviceGrid}>
+          <div style={{...styles.card, borderTopColor: '#e17055'}}>
+            <h3 style={{color: '#d35400'}}>🛠️ Air Duct Replacement</h3>
+            <p>Leaky ducts are common in the Hill Country's shifting soils. We provide professional <strong>duct replacement Liberty Hill TX</strong> to fix air leaks and ensure your AC isn't cooling your attic instead of your home.</p>
+          </div>
+          <div style={{...styles.card, borderTopColor: '#27ae60'}}>
+            <h3 style={{color: '#218c74'}}>🏠 Attic Insulation Services</h3>
+            <p>Upgrade your home's thermal barrier. Our <strong>blown-in insulation Liberty Hill</strong> service keeps your home cool during those 105°F Texas days and lowers your monthly utility costs.</p>
+          </div>
+        </div>
+
+        {/* --- SERVICE 4: DRYER VENTS & CHIMNEYS --- */}
+        <div style={styles.serviceGrid}>
+          <div style={styles.card}>
+            <h3>🧺 Dryer Vent Cleaning</h3>
+            <p>Fast-track your laundry and protect your home from fire hazards. We remove dangerous lint buildup from Liberty Hill dryer exhaust systems.</p>
+          </div>
+          <div style={styles.card}>
+            <h3>🧹 Chimney Sweep</h3>
+            <p>Get ready for the Hill Country freeze. We provide thorough creosote removal and fireplace inspections for safe winter nights.</p>
+          </div>
+        </div>
+
+        {/* --- FAQ SECTION --- */}
+        <section style={{ margin: '80px 0', background: '#f8f9fa', padding: '40px', borderRadius: '20px' }}>
+          <h2 style={{textAlign: 'center', color: '#003366', marginBottom: '40px'}}>Liberty Hill Resident FAQ</h2>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <div style={{ marginBottom: '25px', background: '#fff', padding: '20px', borderRadius: '10px' }}>
+              <p><strong>Do new homes in Liberty Hill need duct cleaning?</strong></p>
+              <p>Absolutely. Construction debris like drywall dust and sawdust often falls into the vents during the build process, which can irritate allergies and strain your new HVAC.</p>
+            </div>
+            <div style={{ marginBottom: '25px', background: '#fff', padding: '20px', borderRadius: '10px' }}>
+              <p><strong>How can I lower my summer electricity bill?</strong></p>
+              <p>Cleaning your HVAC coils and ensuring your attic has proper R-value insulation are the two most effective ways to reduce cooling costs in Liberty Hill.</p>
+            </div>
           </div>
         </section>
 
-        <Management />
-        <br />
-        <DuctServiceFAQ />
-        <DuctLandingPage />
+        {/* --- CALL TO ACTION --- */}
+        <div style={styles.ctaArea}>
+          <h2 style={{ fontSize: '2.8rem', marginBottom: '20px' }}>Free Estimates for Liberty Hill</h2>
+          <p style={{ fontSize: '1.3rem', opacity: '0.9', marginBottom: '50px' }}>
+            Serving Liberty Hill, Santa Rita Ranch, and Orchard Ridge with pride.
+          </p>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button style={styles.btnMain}>📞 Call (254) XXX-XXXX</button>
+            <button style={{ ...styles.btnMain, backgroundColor: 'white', color: '#003366' }}>📩 Online Quote</button>
+          </div>
+        </div>
       </div>
+
+      <footer style={{ textAlign: 'center', padding: '60px', color: '#7f8c8d', fontSize: '1rem' }}>
+        © 2026 Killeen Air Duct Cleaners | Dedicated to the Liberty Hill Community.
+      </footer>
     </div>
   );
 };
 
-export default LibertyHill;
+export default LibertyHillCleaning;

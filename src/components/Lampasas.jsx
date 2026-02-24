@@ -1,269 +1,204 @@
 import React from 'react';
-import Banner from './Banner';
-import Hero from './Hero';
-import DuctLandingPage from '../DuctLandingPage';
-import Any from './Any';
-import Gallery from '../Gallery';
-const Lampasas = () => {
-  // --- Yahan Company ka content aur image paths hain ---
-  const serviceData = [
-    {
-      title: "BENEFITS OF CLEANING YOUR AIR DUCTS",
-      content: "Cleaning your air ducts does wonders for your home. It gets rid of dust and other nasty stuff, making the air cleaner and fresher. This means less coughing and sneezing. Also, your air system works smoother, which can lower your energy bills.",
-      cta: "Want cleaner air in your home? Get your air ducts cleaned today and breathe easier!",
-      image: "/013.jpeg", 
-      imageLeft: false
+
+const LampasasDuctCleaning = () => {
+  const styles = {
+    wrapper: {
+      fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
+      color: '#333',
+      backgroundColor: '#fdfbf9',
+      lineHeight: '1.8',
+      margin: 0,
     },
-    {
-      title: "ELEVATE YOUR HOME'S AIR QUALITY WITH OUR EXPERT SERVICES",
-      content: "We offer a variety of services to keep your home's air clean and your family healthy:",
-      list: [
-        "Air Duct Cleaning: Get rid of dust, allergens, and pollutants.",
-        "Dryer Vent Cleaning: Reduce fire risk and increase efficiency.",
-        "HVAC System Cleaning: Ensure smooth running and lower bills.",
-        "Air Quality Testing: Target problem areas effectively."
-      ],
-      cta: "Ready for cleaner air in your home? Call Killeen Air Duct Cleaner today!",
-      image: "/1000.png", 
-      imageLeft: true
+    header: {
+      background: 'linear-gradient(rgba(46, 82, 51, 0.85), rgba(46, 82, 51, 0.85)), url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200")', 
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      color: 'white',
+      padding: '110px 20px',
+      textAlign: 'center',
+      borderBottom: '6px solid #8b4513', // Earthy brown for Hill Country feel
     },
-    {
-      title: "DRYER VENT CLEANING IN KILLEEN, TEXAS",
-      content: "Cleaning your dryer vent stops fires and cuts down on your energy bills. Lint can block your vent, but cleaning it makes your dryer work faster and safer. This simple step keeps your home safe and saves you money.",
-      cta: "Want to dry your clothes safely and save money? Book our service today!",
-      image: "/015.jpeg", 
-      imageLeft: false
+    heroH1: {
+      fontSize: 'clamp(1.8rem, 6vw, 3rem)',
+      margin: '0 0 20px 0',
+      fontWeight: '800',
+      textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
     },
-    {
-      title: "REPAIRING OR REPLACING YOUR AIR DUCTS",
-      content: "Sometimes air ducts need fixing or even replacing. If your ducts are old or damaged, they might not work well, making your system struggle. Fixing them can make your home more comfortable.",
-      cta: "Noticing issues? Reach out to Killeen Air Duct Cleaner today!",
-      image: "/016.jpeg", 
-      imageLeft: true
+    container: {
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '40px 20px',
+    },
+    introBox: {
+      background: 'white',
+      padding: '45px',
+      borderRadius: '12px',
+      boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+      marginTop: '-90px',
+      position: 'relative',
+      zIndex: 2,
+      borderTop: '5px solid #2e5233',
+    },
+    sectionTitle: {
+      color: '#2e5233', // Deep forest green
+      fontSize: '2.2rem',
+      marginBottom: '20px',
+      fontWeight: '700',
+    },
+    serviceGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+      gap: '25px',
+      margin: '50px 0',
+    },
+    card: {
+      backgroundColor: '#ffffff',
+      padding: '35px',
+      borderRadius: '15px',
+      boxShadow: '0 6px 15px rgba(0,0,0,0.04)',
+      borderBottom: '4px solid #2e5233',
+    },
+    ctaArea: {
+      backgroundColor: '#2e5233',
+      color: 'white',
+      padding: '70px 30px',
+      borderRadius: '15px',
+      textAlign: 'center',
+      margin: '60px 0',
+    },
+    btn: {
+      padding: '18px 45px',
+      fontSize: '1.2rem',
+      fontWeight: 'bold',
+      borderRadius: '8px',
+      border: 'none',
+      cursor: 'pointer',
+      margin: '10px',
+      backgroundColor: '#ffcc00', // Bright gold for visibility
+      color: '#2e5233',
     }
-  ];
+  };
 
   return (
-    <div className="killeen-air-duct-page">
-      
-      {/* --- Inline CSS (Video + Content Styles) --- */}
-      <style>
-        {`
-          .video-hero-section {
-            position: relative;
-            width: 100%;
-            height: 65vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-          }
-
-          .hero-video-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-          }
-
-          .video-dark-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-          }
-
-          .hero-content-inner {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-          }
-
-          .hero-content-inner h1 {
-            font-size: clamp(28px, 5vw, 48px);
-            font-weight: 800;
-            text-transform: uppercase;
-            margin: 0;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-          }
-
-          .services-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-          }
-
-          .service-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-            margin-bottom: 100px;
-          }
-
-          .service-row.reverse {
-            flex-direction: row-reverse;
-          }
-
-          .text-container {
-            flex: 1;
-          }
-
-          .image-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-          }
-
-          .image-container img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-          }
-
-          .title {
-            font-size: clamp(24px, 4vw, 32px);
-            font-weight: 900;
-            color: #111;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-          }
-
-          .description {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 15px;
-          }
-
-          .points-list {
-            margin-bottom: 25px;
-            padding-left: 20px;
-          }
-
-          .points-list li {
-            margin-bottom: 10px;
-            font-weight: 500;
-            color: #333;
-          }
-
-          .cta-text {
-            font-size: 17px;
-            margin-bottom: 30px;
-            color: #000;
-            display: block;
-          }
-
-          .call-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: #a51d24;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s transform;
-          }
-
-          .call-btn:hover {
-            transform: translateY(-3px);
-            background-color: #8a181d;
-          }
-
-          @media (max-width: 900px) {
-            .video-hero-section { height: 45vh; }
-            .service-row, .service-row.reverse {
-              flex-direction: column;
-              text-align: center;
-              gap: 30px;
-              margin-bottom: 60px;
-            }
-            .image-container { order: -1; }
-            .points-list { text-align: left; display: inline-block; }
-            .call-btn { width: 100%; justify-content: center; }
-          }
-        `}
-      </style>
-
-      {/* --- Top Video Hero Section --- */}
-      <section className="video-hero-section">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className="hero-video-bg"
-        >
-          {/* Apni video file ka path yahan check karein */}
-          <source src="/red.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="video-dark-overlay"></div>
-        <div className="hero-content-inner">
-          <h1>KILLEEN Air Duct Cleaning in Lampasas, TX</h1>
-          <p style={{marginTop: '10px', fontSize: '1.2rem'}}>Expert Solutions for Cleaner Indoor Air</p>
+    <div style={styles.wrapper}>
+      {/* --- HERO SECTION --- */}
+      <header style={styles.header}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <h1 style={styles.heroH1}>Air Duct Cleaning in Lampasas, TX</h1>
+          <p style={{ fontSize: '1.4rem', fontWeight: '300' }}>
+            Pure Air for the Historic Gateway to the Texas Hill Country.
+          </p>
         </div>
-      </section>
+      </header>
 
-      {/* Banner aur Hero components agar video ke neeche chahiye hon to yahan rehne dein */}
-      <Banner />
-<Gallery/>
-      <Any/>
-      {/* <Hero /> - Video ke baad iski zarurat shayad na pade, par aap use kar sakte hain */}
+      <div style={styles.container}>
+        {/* --- LOCALIZED INTRO --- */}
+        <section style={styles.introBox}>
+          <h2 style={{ color: '#2e5233', marginTop: 0 }}>Fresh Air in the City of Springs</h2>
+          <p>
+            Lampasas is famous for its mineral springs and beautiful parks like <strong>Hancock Springs</strong>. However, being the gateway to the Hill Country means our homes are constantly exposed to limestone dust, cedar pollen, and seasonal ranch debris. Whether you have a historic home near <strong>Sulphur Creek</strong> or a modern property along <strong>Key Avenue</strong>, your HVAC system is likely working overtime.
+          </p>
+          <p>
+            At <strong>Killeen Air Duct Cleaners</strong>, we specialize in removing the deep-seated allergens that thrive in the Lampasas climate. We help local families maintain a clean, efficient, and healthy indoor environment year-round.
+          </p>
+        </section>
 
-      {/* --- Main Content Render --- */}
-      <div className="services-wrapper">
-        {serviceData.map((item, index) => (
-          <section 
-            key={index} 
-            className={`service-row ${item.imageLeft ? 'reverse' : ''}`}
-          >
-            <div className="text-container">
-              <h2 className="title">{item.title}</h2>
-              <p className="description">{item.content}</p>
-              
-              {item.list && (
-                <ul className="points-list">
-                  {item.list.map((point, i) => (
-                    <li key={i}>{point}</li>
-                  ))}
-                </ul>
-              )}
-
-              <span className="cta-text"><strong>{item.cta}</strong></span>
-              
-              <a href="tel:(245)998-3484" className="call-btn">
-                <span style={{ marginRight: '10px' }}>📞</span> CALL US
-              </a>
+        {/* --- SERVICE 1: AIR DUCT CLEANING --- */}
+        <div style={{ marginTop: '70px' }}>
+          <h2 style={styles.sectionTitle}>Air Duct Cleaning in Lampasas, TX</h2>
+          <p>
+            Does your home still smell like dust even after cleaning? Our <strong>duct cleaning Lampasas TX</strong> service uses industrial-grade suction to pull out years of buildup. We focus on the unique "Hill Country dust" that settles in Lampasas vents, ensuring your air is as crisp as a spring morning.
+          </p>
+          <div style={styles.serviceGrid}>
+            <div style={styles.card}>
+              <h4 style={{color: '#2e5233'}}>Local Cleaning Expertise:</h4>
+              <ul style={{ paddingLeft: '20px' }}>
+                <li>Full <strong>vent cleaning Lampasas</strong> for all home types</li>
+                <li>HEPA-certified dust extraction</li>
+                <li>Sanitization of trunk lines and plenums</li>
+                <li>Elimination of pet hair and seasonal pollen</li>
+              </ul>
             </div>
+          </div>
+        </div>
 
-            <div className="image-container">
-              <img src={item.image} alt={item.title} />
+        {/* --- SERVICE 2: HVAC SYSTEM CLEANING --- */}
+        <div style={{ marginTop: '40px' }}>
+          <h2 style={styles.sectionTitle}>HVAC System Cleaning in Lampasas, TX</h2>
+          <p>
+            The Texas heat doesn't play favorites. If your AC coils are clogged with ranch dust or pollen, your system will struggle to cool. Our <strong>HVAC cleaning Lampasas TX</strong> is a deep-mechanical clean that targets the components that save you money on energy bills.
+          </p>
+          <div style={styles.serviceGrid}>
+            <div style={styles.card}>
+              <h4 style={{color: '#2e5233'}}>Total System Maintenance:</h4>
+              <ul style={{ paddingLeft: '20px' }}>
+                <li><strong>AC system cleaning Lampasas</strong> for evaporator coils</li>
+                <li>Blower motor and fan blade scrubbing</li>
+                <li>Air handler disinfection</li>
+                <li>Drain line flushing to prevent moisture damage</li>
+              </ul>
+              <p style={{marginTop: '15px', fontStyle: 'italic', color: '#666'}}>Efficiency boost: Lower your summer cooling costs significantly.</p>
             </div>
-          </section>
-        ))}
+          </div>
+        </div>
+
+        {/* --- SERVICE 3: REPLACEMENT & INSULATION --- */}
+        <div style={styles.serviceGrid}>
+          <div style={{...styles.card, borderLeft: '6px solid #8b4513'}}>
+            <h3 style={{color: '#8b4513'}}>🛠️ Air Duct Replacement</h3>
+            <p>If your Lampasas home has old, leaky ducts, you’re losing cold air to the attic. we provide professional <strong>duct replacement Lampasas TX</strong> to ensure every room stays comfortable.</p>
+          </div>
+          <div style={{...styles.card, borderLeft: '6px solid #2e5233'}}>
+            <h3 style={{color: '#2e5233'}}>🏠 Attic Insulation Services</h3>
+            <p>Keep the Hill Country heat out! Our <strong>blown-in insulation Lampasas</strong> creates a barrier that keeps your home's temperature stable and saves your HVAC from burnout.</p>
+          </div>
+        </div>
+
+        {/* --- SERVICE 4: DRYER VENTS & CHIMNEYS --- */}
+        <div style={styles.serviceGrid}>
+          <div style={styles.card}>
+            <h3 style={{color: '#2e5233'}}>🧺 Dryer Vent Cleaning</h3>
+            <p>Don't let lint buildup be a fire risk in your home. Our Lampasas team ensures your dryer runs safely and dries your clothes faster.</p>
+          </div>
+          <div style={styles.card}>
+            <h3 style={{color: '#2e5233'}}>🧹 Chimney Sweep</h3>
+            <p>Essential for those chilly Hill Country nights. We remove dangerous creosote and inspect your chimney for safe winter fires.</p>
+          </div>
+        </div>
+
+        {/* --- FAQ SECTION --- */}
+        <section style={{ margin: '60px 0', background: '#f0f4f1', padding: '40px', borderRadius: '15px' }}>
+          <h2 style={{textAlign: 'center', color: '#2e5233', marginBottom: '30px'}}>Lampasas Homeowner FAQ</h2>
+          <div style={{ maxWidth: '850px', margin: '0 auto' }}>
+            <div style={{ marginBottom: '20px' }}>
+              <p><strong>How often should Lampasas homes have ducts cleaned?</strong></p>
+              <p>Due to the dust and cedar in our area, we recommend a professional cleaning every 2–3 years to keep air quality high.</p>
+            </div>
+            <div style={{ marginBottom: '20px' }}>
+              <p><strong>Can cleaning my HVAC really lower my bills?</strong></p>
+              <p>Yes. Clean coils allow for better heat exchange, meaning your AC reaches the desired temperature faster and runs less often.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* --- CALL TO ACTION --- */}
+        <div style={styles.ctaArea}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Free Estimates for Lampasas Residents</h2>
+          <p style={{ fontSize: '1.2rem', opacity: '0.9', marginBottom: '40px' }}>
+            Experience the best air duct and HVAC cleaning in the Hill Country.
+          </p>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button style={styles.btn}>📞 Call Now: (254) XXX-XXXX</button>
+            <button style={{ ...styles.btn, backgroundColor: 'white', border: '1px solid #2e5233' }}>📩 Request Quote</button>
+          </div>
+        </div>
       </div>
-      
-      <DuctLandingPage />
+
+      <footer style={{ textAlign: 'center', padding: '60px', color: '#888', fontSize: '0.9rem' }}>
+        © 2026 Killeen Air Duct Cleaners | Serving Lampasas, Kempner, and Lometa.
+      </footer>
     </div>
   );
 };
 
-export default Lampasas;
+export default LampasasDuctCleaning;
