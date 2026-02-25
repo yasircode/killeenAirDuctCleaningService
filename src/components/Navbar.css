@@ -1,3 +1,4 @@
+/* --- GLOBAL DROPDOWN STYLES --- */
 .dropdown-link {
   display: block;
 }
@@ -24,6 +25,8 @@
   color: rgb(246, 245, 245);
   padding: 6px 20px;
   font-size: 12px;
+  position: relative;
+  z-index: 3002;
 }
 
 .top-bar-inner {
@@ -41,16 +44,18 @@
   padding: 8px 5%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   position: relative;
-  transition: all 0.3s ease; /* Smooth transition for resizing */
+  height: 70px; /* Desktop Height */
 }
 
+/* Desktop Logo Style */
 .site-logo {
-  height: 50px;
-  width: 50px;
+  height: 55px;
+  width: 55px;
   border-radius: 50%;
   border: 2px solid #0d47a1;
   object-fit: cover;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  background: #fff;
 }
 
 /* --- 4. DESKTOP MENU --- */
@@ -72,7 +77,7 @@
   cursor: pointer;
 }
 
-/* --- 5. DROPDOWN (DESKTOP) --- */
+/* --- 5. DROPDOWN (DESKTOP ONLY) --- */
 @media (min-width: 993px) {
   .dropdown {
     position: relative;
@@ -125,71 +130,70 @@
   display: none;
 }
 
-/* --- 7. MOBILE RESPONSIVE (992px and below) --- */
+/* --- 7. MOBILE RESPONSIVE (EXTRA LOGO ZOOM) --- */
 @media (max-width: 992px) {
-  
-  /* Navbar height badha di taaki bada logo fit ho sake */
   .main-nav-white {
-    padding: 10px 4%;
-    height: 80px; 
+    padding: 0 4%;
+    height: 65px; /* Navbar background thoda slim rakha hai taaki logo pop kare */
   }
 
-  /* 🔥 LOGO ZOOM FOR MOBILE 🔥 */
+  /* 🔥 LOGO EXTRA ZOOM & FLOATING EFFECT 🔥 */
   .site-logo {
-    height: 70px; /* Size badha diya */
-    width: 70px;  /* Size badha diya */
-    border-width: 3px; /* Thoda bold border */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Behtar visibility */
+    height: 95px !important; /* Huge Zoom */
+    width: 95px !important;
+    border-width: 4px;
+    position: absolute;
+    top: 5px; /* Top bar ke thoda niche se start */
+    left: 10px;
+    z-index: 3010; /* Sabse upar */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Heavy shadow for depth */
+    border-color: #0d47a1;
   }
 
   .top-black-bar {
-    padding: 4px 15px;
-    font-size: 11px;
+    padding: 5px 15px;
+    font-size: 10px;
+    z-index: 3005;
   }
 
   .mobile-menu-icon {
     display: block;
-    font-size: 26px;
+    font-size: 28px;
     position: absolute;
-    right: 20px; /* Right edge ke paas shift kiya */
-  }
-
-  .nav-center {
-    display: none;
+    right: 20px;
+    z-index: 3011;
+    color: #333;
   }
 
   .nav-center.nav-center-mobile {
     display: block;
     position: absolute;
-    top: 80px; /* Navbar height ke sath match kiya */
+    top: 65px;
     left: 0;
     width: 100%;
-    max-height: calc(100vh - 80px);
+    max-height: calc(100vh - 65px);
     overflow-y: auto;
     background: #ffffff;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 3000;
   }
 
   .nav-menu-list {
     flex-direction: column;
     width: 100%;
-    padding: 0;
+    padding: 10px 0;
   }
 
   .nav-link-item {
-    padding: 12px 20px; /* Tap area behtar kiya */
-    margin-bottom: 0;
-    border-bottom: 1px solid #eaeaf0;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f2f2f7;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 50px;
-    box-sizing: border-box;
     font-size: 16px;
-    background: #fff;
-    -webkit-tap-highlight-color: transparent;
+    font-weight: 700;
+    color: #333;
   }
 
   .dropdown.open > .nav-link-item {
@@ -197,47 +201,35 @@
     color: #ffffff;
   }
 
-  .dropdown.open > .nav-link-item .arrow {
-    color: #ffffff;
-  }
-
-  .dropdown {
-    width: 100%;
-  }
-
+  /* Dropdown Menu Mobile */
   .dropdown-menu {
     display: none;
     list-style: none;
-    background: #fcfcfc;
+    background: #f8f9fa;
     padding: 0;
     width: 100%;
-    position: relative;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.25s ease;
+    transition: max-height 0.3s ease;
   }
 
   .dropdown.open .dropdown-menu {
     display: block;
-    max-height: 1000px;
+    max-height: 1200px;
   }
 
   .dropdown-menu li a {
     display: block;
-    padding: 15px 30px;
-    font-size: 15px;
-    color: #444;
-    text-decoration: none;
+    padding: 14px 35px;
+    font-size: 14px;
+    color: #555;
     border-bottom: 1px solid #eee;
-    transition: 0.2s;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    text-decoration: none;
   }
 
-  .dropdown-menu li a:active,
-  .dropdown-menu li a:focus {
+  .dropdown-menu li a:active {
     background-color: #0d47a1 !important;
-    color: #ffffff !important;
+    color: white !important;
   }
 
   .desktop-only-call {
