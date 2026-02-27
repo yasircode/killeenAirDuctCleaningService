@@ -221,7 +221,7 @@ const KilleenDuctCleaning = () => {
 
         {/* --- WHY CHOOSE US --- */}
         <section style={{ textAlign: 'center', margin: '80px 0' }}>
-          <h2 style={styles.sectionTitle, {justifyContent: 'center', display: 'flex'}}>Why Choose Killeen Air Duct Cleaners?</h2>
+          <h2 style={{...styles.sectionTitle, justifyContent: 'center', display: 'flex'}}>Why Choose Killeen Air Duct Cleaners?</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', marginTop: '30px' }}>
             {['Locally Owned', 'Texas Climate Experts', 'Professional Equipment', 'Transparent Pricing'].map((text, i) => (
               <div key={i} style={{ padding: '15px 25px', background: '#fff', borderRadius: '50px', boxShadow: '0 4px 10px rgba(0,0,0,0.05)', fontWeight: 'bold', color: '#0056b3' }}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import './Navbar.css';
 
 const Navbar = () => {
@@ -34,23 +35,26 @@ const Navbar = () => {
 
         <div className={`nav-center ${isMobile ? 'nav-center-mobile' : ''}`}>
           <ul className="nav-menu-list">
+
+       
+
+
             <li><Link to="/" onClick={closeMenu} className="nav-link-item">HOME</Link></li>
             
-            {/* SERVICE SECTION */}
+            {/* SERVICE SECTION - UPDATED AS PER CLIENT REQ */}
             <li className={`dropdown ${showService ? 'open' : ''}`}>
               <div className="nav-link-item" onClick={() => setShowService(!showService)}>
-                SERVICE <span className="arrow">▾</span>
+                SERVICES <span className="arrow">▾</span>
               </div>
               <ul className="dropdown-menu">
-                <li><Link to="/airDuctCleaning" onClick={closeMenu}>Residential Air Duct Cleaning</Link></li>
-                <li><Link to="/commerciacleaning" onClick={closeMenu}>Commercial Air Cleaning</Link></li>
+                <li><Link to="/airDuctCleaning" onClick={closeMenu}>Air Duct Cleaning</Link></li>
+                <li><Link to="/hvcleaning" onClick={closeMenu}>HVAC System Cleaning</Link></li>
                 <li><Link to="/dryerventcleaning" onClick={closeMenu}>Dryer Vent Cleaning</Link></li>
-                <li><Link to="/ductservice" onClick={closeMenu}>Air Duct Repair & Replacement</Link></li>
-                <li><Link to="/hvcleaning" onClick={closeMenu}>HVAC Installation</Link></li>
-                <li><Link to="/chimneycleaning" onClick={closeMenu}>Chimney Cleaning</Link></li>
-                <li><Link to="/atticinsulation" onClick={closeMenu}>Attic Insulation and Repair</Link></li>
-                <li><Link to="/accleaning" onClick={closeMenu}>AC Cleaning</Link></li>
-                <li><Link to="/uvlightinstallation" onClick={closeMenu}>UV Light System Installation</Link></li>
+                <li><Link to="/chimneycleaning" onClick={closeMenu}>Chimney Sweep & Services</Link></li>
+                <li><Link to="/airductrepair" onClick={closeMenu}>Air Duct Repair</Link></li>
+                <li><Link to="/airductreplacement" onClick={closeMenu}>Air Duct Replacement</Link></li>
+                <li><Link to="/atticinsulation" onClick={closeMenu}>Attic Insulation</Link></li>
+                <li><Link to="/uvlightinstallation" onClick={closeMenu}>Indoor Air UV Light Purification</Link></li>
               </ul>
             </li>
 
@@ -60,8 +64,8 @@ const Navbar = () => {
                 LOCATION <span className="arrow">▾</span>
               </div>
               <ul className="dropdown-menu scrollable-menu">
-                <li><Link to="/location/killeen" onClick={closeMenu}>Killeen, Texas</Link></li>
-                <li><Link to="/location/harkerheights" onClick={closeMenu}>Harker Heights, Texas</Link></li>
+                <li><Link to="/location/killeen" onClick={closeMenu}>Killeen, TX</Link></li>
+                <li><Link to="/location/harkerheights" onClick={closeMenu}>Harker Heights, TX</Link></li>
                 <li><Link to="/location/copperascove" onClick={closeMenu}>Copperas Cove, TX</Link></li>
                 <li><Link to="/location/nolanville" onClick={closeMenu}>Nolanville, TX</Link></li>
                 <li><Link to="/location/fortcavazos" onClick={closeMenu}>Fort Cavazos, TX</Link></li>
@@ -70,10 +74,9 @@ const Navbar = () => {
                 <li><Link to="/location/salado" onClick={closeMenu}>Salado, TX</Link></li>
                 <li><Link to="/location/Lampasas" onClick={closeMenu}>Lampasas, TX</Link></li>
                 <li><Link to="/location/LibertyHill" onClick={closeMenu}>Liberty Hill, TX</Link></li>
-                 <li><Link to="/location/Georgetown" onClick={closeMenu}>George Town, TX</Link></li>
-                 <li><Link to="/location/Waco" onClick={closeMenu}>Waco, TX</Link></li>
-                 <li><Link to="/location/Jarrell" onClick={closeMenu}>Jarrell, TX</Link></li>
-
+                <li><Link to="/location/Georgetown" onClick={closeMenu}>Georgetown, TX</Link></li>
+                <li><Link to="/location/Waco" onClick={closeMenu}>Waco, TX</Link></li>
+                <li><Link to="/location/Jarrell" onClick={closeMenu}>Jarrell, TX</Link></li>
               </ul>
             </li>
             

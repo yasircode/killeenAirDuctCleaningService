@@ -45,9 +45,7 @@ const AirDuctCleaning = () => {
         </div>
       </section>
 
-      <Any />
-      <Banner />
-
+   
       {/* NEW UPDATED CONTENT SECTION */}
       <section className="sanitation-info-section">
         <div className="info-container">
@@ -104,7 +102,7 @@ const AirDuctCleaning = () => {
         </div>
       </section>
 
-      <DuctLandingPage />
+   
 
       <style>{`
         * {

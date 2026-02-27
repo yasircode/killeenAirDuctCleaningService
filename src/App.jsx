@@ -26,6 +26,8 @@ import ServiceAreas from './components/ServiceAreas';
 import Management from './components/Management'
 import MultiStepQuoteForm from './components/MultiStepQuoteForm';
 
+
+
 // --- NEW IMPORTS FOR SERVICES ---
 import AirDuctCleaning from './components/AirDuctCleaning';
 import Commercialcleaning from './components/Commerciacleaning';
@@ -120,11 +122,15 @@ function App() {
         <Route path="/atticinsulation" element={<AtticInsulation />} />
         <Route path="/accleaning" element={<ACcleaning />} />
         <Route path="/uvlightinstallation" element={<UVLightInstallation />} />
-        
+
+
+
+      
        
         
         {/* --- DYNAMIC ROUTE FOR ALL CITIES --- */}
         {/* Ye line saare 8 cities ko handle karegi */}
+        
         <Route path="/location/killeen" element={<Killeen />} />
         <Route path="/location/harkerheights" element={<HarkerHeights />} />
         <Route path="/location/copperascove" element={<CopperasCove />} />
@@ -139,6 +145,7 @@ function App() {
         
         <Route path="/location/waco" element={<Waco />} />
         <Route path="/location/Jarrell" element={<Jarrell />} />
+        
         
 
          {/* Aap yahan aur bhi routes add kar sakte hain */}
