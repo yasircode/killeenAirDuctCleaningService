@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import './Navbar.css';
 
 const Navbar = () => {
@@ -35,36 +34,49 @@ const Navbar = () => {
 
         <div className={`nav-center ${isMobile ? 'nav-center-mobile' : ''}`}>
           <ul className="nav-menu-list">
-
-       
-
-
             <li><Link to="/" onClick={closeMenu} className="nav-link-item">HOME</Link></li>
             
-            {/* SERVICE SECTION - UPDATED AS PER CLIENT REQ */}
+            {/* SERVICE SECTION */}
             <li className={`dropdown ${showService ? 'open' : ''}`}>
               <div className="nav-link-item" onClick={() => setShowService(!showService)}>
                 SERVICES <span className="arrow">▾</span>
               </div>
               <ul className="dropdown-menu">
-                <li><Link to="/airDuctCleaning" onClick={closeMenu}>Air Duct Cleaning</Link></li>
-                <li><Link to="/hvcleaning" onClick={closeMenu}>HVAC System Cleaning</Link></li>
-                <li><Link to="/dryerventcleaning" onClick={closeMenu}>Dryer Vent Cleaning</Link></li>
-                <li><Link to="/chimneycleaning" onClick={closeMenu}>Chimney Sweep & Services</Link></li>
-                <li><Link to="/airductrepair" onClick={closeMenu}>Air Duct Repair</Link></li>
-                <li><Link to="/airductreplacement" onClick={closeMenu}>Air Duct Replacement</Link></li>
-                <li><Link to="/atticinsulation" onClick={closeMenu}>Attic Insulation</Link></li>
-                <li><Link to="/uvlightinstallation" onClick={closeMenu}>Indoor Air UV Light Purification</Link></li>
+                <li><Link to="/air-duct-cleaning" onClick={closeMenu}>Air Duct Cleaning</Link></li>
+                <li><Link to="/hvac-system-cleaning" onClick={closeMenu}>HVAC System Cleaning</Link></li>
+                <li><Link to="/dryer-vent-cleaning" onClick={closeMenu}>Dryer Vent Cleaning</Link></li>
+                <li><Link to="/chimney-sweep-services" onClick={closeMenu}>Chimney Sweep & Services</Link></li>
+                <li><Link to="/air-duct-repair" onClick={closeMenu}>Air Duct Repair</Link></li>
+                <li><Link to="/air-duct-replacement" onClick={closeMenu}>Air Duct Replacement</Link></li>
+                <li><Link to="/attic-insulation" onClick={closeMenu}>Attic Insulation</Link></li>
+                <li><Link to="/uv-light-purification" onClick={closeMenu}>Indoor Air UV Light Purification</Link></li>
               </ul>
             </li>
 
-            {/* LOCATION SECTION */}
+            {/* LOCATION SECTION - UPDATED FOR KILLEEN NESTED MENU */}
             <li className={`dropdown ${showLocation ? 'open' : ''}`}>
               <div className="nav-link-item" onClick={() => setShowLocation(!showLocation)}>
                 LOCATION <span className="arrow">▾</span>
               </div>
               <ul className="dropdown-menu scrollable-menu">
-                <li><Link to="/location/killeen" onClick={closeMenu}>Killeen, TX</Link></li>
+                
+                {/* KILLEEN NESTED SUB-MENU */}
+                <li className="nested-parent">
+                  <span className="city-label">Killeen, TX ▸</span>
+                  <ul className="nested-dropdown-menu">
+                    <li><Link to="/air-duct-cleaning-killeen-tx" onClick={closeMenu}>Air Duct Cleaning</Link></li>
+                    <li><Link to="/hvac-system-cleaning-killeen-tx" onClick={closeMenu}>HVAC System Cleaning</Link></li>
+                    <li><Link to="/dryer-vent-cleaning-killeen-tx" onClick={closeMenu}>Dryer Vent Cleaning</Link></li>
+                    <li><Link to="/chimney-sweep-killeen-tx" onClick={closeMenu}>Chimney Sweep</Link></li>
+                    <li><Link to="/chimney-services-killeen-tx" onClick={closeMenu}>Chimney Services</Link></li>
+                    <li><Link to="/air-duct-repair-killeen-tx" onClick={closeMenu}>Air Duct Repair</Link></li>
+                    <li><Link to="/air-duct-replacement-killeen-tx" onClick={closeMenu}>Air Duct Replacement</Link></li>
+                    <li><Link to="/attic-insulation-killeen-tx" onClick={closeMenu}>Attic Insulation</Link></li>
+                    <li><Link to="/uv-light-air-purification-killeen-tx" onClick={closeMenu}>UV Light Purification</Link></li>
+                  </ul>
+                </li>
+
+                {/* OTHER CITIES */}
                 <li><Link to="/location/harkerheights" onClick={closeMenu}>Harker Heights, TX</Link></li>
                 <li><Link to="/location/copperascove" onClick={closeMenu}>Copperas Cove, TX</Link></li>
                 <li><Link to="/location/nolanville" onClick={closeMenu}>Nolanville, TX</Link></li>
