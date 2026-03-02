@@ -59,7 +59,7 @@ const Navbar = () => {
                   <span className="category-title">Chimney Services</span>
                   <ul>
                     <li><Link to="/airductcleaning" onClick={closeMenu}>Air Duct Repair</Link></li>
-                    
+
                   </ul>
                 </li>
 
@@ -81,13 +81,22 @@ const Navbar = () => {
               </div>
               <ul className="dropdown-menu scrollable-menu">
                 <li><Link to="/location/killeen" onClick={closeMenu}>Killeen, TX</Link></li>
+                 <li><Link to="/location/harkerheights" onClick={closeMenu}>Harker Heights, TX</Link></li>
+                   <li><Link to="/location/copperascove" onClick={closeMenu}>Copperas Cove, TX</Link></li>
+                    <li><Link to="/location/Nolanville" onClick={closeMenu}>Nolanville, TX</Link></li>
+                      <li><Link to="/location/fortcavazos" onClick={closeMenu}>FortCavaos, TX</Link></li>
+                       <li><Link to="/location/belton" onClick={closeMenu}>Belton, TX</Link></li>
                 <li><Link to="/location/temple" onClick={closeMenu}>Temple, TX</Link></li>
-                <li><Link to="/location/harkerheights" onClick={closeMenu}>Harker Heights, TX</Link></li>
-                <li><Link to="/location/copperascove" onClick={closeMenu}>Copperas Cove, TX</Link></li>
-                <li><Link to="/location/belton" onClick={closeMenu}>Belton, TX</Link></li>
-                <li><Link to="/location/waco" onClick={closeMenu}>Waco, TX</Link></li>
+                  <li><Link to="/location/waco" onClick={closeMenu}>Waco, TX</Link></li>
+                  
+                <li><Link to="/location/libertyhill" onClick={closeMenu}>Liberty Hill, TX</Link></li>
                 <li><Link to="/location/jarrell" onClick={closeMenu}>Jarrell, TX</Link></li>
+              
+               
+             <li><Link to="/location/salado" onClick={closeMenu}>Salado, TX</Link></li>
                 <li><Link to="/location/georgetown" onClick={closeMenu}>Georgetown, TX</Link></li>
+                 <li><Link to="/location/lampasas" onClick={closeMenu}>Lampasas, TX</Link></li>
+               
                 {/* ... other locations */}
               </ul>
             </li>

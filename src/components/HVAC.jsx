@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ChimneyCleaning = () => {
-  // --- CITIES DATA ---
+const HVAC = () => {
+  // --- CITIES DATA (Directly linked to your App.js routes) ---
   const cities = [
     { name: "Temple", slug: "location/temple" },
     { name: "Belton", slug: "location/belton" },
@@ -18,7 +18,7 @@ const ChimneyCleaning = () => {
     { name: "Fort Cavazos", slug: "location/fortcavazos" }
   ];
 
-  // --- STYLES (Clean & Responsive) ---
+  // --- STYLES ---
   const styles = {
     container: {
       fontFamily: "'Inter', sans-serif",
@@ -31,12 +31,12 @@ const ChimneyCleaning = () => {
     heroSection: {
       textAlign: 'center',
       padding: '40px 0',
-      borderBottom: '4px solid #c62828', // Red for Fire Safety
+      borderBottom: '4px solid #004a99',
       marginBottom: '40px',
     },
     title: {
       fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
-      color: '#0e1b4d',
+      color: '#004a99',
       margin: '0 0 10px 0',
       fontWeight: 800,
     },
@@ -51,34 +51,32 @@ const ChimneyCleaning = () => {
       flex: '1 1 500px',
     },
     imageContent: {
-      flex: '1 1 350px', // Image size controlled
+      flex: '1 1 400px',
       borderRadius: '15px',
       overflow: 'hidden',
       boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-      maxHeight: '400px'
     },
     responsiveImg: {
       width: '100%',
-      height: '100%',
-      objectFit: 'cover',
+      height: 'auto',
       display: 'block',
     },
     heading2: {
       fontSize: '2rem',
-      color: '#0e1b4d',
+      color: '#004a99',
       marginBottom: '20px',
     },
     benefitsBox: {
-      backgroundColor: '#fff5f5',
+      backgroundColor: '#f0f7ff',
       padding: '30px',
       borderRadius: '12px',
-      borderLeft: '6px solid #c62828',
+      borderLeft: '6px solid #28a745',
       marginTop: '30px',
     },
     locationTag: {
       display: 'inline-block',
-      backgroundColor: '#ffebee',
-      color: '#c62828',
+      backgroundColor: '#eef4ff',
+      color: '#004a99',
       padding: '4px 12px',
       borderRadius: '20px',
       fontSize: '0.9rem',
@@ -110,62 +108,45 @@ const ChimneyCleaning = () => {
     <div style={styles.container}>
       {/* HEADER */}
       <header style={styles.heroSection}>
-        <div style={styles.locationTag}>Killeen Air Duct Cleaning Company</div>
+        <div style={styles.locationTag}>Certified HVAC Specialists</div>
         <h1 style={styles.title}>
-          Chimney Sweep & Inspection Services
+          HVAC System Cleaning & Sanitization Services
         </h1>
       </header>
 
-      {/* SECTION 1 */}
+      {/* CONTENT SECTION 1 */}
       <section style={styles.flexGroup}>
         <div style={styles.textContent}>
-          <h2 style={styles.heading2}>Safe & Reliable Chimney Sweeping</h2>
+          <h2 style={styles.heading2}>Professional Deep Cleaning for your HVAC Unit</h2>
           <p>
-            A cozy fireplace is the heart of your home, but hazardous <strong>creosote and soot buildup</strong> can turn it into a fire risk. At <strong>Killeen Air Duct Cleaning Company</strong>, we provide expert chimney sweeping across Killeen, Temple, and Belton.
+            An HVAC system is the lungs of your home. Over time, <strong>dust, mold, and bacteria</strong> build up inside the blower motor, coils, and internal housing. Standard filter changes aren't enough to remove these deep-seated contaminants.
           </p>
           <p>
-            Our certified team uses advanced brushes and HEPA-filtered vacuums to ensure a mess-free cleaning, removing obstructions like bird nests and blockages that hinder proper ventilation.
-          </p>
-        </div>
-        <div style={styles.imageContent}>
-          <img src="profile3.jpeg" alt="Chimney Cleaning" style={styles.responsiveImg} />
-        </div>
-      </section>
-
-      {/* SECTION 2 (REVERSED FLEX) */}
-      <section style={{...styles.flexGroup, flexDirection: 'row-reverse'}}>
-        <div style={styles.textContent}>
-          <h2 style={styles.heading2}>Why Annual Inspection Matters</h2>
-          <p>
-            Most chimney fires occur because of hidden cracks in the liner or excessive creosote. We serve <strong>Harker Heights, Copperas Cove, and Georgetown</strong> with full-system inspections. 
-          </p>
-          <p>
-            Whether you use your fireplace daily or just during cold snaps, our annual maintenance ensures your flue is safe and your home is protected from smoke damage.
+            Our specialized HVAC cleaning service ensures that every component of your unit is sanitized, improving air quality and system longevity. We proudly serve homeowners across Central Texas with industrial-grade equipment.
           </p>
         </div>
         <div style={styles.imageContent}>
-          <img src="myman.jpeg" alt="Chimney Technician" style={styles.responsiveImg} />
+          <img src="o5.jpeg" alt="HVAC Cleaning" style={styles.responsiveImg} />
         </div>
       </section>
 
-      {/* BENEFITS BOX */}
+      {/* BENEFITS SECTION */}
       <div style={styles.benefitsBox}>
-        <h3 style={{ marginTop: 0, color: '#c62828' }}>Fire Safety Benefits:</h3>
+        <h3 style={{ marginTop: 0, color: '#155724' }}>Why Choose Our HVAC Cleaning?</h3>
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li>✔ **Prevent Fires:** Remove highly flammable creosote buildup.</li>
-          <li>✔ **Better Draft:** Improve airflow and eliminate smoky odors.</li>
-          <li>✔ **Clean Air:** Prevent carbon monoxide from entering your living space.</li>
-          <li>✔ **Home Value:** Professional maintenance extends the life of your chimney.</li>
+          <li>✔ **Efficiency:** Lower your monthly energy bills by up to 20%.</li>
+          <li>✔ **Health:** Eliminate allergens and musty odors from your air supply.</li>
+          <li>✔ **Reliability:** Prevent expensive mechanical breakdowns and coil freezing.</li>
         </ul>
       </div>
 
       <hr style={{ border: '0', height: '1px', background: '#eee', margin: '60px 0' }} />
 
       {/* SERVICE LOCATIONS GRID */}
-      <h2 style={{textAlign: 'center', color: '#0e1b4d'}}>Our Chimney Service Locations</h2>
+      <h2 style={{textAlign: 'center', color: '#004a99'}}>Our Service Areas for HVAC Cleaning</h2>
       <div style={styles.citiesGrid}>
         {/* Killeen Primary */}
-        <Link to="/location/killeen" style={{...styles.cityLink, backgroundColor: '#c62828', color: '#fff', borderColor: '#c62828'}}>
+        <Link to="/location/killeen" style={{...styles.cityLink, backgroundColor: '#004a99', color: '#fff'}}>
           📍 Killeen, TX
         </Link>
         
@@ -175,14 +156,8 @@ const ChimneyCleaning = () => {
             key={index} 
             to={`/${city.slug}`} 
             style={styles.cityLink}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = '#fff5f5';
-              e.currentTarget.style.borderColor = '#c62828';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = '#fff';
-              e.currentTarget.style.borderColor = '#ddd';
-            }}
+            onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f0f7ff'}
+            onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#fff'}
           >
             📍 {city.name}, TX
           </Link>
@@ -192,4 +167,4 @@ const ChimneyCleaning = () => {
   );
 };
 
-export default ChimneyCleaning;
+export default HVAC;
