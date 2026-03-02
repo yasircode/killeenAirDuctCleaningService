@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ImageComparison from "./ImageComparison";
 import Benefits from "../Benefits";
+import AirDuctnew from "./AirDuctnew";
 
 const AirDuctCleaning = () => {
   // State for expanding details in cards
@@ -107,7 +108,7 @@ const AirDuctCleaning = () => {
           </div>
         </div>
       </section>
-
+<AirDuctnew/>
         {/* INTRO CONTENT SECTION */}
       <section className="content-section">
         <div className="container">

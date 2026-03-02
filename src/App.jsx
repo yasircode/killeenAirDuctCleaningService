@@ -26,7 +26,7 @@ import ServiceAreas from './components/ServiceAreas';
 import Management from './components/Management'
 import MultiStepQuoteForm from './components/MultiStepQuoteForm';
 import KilleenServicePage from './KilleenServicePage';
-
+import AirDuctnew from './components/AirDuctnew';
 
 
 
@@ -82,6 +82,7 @@ const Home = () => (
     <Gallery />
     <br />
     <Banner />
+    <AirDuctnew/>
   
 <MultiStepQuoteForm/>
 
@@ -135,7 +136,7 @@ function App() {
         
         {/* --- DYNAMIC ROUTE FOR ALL CITIES --- */}
         {/* Ye line saare 8 cities ko handle karegi */}
-     
+    
         <Route path="/location/killeen" element={<Killeen />} />
         <Route path="/location/harkerheights" element={<HarkerHeights />} />
         <Route path="/location/copperascove" element={<CopperasCove />} />

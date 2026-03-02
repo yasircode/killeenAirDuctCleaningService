@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DuctLandingPage from "../DuctLandingPage";
 import Banner from "./Banner";
 import Any from "./Any";
-
+import HVAC from "./hvac";
 const HVACInstallation = () => {
   // State for Accordion FAQs
   const [openIndex, setOpenIndex] = useState(null);
@@ -66,7 +66,7 @@ const HVACInstallation = () => {
 
       <Banner/>
       <Any/>
-
+<HVAC/>
       {/* STEP BY STEP DUAL BOX LAYOUT */}
       <div className="dual-box-container">
         

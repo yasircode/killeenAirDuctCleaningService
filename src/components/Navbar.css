@@ -232,3 +232,42 @@
     display: none;
   }
 }
+.dropdown-menu {
+  min-width: 250px;
+  padding: 15px;
+}
+
+.menu-category {
+  margin-bottom: 15px;
+  list-style: none;
+}
+
+.category-title {
+  display: block;
+  font-weight: 800;
+  color: #004a99; /* Aapka brand blue color */
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+
+.menu-category ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.menu-category ul li a {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #555;
+  padding: 5px 0;
+  display: block;
+}
+
+.menu-category ul li a:hover {
+  color: #004a99;
+  padding-left: 5px;
+  transition: 0.3s;
+}

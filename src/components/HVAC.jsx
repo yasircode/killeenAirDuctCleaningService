@@ -128,7 +128,7 @@ const ChimneyCleaning = () => {
           </p>
         </div>
         <div style={styles.imageContent}>
-          <img src="038.jpeg" alt="Chimney Cleaning" style={styles.responsiveImg} />
+          <img src="profile3.jpeg" alt="Chimney Cleaning" style={styles.responsiveImg} />
         </div>
       </section>
 
@@ -144,7 +144,7 @@ const ChimneyCleaning = () => {
           </p>
         </div>
         <div style={styles.imageContent}>
-          <img src="039.jpeg" alt="Chimney Technician" style={styles.responsiveImg} />
+          <img src="myman.jpeg" alt="Chimney Technician" style={styles.responsiveImg} />
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ImageComparison from './ImageComparison';
-const TempleDuctCleaning = () => {
+const Temple = () => {
   const [selectedService, setSelectedService] = useState(null);
 
   const styles = {
@@ -192,7 +192,7 @@ const TempleDuctCleaning = () => {
     "Cap & Crown Analysis: Ensuring water isn't leaking into your home's structure."
   ],
 
-  
+  "keywords": "Chimney sweep Temple TX, fireplace inspection Temple, creosote removal, chimney repair Temple, flue cleaning Texas, wood stove service",
 
   "benefits": [
     "Zero-Mess Guarantee: Our high-power dust containment keeps your living room spotless.",
@@ -335,4 +335,4 @@ const TempleDuctCleaning = () => {
   );
 };
 
-export default TempleDuctCleaning;
+export default Temple;

@@ -27,13 +27,23 @@ const HVACLandingPage = () => {
           <div className="image-box">
             <img src="024.jpeg" alt="Kitchen Duct Cleaning" />
           </div>
-          <div className="text-box">
-            <h2 className="title-bold">RESIDENTIAL AIR DUCT CLEANING IN KILLEEN, TX – CLEAN AIR, HEALTHY HOME</h2>
-            <p className="description">Air ducts – they’re the lungs of your home. At America Air Duct Cleaning, based in KILLEEN, Texas, we understand this.</p>
-            <p className="description">We use advanced techniques like <strong>negative pressure cleaning</strong> and employ tools such as <strong>HEPA-filtered vacuums</strong> to deep clean your home's air ducts.</p>
-            <p className="description">Air duct cleaning offers several benefits; it reduces allergens, minimizes musty odors, and contributes to energy savings.</p>
-            <button className="red-btn align-right">GET AN ESTIMATE</button>
-          </div>
+         <div className="text-box">
+  <h2 className="title-bold">RESIDENTIAL AIR DUCT CLEANING IN KILLEEN, TX – CLEAN AIR, HEALTHY HOME</h2>
+  
+  <p className="description">
+    Air ducts are the lungs of your home, and at <strong>Killeen Air Duct Cleaning</strong>, we ensure they breathe fresh. Over time, dust and allergens build up, but our expert team is here to restore your indoor air quality.
+  </p>
+
+  <p className="description">
+    As shown in our process, we use high-powered <strong>Negative Pressure Cleaning</strong> units. By connecting industrial-grade, HEPA-filtered vacuums directly to your system, we pull every ounce of debris out of your home without leaving a speck of dust behind.
+  </p>
+
+  <p className="description">
+    Our specialized equipment doesn't just clean; it sanitizes your environment by reducing allergens, eliminating musty odors, and significantly improving your HVAC efficiency.
+  </p>
+
+  <button className="red-btn align-right">GET AN ESTIMATE</button>
+</div>
         </div>
       </section>
     </div>
