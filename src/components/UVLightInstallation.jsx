@@ -31,7 +31,9 @@ const UVLightInstallation = () => {
 
   return (
     <div className="residential-page">
-      
+      <br></br>
+         <br></br>
+            <br></br>
       {/* HERO SECTION - Localized */}
       <section className="hero">
         <div className="overlay">

@@ -35,7 +35,9 @@ const AtticInsulation = () => {
 
   return (
     <div className="residential-page">
-      
+      <br></br>
+      <br></br>
+      <br></br>
       {/* HERO SECTION - Targeted for Central Texas */}
       <section className="hero">
         <div className="overlay">
