@@ -47,7 +47,7 @@ const Navbar = () => {
                 <li className="menu-category">
                   <span className="category-title">Air Duct Services</span>
                   <ul>
-                    <li><Link to="/air-duct-cleaning" onClick={closeMenu}>Air Duct Cleaning</Link></li>
+                    <li><Link to="/AirDuctCleaning" onClick={closeMenu}>Air Duct Cleaning</Link></li>
                     <li><Link to="/air-duct-repair" onClick={closeMenu}>Air Duct Repair</Link></li>
                     <li><Link to="/air-duct-replacement" onClick={closeMenu}>Air Duct Replacement</Link></li>
                     <li><Link to="/hvac-cleaning" onClick={closeMenu}>HVAC System Cleaning</Link></li>

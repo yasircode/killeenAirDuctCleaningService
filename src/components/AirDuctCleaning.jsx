@@ -1,234 +1,156 @@
-import React, { useState } from "react";
-import ImageComparison from "./ImageComparison";
-import Benefits from "../Benefits";
-import AirDuctnew from "./AirDuctnew";
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-const AirDuctCleaning = () => {
-  // State for expanding details in cards
-  const [expanded, setExpanded] = useState(null);
+const CityServicePage = () => {
+  const { cityName } = useParams();
 
-  const toggleExpand = (id) => {
-    setExpanded(expanded === id ? null : id);
+  const displayCity = cityName
+    ? cityName.split('-').map(word => word.toUpperCase()).join(' ').replace(' TX', ', TX')
+    : "Killeen, TX";
+
+  useEffect(() => {
+    document.title = `Air Duct Cleaning in ${displayCity} | Professional HVAC Services`;
+    window.scrollTo(0, 0);
+  }, [displayCity]);
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `Air Duct Cleaning in ${displayCity}`,
+    "serviceType": "HVAC Cleaning",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "JY Air Duct Cleaning",
+      "address": { "@type": "PostalAddress", "addressLocality": displayCity, "addressRegion": "TX" },
+      "telephone": "(254) 998-3484"
+    }
   };
 
   return (
-    <div className="residential-page">
-      {/* HERO SECTION - SEO Optimized */}
-      <section className="hero">
-        <div className="overlay">
-          <h1>
-            TOP-RATED RESIDENTIAL AIR DUCT CLEANING IN KILLEEN, TX & SURROUNDING AREAS
-          </h1>
-          <p className="breadcrumb">
-            Home » Residential Air Duct Cleaning Killeen
+    <div style={styles.container}>
+      <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+
+      {/* Hero Section with Background Video */}
+      <section style={styles.hero}>
+        <video autoPlay loop muted playsInline style={styles.videoBg}>
+          <source src="/video.mp4" type="video/mp4" />
+          {/* Fallback image if video fails */}
+          <img src="/hero-fallback.jpg" alt="Air Duct Cleaning" />
+        </video>
+        <div style={styles.heroOverlay}>
+          <h1 style={styles.h1}>Expert Air Duct Cleaning in {displayCity}</h1>
+          <p style={styles.subtext}>Improving Indoor Air Quality for {displayCity} Homes & Businesses. Professional, Reliable, and Affordable.</p>
+          <div style={styles.btnGroup}>
+            <a href="tel:2549983484" style={styles.ctaButton}>Call (254) 998-3484</a>
+            <Link to="/contact" style={styles.secondaryBtn}>Get Online Quote</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Area */}
+      <div style={styles.contentWrapper}>
+        
+        {/* Section 1: Introduction */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>The Trusted Choice for Air Duct Cleaning in {displayCity}</h2>
+          <p style={styles.paragraph}>
+            Are you noticing more dust on your furniture? Are your energy bills rising unexpectedly? 
+            In <strong>{displayCity}</strong>, the combination of Texas dust and high humidity can turn your HVAC system into a breeding ground for mold, bacteria, and allergens. 
+            At JY Air Duct Cleaning, we specialize in deep-cleaning your entire ventilation system to ensure you and your family breathe 100% clean air.
           </p>
-          <a href="tel:2459983484" className="call-btn">
-            BOOK AN APPOINTMENT: (245) 998-3484
-          </a>
-        </div>
-      </section>
+          <img src="/profile3.jpeg" alt={`HVAC Sanitization in ${displayCity}`} style={styles.image} />
+        </section>
 
-    
+        {/* Section 2: Health Benefits (Expanding Content for SEO) */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Health Benefits of Professional Duct Cleaning</h2>
+          <p style={styles.paragraph}>
+            Many residents in {displayCity} suffer from seasonal allergies. What they don't realize is that their air ducts are often recirculating the very pollen and dander they are trying to avoid. 
+            Our professional-grade equipment removes:
+          </p>
+          <ul style={styles.list}>
+            <li><strong>Microbial Growth:</strong> We sanitize ducts to kill mold spores common in Texas humidity.</li>
+            <li><strong>Pet Dander & Hair:</strong> Deep cleaning for homes with furry friends.</li>
+            <li><strong>Construction Debris:</strong> Essential for new homes in growing areas like {displayCity}.</li>
+            <li><strong>Dust Mites:</strong> Reducing triggers for asthma and respiratory issues.</li>
+          </ul>
+        </section>
 
-      {/* CORE SERVICES SECTION - CARDS (Cleaning, Repair, Replacement) */}
-      <section className="services-grid-section">
-        <div className="container-grid">
-          <h2 className="section-main-title">Our Professional Ductwork Solutions</h2>
-          <div className="services-grid">
-            
-            {/* CARD 1: AIR DUCT CLEANING */}
-            <div className={`service-card ${expanded === 'cleaning' ? 'active' : ''}`}>
-              <div className="card-icon">🌬️</div>
-              <h3>Air Duct Cleaning</h3>
-              <p>Professional vent cleaning to remove dust, pet dander, and mold spores from your home.</p>
-              {expanded === 'cleaning' && (
-                <div className="expanded-content">
-                  <p>Our <strong>duct cleaning Temple TX</strong> and Killeen services include:</p>
-                  <ul>
-                    <li>Supply and Return vent cleaning</li>
-                    <li>Anti-microbial fogging/sanitization</li>
-                    <li>HEPA-filtered extraction</li>
-                    <li>Video inspection of ductwork</li>
-                  </ul>
-                  <p><strong>Benefit:</strong> Reduces allergy symptoms and lowers energy bills by improving airflow.</p>
-                </div>
-              )}
-              <button onClick={() => toggleExpand('cleaning')} className="read-more">
-                {expanded === 'cleaning' ? 'Show Less' : 'Learn More'}
-              </button>
-            </div>
-
-
-            
-
-            {/* CARD 2: AIR DUCT REPAIR */}
-            <div className={`service-card ${expanded === 'repair' ? 'active' : ''}`}>
-              <div className="card-icon">🛠️</div>
-              <h3>Air Duct Repair</h3>
-              <p>Leaky ducts can waste 30% of your energy. We seal and fix damaged ductwork fast.</p>
-              {expanded === 'repair' && (
-                <div className="expanded-content">
-                  <p>Common signs you need <strong>air duct repair in Killeen</strong>:</p>
-                  <ul>
-                    <li>Hot and cold spots in different rooms</li>
-                    <li>Unusually high electricity bills</li>
-                    <li>Visible holes or loose connections</li>
-                    <li>Whistling noises from the vents</li>
-                  </ul>
-                  <p>We use high-grade mastic sealants and R-8 insulation to ensure your air stays inside the pipes.</p>
-                </div>
-              )}
-              <button onClick={() => toggleExpand('repair')} className="read-more">
-                {expanded === 'repair' ? 'Show Less' : 'Learn More'}
-              </button>
-            </div>
-
-            {/* CARD 3: AIR DUCT REPLACEMENT */}
-            <div className={`service-card ${expanded === 'replacement' ? 'active' : ''}`}>
-              <div className="card-icon">🔄</div>
-              <h3>Air Duct Replacement</h3>
-              <p>For old, collapsed, or rodent-damaged ducts, a full replacement is the best long-term solution.</p>
-              {expanded === 'replacement' && (
-                <div className="expanded-content">
-                  <p>Our <strong>duct replacement Killeen TX</strong> service is ideal for:</p>
-                  <ul>
-                    <li>Ducts older than 15-20 years</li>
-                    <li>Severe rodent or pest infestations</li>
-                    <li>Major mold contamination within flex ducts</li>
-                    <li>Upgrading to high-efficiency insulated ducts</li>
-                  </ul>
-                  <p>We install modern, antimicrobial, and highly insulated ductwork for maximum performance.</p>
-                </div>
-              )}
-              <button onClick={() => toggleExpand('replacement')} className="read-more">
-                {expanded === 'replacement' ? 'Show Less' : 'Learn More'}
-              </button>
-            </div>
-
+        {/* Section 3: Professional Process */}
+        <section style={styles.infoBox}>
+          <h2 style={styles.h2}>Our Signature 5-Step Deep Clean Process</h2>
+          <div style={styles.stepGrid}>
+            <div style={styles.stepCard}><h3>1. Inspection</h3><p>Using high-def cameras to find hidden blockages.</p></div>
+            <div style={styles.stepCard}><h3>2. Negative Pressure</h3><p>Connecting high-powered vacuums to trap all dust.</p></div>
+            <div style={styles.stepCard}><h3>3. Agitation</h3><p>Brushing and scrubbing the interior walls of every duct.</p></div>
+            <div style={styles.stepCard}><h3>4. Sanitization</h3><p>EPA-approved fogging to eliminate odors and bacteria.</p></div>
+            <div style={styles.stepCard}><h3>5. Testing</h3><p>Verifying airflow and system efficiency before we leave.</p></div>
           </div>
-        </div>
-      </section>
-<AirDuctnew/>
-        {/* INTRO CONTENT SECTION */}
-      <section className="content-section">
-        <div className="container">
-          <div className="text">
-            <h2>Breathe Fresh Air in Your Killeen Home</h2>
-            <p>
-              Air quality is not only about the air outside; it matters what
-              you’re breathing in your home too. At <strong>Killeen Air Duct Cleaning</strong>,
-              we specialize in Residential Air Duct Cleaning for homeowners across 
-              <strong> Killeen, Harker Heights, and Copperas Cove</strong>. 
-            </p>
-            <p>
-              Using <strong>negative pressure technology</strong> and <strong>HEPA-filtered vacuums</strong>, 
-              we remove dust, allergens, and contaminants from your HVAC system, serving the entire <strong>Bell County</strong> region.
-            </p>
+        </section>
+
+        {/* Section 4: Energy Efficiency */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Save on Energy Bills in {displayCity}</h2>
+          <p style={styles.paragraph}>
+            A clogged HVAC system has to work significantly harder to maintain the temperature in your {displayCity} home. 
+            By removing just a fraction of an inch of dust from your blower fan and coils, we can help improve your system's efficiency by up to 25%. 
+            This doesn't just lower your monthly bills; it extends the lifespan of your expensive AC unit.
+          </p>
+        </section>
+
+        {/* Section 5: Local Links */}
+        <section style={styles.internalLinks}>
+          <h3 style={styles.h3}>Serving All Areas Near {displayCity}</h3>
+          <div style={styles.linkGrid}>
+            <Link style={styles.footerLink} to="/location/killeen-tx">Killeen</Link>
+            <Link style={styles.footerLink} to="/location/harker-heights-tx">Harker Heights</Link>
+            <Link style={styles.footerLink} to="/location/temple-tx">Temple</Link>
+            <Link style={styles.footerLink} to="/location/belton-tx">Belton</Link>
+            <Link style={styles.footerLink} to="/location/waco-tx">Waco</Link>
+            <Link style={styles.footerLink} to="/location/georgetown-tx">Georgetown</Link>
           </div>
-          <div className="image">
-            <img src="profile1.jpeg" alt="Professional Residential Air Duct Cleaning in Killeen TX" />
-          </div>
-        </div>
-      </section>
-
-      {/* SANITATION & SERVICE AREAS */}
-      <section className="sanitation-info-section">
-        <div className="info-container">
-          <div className="info-card">
-            <div className="card-header">
-              <h2>HVAC Sanitation Services in Central Texas</h2>
-            </div>
-            <div className="card-body">
-              <p>
-                A well-functioning HVAC system is the backbone of a comfortable home. With 
-                <strong> Killeen Air Duct Cleaning’s </strong> comprehensive HVAC sanitation, 
-                we improve efficiency and extend system lifespan.
-              </p>
-              <p className="highlight-text">
-                Serving <strong>Fort Cavazos (Fort Hood)</strong> and surrounding communities.
-              </p>
-            </div>
-          </div>
-
-          <div className="info-card">
-            <div className="card-header">
-              <h2>Killeen's #1 Residential Experts</h2>
-            </div>
-            <div className="card-body">
-              <ul className="service-list">
-                <li>Killeen & Fort Cavazos</li>
-                <li>Harker Heights & Nolanville</li>
-                <li>Copperas Cove & Kempner</li>
-                <li>Temple & Belton, TX</li>
-                <li>Salado & Morgan's Point</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-<ImageComparison/>
-<Benefits/>
-      <style>{`
-        /* GLOBAL & RESET */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        .residential-page { font-family: 'Segoe UI', sans-serif; background: #ffffff; color: #333; }
-
-        /* HERO SECTION */
-        .hero { 
-          background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("033.jpeg") center/cover;
-          min-height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;
-        }
-        .overlay h1 { font-size: clamp(24px, 5vw, 42px); color: white; padding: 0 20px; font-weight: 800; }
-        .call-btn { 
-          margin-top: 25px; background: #c62828; color: white; padding: 15px 30px; 
-          text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s;
-        }
-        .call-btn:hover { background: #a51d1d; transform: scale(1.05); }
-
-        /* CONTENT SECTION */
-        .container { max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; gap: 40px; padding: 60px 20px; align-items: center; }
-        .text { flex: 1; min-width: 300px; }
-        .text h2 { color: #0e1b4d; font-size: 32px; margin-bottom: 20px; }
-        .image { flex: 1; min-width: 300px; }
-        .image img { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        /* SERVICES GRID (3 CARDS) */
-        .services-grid-section { background: #f9f9f9; padding: 80px 20px; }
-        .container-grid { max-width: 1200px; margin: auto; }
-        .section-main-title { text-align: center; color: #0e1b4d; font-size: 36px; margin-bottom: 50px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        
-        .service-card { 
-          background: white; padding: 30px; border-radius: 15px; text-align: center;
-          box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid #c62828;
-          transition: 0.3s ease;
-        }
-        .service-card.active { border-top: 5px solid #0e1b4d; }
-        .card-icon { font-size: 40px; margin-bottom: 15px; }
-        .service-card h3 { color: #0e1b4d; margin-bottom: 15px; font-size: 24px; }
-        .expanded-content { margin-top: 20px; text-align: left; background: #fdfdfd; padding: 15px; border-radius: 8px; font-size: 15px; border-left: 3px solid #c62828;}
-        .expanded-content ul { margin-left: 20px; margin-top: 10px; }
-        
-        .read-more { 
-          margin-top: 20px; background: none; border: 2px solid #0e1b4d; color: #0e1b4d; 
-          padding: 8px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s;
-        }
-        .read-more:hover { background: #0e1b4d; color: white; }
-
-        /* INFO SECTION */
-        .info-container { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 20px; }
-        .info-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-        .card-header { background: #0e1b4d; color: white; padding: 20px; text-align: center; }
-        .card-body { padding: 30px; line-height: 1.7; }
-        .service-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-weight: bold; color: #0e1b4d;}
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-          .service-list { grid-template-columns: 1fr; }
-        }
-      `}</style>
+        </section>
+      </div>
     </div>
   );
 };
 
-export default AirDuctCleaning;
+const styles = {
+  container: { backgroundColor: '#f9f9f9', color: '#333', fontFamily: '"Segoe UI", Roboto, sans-serif' },
+  hero: { 
+    position: 'relative', height: '70vh', display: 'flex', alignItems: 'center', 
+    justifyContent: 'center', overflow: 'hidden', textAlign: 'center', color: 'white' 
+  },
+  videoBg: { 
+    position: 'absolute', top: '50%', left: '50%', minWidth: '100%', minHeight: '100%', 
+    width: 'auto', height: 'auto', zIndex: '1', transform: 'translateX(-50%) translateY(-50%)', objectFit: 'cover' 
+  },
+  heroOverlay: { 
+    zIndex: '2', padding: '20px', background: 'rgba(0,0,0,0.5)', width: '100%', height: '100%', 
+    display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' 
+  },
+  h1: { fontSize: 'clamp(1.8rem, 5vw, 3.5rem)', fontWeight: '800', margin: '0 0 20px', textTransform: 'uppercase' },
+  subtext: { fontSize: 'clamp(1rem, 2vw, 1.4rem)', maxWidth: '800px', marginBottom: '30px' },
+  btnGroup: { display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' },
+  ctaButton: { background: '#007bff', color: 'white', padding: '15px 30px', textDecoration: 'none', borderRadius: '50px', fontWeight: 'bold', fontSize: '1.1rem' },
+  secondaryBtn: { background: 'white', color: '#007bff', padding: '15px 30px', textDecoration: 'none', borderRadius: '50px', fontWeight: 'bold' },
+  
+  contentWrapper: { maxWidth: '1100px', margin: '0 auto', padding: '40px 20px' },
+  section: { marginBottom: '60px' },
+  h2: { fontSize: '2rem', color: '#1a1a1a', marginBottom: '20px', borderLeft: '5px solid #007bff', paddingLeft: '15px' },
+  paragraph: { fontSize: '1.1rem', lineHeight: '1.8', color: '#555' },
+  image: { width: '100%', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', marginTop: '20px' },
+  
+  list: { paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '2' },
+  infoBox: { background: '#fff', padding: '40px', borderRadius: '20px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)', marginBottom: '60px' },
+  
+  stepGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '30px' },
+  stepCard: { padding: '20px', background: '#f0f7ff', borderRadius: '10px', textAlign: 'center' },
+  
+  internalLinks: { background: '#1a1a1a', color: 'white', padding: '40px', borderRadius: '20px' },
+  h3: { textAlign: 'center', marginBottom: '30px' },
+  linkGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '15px', textAlign: 'center' },
+  footerLink: { color: '#88bcff', textDecoration: 'none', fontSize: '1rem' }
+};
+
+export default CityServicePage;
