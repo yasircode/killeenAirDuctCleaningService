@@ -1,190 +1,156 @@
-import React, { useState } from "react";
-import DuctLandingPage from "../DuctLandingPage";
-import Any from "./Any";
-import Banner from "./Banner";
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 const UVLightInstallation = () => {
-  const [openFaq, setOpenFaq] = useState(null);
+  const { cityName } = useParams();
 
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
+  // Formatting location for display
+  const displayCity = cityName
+    ? cityName.split('-').map(word => word.toUpperCase()).join(' ').replace(' TX', ', TX')
+    : "Killeen, TX";
+
+  useEffect(() => {
+    document.title = `UV Light Air Purification in ${displayCity} | HVAC Sterilization`;
+    window.scrollTo(0, 0);
+  }, [displayCity]);
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `HVAC UV Light Installation in ${displayCity}`,
+    "serviceType": "Air Purification Service",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "JY Air Quality Pro",
+      "address": { "@type": "PostalAddress", "addressLocality": displayCity, "addressRegion": "TX" },
+      "telephone": "(254) 998-3484"
+    }
   };
 
-  const faqs = [
-    {
-      question: "What is a UV Light System for HVAC?",
-      answer: "A UV light system is an advanced air purification technology installed inside your HVAC unit. It uses ultraviolet germicidal irradiation (UV-C) to neutralize bacteria, viruses, and mold spores as they pass through your air ducts in homes across Killeen and Temple."
-    },
-    {
-      question: "How does UV-C help my Killeen home's air quality?",
-      answer: "The light emits UV-C rays that penetrate the DNA of microorganisms, effectively destroying them. This ensures the air circulated in your Killeen or Belton home is significantly cleaner and free from biological growth on coils."
-    },
-    {
-      question: "Will a UV system reduce my allergy symptoms?",
-      answer: "Yes! Residents in Harker Heights and Copperas Cove often see a reduction in seasonal allergy symptoms because the UV system kills airborne mold and pollen that traditional filters might miss."
-    },
-    {
-      question: "How often do the bulbs need replacement?",
-      answer: "While the system is long-lasting, UV-C bulbs typically need replacement every 12 to 24 months to maintain peak germicidal effectiveness for your Central Texas home."
-    }
-  ];
-
   return (
-    <div className="residential-page">
+    
+    <div style={styles.container}>
       <br></br>
-         <br></br>
-            <br></br>
-      {/* HERO SECTION - Localized */}
-      <section className="hero">
-        <div className="overlay">
-          <h1>HVAC UV Light Purification in Killeen, Temple & Belton</h1>
-          <p className="breadcrumb">Home » Residential Services » UV Air Purification</p>
-          <a href="tel:2549983484" className="call-btn">FREE PURIFICATION QUOTE: (254) 998-3484</a>
-        </div>
-      </section>
+      <br></br>
+      <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
 
-      {/* INTRO CONTENT SECTION */}
-      <section className="content-section">
-        <div className="container">
-          <div className="text">
-            <h2>Sanitize Your Air with UV-C Technology</h2>
-            
-            <p>
-              In the humid seasons of <strong>Central Texas</strong>, mold and bacteria can easily thrive inside your HVAC system. At <strong>Killeen Air Duct Cleaning</strong>, we provide hospital-grade UV light system installation in <strong>Killeen, Harker Heights, and Copperas Cove</strong> to eliminate contaminants at the source.
-            </p>
-            
-            <p>
-              Our modern UV-C systems are designed to stop biological growth on your AC coils and neutralize airborne viruses before they reach your living room. Whether you are in <strong>Temple or Belton</strong>, our installation helps you breathe pure, sterilized air year-round.
-            </p>
-          </div>
-          <div className="image">
-            <img src="profile3.jpeg" alt="UV Light Installation Experts Killeen TX" className="styled-img" />
+      {/* Hero Section: Futuristic & Clean Focus */}
+      <section style={styles.hero}>
+        <div style={styles.heroOverlay}>
+          <h1 style={styles.h1}>Advanced UV Air Purification in {displayCity}</h1>
+          <p style={styles.subtext}>Eliminate 99.9% of Airborne Pathogens. Medical-Grade UV-C Technology for Your {displayCity} HVAC System.</p>
+          <div style={styles.btnGroup}>
+            <a href="tel:2549983484" style={styles.ctaButton}>Free Air Quality Audit</a>
+            <Link to="/contact" style={styles.secondaryBtn}>Explore UV Models</Link>
           </div>
         </div>
       </section>
 
-      {/* DUAL BOX SECTION - Location Targeted */}
-      <div className="info-grid-container">
-        <div className="info-row">
-          <div className="info-box">
-            <div className="box-header">UV-C Disinfection: Killeen & Temple</div>
-            <div className="box-body">
-              <p>Protect your family in <strong>Bell County</strong> with our expert UV-C technology. This system targets the "invisible" threats that standard filters can't catch.</p>
-              <ul className="list-items">
-                <li>Elimination of Musty AC Odors</li>
-                <li>Reduction in Airborne Flu & Cold Viruses</li>
-                <li>Prevents Mold Slime on AC Coils</li>
-                <li>Custom Fit for All HVAC Brands</li>
-              </ul>
-            </div>
-          </div>
-          <div className="info-box">
-            <div className="box-header">Professional Setup in Belton & Cove</div>
-            <div className="box-body">
-              <p>Our technicians in <strong>Belton and Copperas Cove</strong> ensure your UV system is placed at the optimal angle for maximum sterilization. We don't just install; we calibrate the system for your specific ductwork layout.</p>
-              <p><strong>Breathe sterilized air today</strong> with a setup designed for the Texas climate.</p>
-              <a href="tel:2549983484" className="box-call-btn">SCHEDULE AN APPOINTMENT</a>
-            </div>
-          </div>
-        </div>
+      <div style={styles.contentWrapper}>
+        
+        {/* Section 1: The Power of UV-C */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Pure Air Through Light Science in {displayCity}</h2>
+          <p style={styles.paragraph}>
+            Standard filters trap dust, but they can't stop microscopic bacteria and viruses. In <strong>{displayCity}</strong>, the high humidity inside AC units creates a perfect breeding ground for mold on evaporator coils. Our <strong>UV-C Light Purification</strong> systems use specific germicidal wavelengths to scramble the DNA of organic contaminants, rendering them harmless. By installing UV lights directly into your HVAC system, you turn your existing ductwork into a 24/7 air sterilization chamber.
+          </p>
+          
+          <img src="/uv-light-install.jpg" alt={`UV-C Light Installation in ${displayCity}`} style={styles.image} />
+        </section>
 
-        <div className="info-row">
-          <div className="info-box">
-            <div className="box-header">Coil Protection Services</div>
-            <div className="box-body">
-              <p>Mold buildup on coils reduces efficiency. By installing UV lights in your <strong>Temple, TX</strong> home, we keep your coils "factory clean," which can lower your energy bills and extend the life of your entire HVAC unit.</p>
+        {/* Section 2: Benefits of UV Sterilization */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Why Install UV Lights in Your {displayCity} Home?</h2>
+          <p style={styles.paragraph}>
+            UV purification is an essential upgrade for families concerned about respiratory health and system efficiency:
+          </p>
+          <ul style={styles.list}>
+            <li><strong>Pathogen Neutralization:</strong> Effectively kills airborne viruses, bacteria, and flu germs as they pass through the vents.</li>
+            <li><strong>Stops "Dirty Sock" Syndrome:</strong> Eliminates the mold and mildew on coils that cause damp, musty odors in {displayCity} homes.</li>
+            <li><strong>Enhanced Airflow:</strong> By keeping coils clean of bio-growth, your HVAC system breathes easier and lasts longer.</li>
+            <li><strong>Allergy Relief:</strong> Reduces the concentration of mold spores and organic allergens circulating in your rooms.</li>
+            <li><strong>Chemical-Free:</strong> A natural, light-based solution that doesn't release ozone or harmful byproducts.</li>
+          </ul>
+        </section>
+
+        {/* Section 3: Professional Implementation */}
+        <section style={styles.infoBox}>
+          <h2 style={styles.h2}>Our Dual-Shield UV Installation Process</h2>
+          <div style={styles.stepGrid}>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>1. Placement Analysis</h3>
+                <p>We determine if your system needs Coil-Shine (direct surface) or Air-Stream (in-duct) UV treatment.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>2. Precision Mounting</h3>
+                <p>Expertly installing high-output UV lamps to ensure maximum exposure to the air handler's internal surfaces.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>3. Safety Interlock</h3>
+                <p>Wiring the system with safety switches to prevent accidental UV exposure during routine {displayCity} maintenance.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>4. Verification</h3>
+                <p>Testing the ballast and lamp intensity to confirm your air is being sterilized at peak performance.</p>
             </div>
           </div>
-          <div className="info-box">
-            <div className="box-header">Indoor Air Sterilization</div>
-            <div className="box-body">
-              <p>For homes in <strong>Harker Heights</strong>, integrating a UV air purifier is the best defense against seasonal allergens. You will notice a significant improvement in air freshness and a reduction in dust-borne bacteria.</p>
-            </div>
+        </section>
+
+        {/* Section 4: Efficiency & Maintenance */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Maintain a Healthy Thermal Envelope in {displayCity}</h2>
+          <p style={styles.paragraph}>
+            A cleaner HVAC unit is a more efficient one. When mold builds up on your cooling coils, it acts as an insulator, forcing your system to work harder to cool your <strong>{displayCity}</strong> home. UV lights keep those coils pristine, maintaining optimal heat exchange and lowering your energy consumption. It’s a one-time installation that pays dividends in both health and utility savings.
+          </p>
+        </section>
+
+        {/* Section 5: Area Links */}
+        <section style={styles.internalLinks}>
+          <h3 style={styles.h3}>UV Air Quality Services Near {displayCity}</h3>
+          <div style={styles.linkGrid}>
+            <Link style={styles.footerLink} to="/uv-light/killeen-tx">Killeen UV Install</Link>
+            <Link style={styles.footerLink} to="/uv-light/temple-tx">Temple Air Quality</Link>
+            <Link style={styles.footerLink} to="/uv-light/belton-tx">Belton UV Service</Link>
+            <Link style={styles.footerLink} to="/uv-light/harker-heights-tx">Harker Heights</Link>
+            <Link style={styles.footerLink} to="/uv-light/georgetown-tx">Georgetown</Link>
+            <Link style={styles.footerLink} to="/uv-light/waco-tx">Waco Purification</Link>
           </div>
-        </div>
+        </section>
       </div>
-
-      <Banner/>
-      <Any/>
-
-      {/* FAQ SECTION */}
-      <section className="faq-section">
-        <div className="faq-container">
-          <h2 className="faq-title">Air Purification: FAQs for Central Texas</h2>
-          {faqs.map((faq, index) => (
-            <div key={index} className="faq-item">
-              <div className="faq-question" onClick={() => toggleFaq(index)}>
-                <span>{faq.question}</span>
-                <span className="faq-icon">{openFaq === index ? "−" : "+"}</span>
-              </div>
-              {openFaq === index && (
-                <div className="faq-answer">
-                  <p>{faq.answer}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <style>{`
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        .residential-page { font-family: 'Segoe UI', Roboto, sans-serif; overflow-x: hidden; color: #333; line-height: 1.6; }
-
-        /* HERO */
-        .hero {
-          background-image: url("o7.jpeg");
-          background-size: cover; background-position: center;
-          min-height: 500px; display: flex; align-items: center; justify-content: center;
-        }
-        .overlay { background: rgba(0, 0, 0, 0.75); width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; color: white; }
-        .overlay h1 { font-size: clamp(26px, 5vw, 42px); font-weight: 800; max-width: 950px; line-height: 1.2; text-transform: uppercase; }
-        .call-btn { margin-top: 30px; background-color: #c62828; color: white; padding: 18px 45px; text-decoration: none; font-size: 19px; font-weight: bold; border-radius: 5px; transition: 0.3s; box-shadow: 0 4px 15px rgba(198, 40, 40, 0.4); }
-        .call-btn:hover { background-color: #a51d1d; transform: translateY(-2px); }
-
-        /* CONTENT */
-        .content-section { padding: 80px 20px; background: #fff; }
-        .container { max-width: 1200px; margin: auto; display: flex; align-items: center; gap: 60px; }
-        .text { flex: 1.2; font-size: 18px; color: #444; }
-        .text h2 { color: #0e1b4d; margin-bottom: 20px; font-size: 34px; font-weight: 700; }
-        .image { flex: 1; }
-        .styled-img { width: 100%; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-
-        /* GRID BOXES */
-        .info-grid-container { max-width: 1200px; margin: 20px auto 80px; padding: 0 20px; }
-        .info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
-        .info-box { border: 1px solid #eef0f2; border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; }
-        .info-box:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-        .box-header { background: #0e1b4d; color: white; padding: 22px; font-weight: bold; font-size: 22px; text-align: center; }
-        .box-body { padding: 30px; line-height: 1.7; font-size: 17px; }
-        .list-items { list-style: none; margin-top: 15px; }
-        .list-items li { margin-bottom: 12px; position: relative; padding-left: 30px; }
-        .list-items li::before { content: "✓"; color: #c62828; font-weight: bold; position: absolute; left: 0; font-size: 20px; }
-        .box-call-btn { display: inline-block; margin-top: 25px; background: #c62828; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .box-call-btn:hover { background: #0e1b4d; }
-
-        /* FAQ */
-        .faq-section { background: #f4f7f9; padding: 80px 20px; }
-        .faq-container { max-width: 1000px; margin: auto; }
-        .faq-title { text-align: center; margin-bottom: 45px; color: #0e1b4d; font-size: 36px; font-weight: 800; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e0e6ed; }
-        .faq-question { padding: 22px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; color: #c62828; font-size: 20px; }
-        .faq-answer { padding: 0 22px 22px; color: #555; border-top: 1px solid #f9f9f9; padding-top: 15px; font-size: 17px; }
-
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 992px) {
-          .container { flex-direction: column-reverse; text-align: center; gap: 40px; }
-          .info-row { grid-template-columns: 1fr; }
-          .text h2 { font-size: 28px; }
-          .hero { min-height: 400px; }
-          .box-header { font-size: 20px; }
-          .overlay h1 { font-size:
-           28px; }
-        }
-      `}</style>
-      <DuctLandingPage/>
     </div>
   );
+};
+
+const styles = {
+  container: { backgroundColor: '#faffff', color: '#1a3a3a', fontFamily: '"Lexend", sans-serif' },
+  hero: { 
+    height: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', 
+    background: 'radial-gradient(circle, #2c3e50 0%, #000000 100%)', textAlign: 'center', color: 'white' 
+  },
+  heroOverlay: { padding: '30px', maxWidth: '1000px' },
+  h1: { fontSize: 'clamp(1.8rem, 5vw, 3.5rem)', fontWeight: '800', textShadow: '0 0 15px #3498db' },
+  subtext: { fontSize: '1.25rem', marginTop: '20px', color: '#bdc3c7', letterSpacing: '0.5px' },
+  btnGroup: { display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '35px' },
+  ctaButton: { background: '#3498db', color: 'white', padding: '16px 34px', textDecoration: 'none', borderRadius: '4px', fontWeight: 'bold', boxShadow: '0 0 20px rgba(52, 152, 219, 0.4)' },
+  secondaryBtn: { background: 'transparent', border: '1px solid #3498db', color: '#3498db', padding: '16px 34px', textDecoration: 'none', borderRadius: '4px', fontWeight: 'bold' },
+  
+  contentWrapper: { maxWidth: '1150px', margin: '0 auto', padding: '70px 25px' },
+  section: { marginBottom: '80px' },
+  h2: { fontSize: '2.2rem', color: '#2c3e50', marginBottom: '25px', borderLeft: '6px solid #3498db', paddingLeft: '20px' },
+  paragraph: { fontSize: '1.15rem', lineHeight: '1.9', color: '#34495e' },
+  image: { width: '100%', borderRadius: '8px', marginTop: '30px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' },
+  
+  list: { paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '2.4' },
+  infoBox: { background: '#ebf5fb', padding: '50px', borderRadius: '15px', marginBottom: '80px' },
+  
+  stepGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '25px', marginTop: '40px' },
+  stepCard: { padding: '25px', background: 'white', borderRadius: '10px', textAlign: 'center', borderBottom: '4px solid #3498db' },
+  stepTitle: { color: '#2980b9', marginBottom: '12px', fontSize: '1.3rem', fontWeight: 'bold' },
+  
+  internalLinks: { background: '#1c2833', color: 'white', padding: '60px', borderRadius: '15px' },
+  h3: { textAlign: 'center', marginBottom: '40px', fontSize: '1.8rem' },
+  linkGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '20px', textAlign: 'center' },
+  footerLink: { color: '#5dade2', textDecoration: 'none', fontSize: '1.1rem' }
 };
 
 export default UVLightInstallation;

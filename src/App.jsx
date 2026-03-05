@@ -37,11 +37,11 @@ import AirDuctCleaning from './components/AirDuctCleaning';
 import Commercialcleaning from './components/Commerciacleaning';
 import DryerVentCleaning from './components/DryerVentCleaning';
 import Ductservice from './components/Ductservice';
-import HVACInstallation from './components/HVACInstallation';
+import HVACInstallation from './components/ChimneySweepPage';
 import ChimneyCleaning from './components/ChimneyCleaning';  
 
 import AtticInsulation from './components/AtticInsulation';
-import ACcleaning from './components/ACcleaning';
+import ACcleaning from './components/ChimneyServicePage';
 import UVLightInstallation from './components/UVLightInstallation';
 
 // ... baaqi services ke imports yahan karein
@@ -71,6 +71,8 @@ import Jarrell from './components/Jarrell';
 
 
 import './App.css';
+import ChimneySweepPage from './components/ChimneySweepPage';
+import ChimneyServicePage from './components/ChimneyServicePage';
 
 const Home = () => (
   <>
@@ -122,11 +124,17 @@ function App() {
         <Route path="/commerciacleaning" element={<Commercialcleaning />} />
         <Route path="/dryerventcleaning" element={<DryerVentCleaning />} />
         <Route path="/ductservice" element={<Ductservice />} />
-        <Route path="/chimneycleaning" element={<ChimneyCleaning />} />
-        <Route path="/HVACInstallation" element={<HVACInstallation />} />
-    
+
+
+
+
+        <Route path="/Chimneycleaning" element={<ChimneyCleaning />} />
+        <Route path="/ChimneySweepPage" element={<ChimneySweepPage />} />
+         <Route path="/ChimneyServicePage" element={<ChimneyServicePage />} />
+
+
+       
         <Route path="/atticinsulation" element={<AtticInsulation />} />
-        <Route path="/accleaning" element={<ACcleaning />} />
         <Route path="/uvlightinstallation" element={<UVLightInstallation />} />
 
 

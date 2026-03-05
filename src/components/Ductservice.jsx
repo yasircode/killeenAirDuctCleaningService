@@ -1,270 +1,153 @@
-import React from "react";
-import DuctLandingPage from "../DuctLandingPage";
-import Any from "./Any";
-import Banner from "./Banner";
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+
 
 const Ductservice = () => {
+  const { cityName } = useParams();
+
+  // Formatting location for display
+  const displayCity = cityName
+    ? cityName.split('-').map(word => word.toUpperCase()).join(' ').replace(' TX', ', TX')
+    : "Killeen, TX";
+
+  useEffect(() => {
+    document.title = `Full HVAC System Cleaning in ${displayCity} | Coil & Unit Sanitization`;
+    window.scrollTo(0, 0);
+  }, [displayCity]);
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `Comprehensive HVAC System Cleaning in ${displayCity}`,
+    "serviceType": "HVAC Maintenance",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "JY HVAC Specialists",
+      "address": { "@type": "PostalAddress", "addressLocality": displayCity, "addressRegion": "TX" },
+      "telephone": "(254) 998-3484"
+    }
+  };
+
   return (
-    <div className="residential-page">
-      
-      {/* HERO SECTION - SEO Optimized for Central Texas */}
-      <section className="hero">
-        <div className="overlay">
-          <h1>
-            Expert Air Duct Repair & Replacement in Killeen & Temple, TX
-          </h1>
-
-          <p className="breadcrumb">
-            Home » Ductwork Solutions » Repair & Replacement
-          </p>
-
-          <a href="tel:2459983484" className="call-btn">
-            FREE INSPECTION: (245) 998-3484
-          </a>
-        </div>
-      </section>
-
-      {/* CONTENT SECTION */}
-      <section className="content-section">
-        <div className="container">
-          <div className="text">
-            <h2>Serving Killeen, Harker Heights, & Copperas Cove</h2>
-            <p>
-              Your air duct system is the lungs of your property. When ductwork becomes leaky or outdated, it significantly impacts indoor air quality and energy costs. At <strong>Killeen Air Duct Cleaning</strong>, we provide professional air duct repair and full system replacement services across <strong>Killeen, Nolanville, and Harker Heights</strong>.
-            </p>
-
-            <p>
-              Whether you are dealing with sagging ducts in <strong>Copperas Cove</strong> or poor insulation in <strong>Temple, TX</strong>, our experienced technicians identify airflow restrictions and loose connections. We restore or replace damaged sections to ensure your HVAC system operates at peak efficiency.
-            </p>
-          </div>
-
-          <div className="image">
-            <img src="profile3.jpeg" alt="Duct Repair Specialists in Killeen and Temple" />
+    <div style={styles.container}>
+      <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+<br></br>
+        <br></br>
+      {/* Modern Unit-Focused Hero Section */}
+      <section style={styles.hero}>
+        <div style={styles.heroOverlay}>
+          <h1 style={styles.h1}>Professional HVAC System Cleaning in {displayCity}</h1>
+          <p style={styles.subtext}>Maximize your unit's lifespan with deep coil cleaning and blower motor sanitization. 100% efficiency restored.</p>
+          <div style={styles.btnGroup}>
+            <a href="tel:2549983484" style={styles.ctaButton}>Get a Free Unit Quote</a>
+            <Link to="/contact" style={styles.secondaryBtn}>View Special Offers</Link>
           </div>
         </div>
       </section>
 
-      {/* REPAIR & REPLACEMENT GRID SECTION */}
-      <section className="repair-grid-section">
-        <div className="grid-wrapper">
-          
-          {/* Box 1: Regional Expertise */}
-          <div className="grid-card">
-            <div className="card-heading">
-              Premier Duct Renewal in Bell County & Fort Cavazos
-            </div>
-            <div className="card-body card-content">
-              <p>
-                Homeowners in <strong>Killeen and Fort Cavazos</strong> (formerly Fort Hood) trust us for high-quality ductwork renewals. <strong>Central Texas</strong> weather can be harsh on flexible ducting; we specialize in replacing worn-out materials with durable, high-performance alternatives.
-              </p>
-              <p>
-                Our certified team provides <strong>reliable duct sealing</strong> in <strong>Belton and Salado</strong>, eliminating leaks that cause your energy bills to skyrocket. We focus on structural integrity to ensure every room in your home stays perfectly climate-controlled.
-              </p>
-              <div className="cta-text">
-                Trust <span className="red-brand">Killeen Air Duct Cleaning</span> for professional evaluations in <strong>Temple and Belton</strong> today.
-              </div>
-            </div>
-          </div>
-
-          {/* Box 2: Tailored Solutions */}
-          <div className="grid-card">
-            <div className="card-heading">
-              Complete Ventilation Solutions for Local Cities
-            </div>
-            <div className="card-body card-content">
-              <p>
-                From minor patch-ups to full-scale air delivery system replacements, we offer tailored solutions for residential and commercial properties in <strong>Harker Heights, Nolanville, and Copperas Cove</strong>.
-              </p>
-              <p>
-                We use <strong>mastic-sealed connections and R-8 high-efficiency insulation</strong> to ensure your air reaches its destination without loss. Our service ensures a healthier environment for your family or staff.
-              </p>
-              <h3 style={{fontSize: '18px', fontWeight: 'bold', marginTop: '20px'}}>Our Specialized Services Include:</h3>
-              <ul className="service-bullets">
-                <li>Commercial & Residential Duct Repair</li>
-                <li>Full System Replacement in Temple & Belton</li>
-                <li>Precision HVAC Duct Sealing & Seaming</li>
-                <li>R-8 Insulated Ducting Upgrades</li>
-                <li className="red-brand">Service Areas: Killeen, Harker Heights, Cove</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <Banner/>
-      <Any/>
-      <DuctLandingPage/>
-
-      <style>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        .residential-page {
-          font-family: 'Segoe UI', Arial, sans-serif;
-          overflow-x: hidden;
-        }
-
-        /* HERO SECTION */
-        .hero {
-          background-image: url("999.webp");
-          background-size: cover;
-          background-position: center;
-          min-height: 550px;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .overlay {
-          background: rgba(0, 0, 0, 0.7);
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding: 40px 20px;
-          color: white;
-        }
-
-        .overlay h1 {
-          font-size: 42px;
-          font-weight: 800;
-          max-width: 950px;
-          line-height: 1.2;
-          text-transform: uppercase;
-        }
-
-        .breadcrumb {
-          margin-top: 18px;
-          font-size: 16px;
-          letter-spacing: 0.5px;
-        }
-
-        .call-btn {
-          margin-top: 30px;
-          background-color: #c62828;
-          color: white;
-          padding: 18px 45px;
-          text-decoration: none;
-          font-size: 19px;
-          font-weight: bold;
-          border-radius: 4px;
-          transition: 0.3s;
-          display: inline-block;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .call-btn:hover { background-color: #a51d1d; transform: translateY(-2px); }
-
-        /* CONTENT SECTION */
-        .content-section {
-          padding: 80px 20px;
-          background: #f8f9fa;
-        }
-
-        .container {
-          max-width: 1200px;
-          margin: auto;
-          display: flex;
-          align-items: center;
-          gap: 60px;
-        }
-
-        .text { flex: 1.2; font-size: 18px; line-height: 1.8; color: #333; }
-        .text h2 { color: #0e1b4d; font-size: 30px; margin-bottom: 20px; font-weight: 700; }
-        .text p { margin-bottom: 20px; }
-        .image { flex: 1; }
-        .image img { width: 100%; border-radius: 12px; box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
-
-        /* REPAIR GRID SECTION */
-        .repair-grid-section {
-          padding: 80px 20px;
-          background: #fff;
-        }
-
-        .grid-wrapper {
-          max-width: 1200px;
-          margin: auto;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 40px;
-        }
-
-        .grid-card {
-          border: 1px solid #ececec;
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-          transition: 0.3s;
-        }
+      <div style={styles.contentWrapper}>
         
-        .grid-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        {/* Section 1: Beyond Just Ducts */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Is Your HVAC Unit Struggling in {displayCity}?</h2>
+          <p style={styles.paragraph}>
+            Cleaning your ducts is only half the battle. If your evaporator coils and blower motor are covered in grime, your system will still circulate allergens and struggle to cool your home. In <strong>{displayCity}</strong>, high pollen counts and dust can clog your HVAC's internal components, leading to premature mechanical failure. Our specialized HVAC system cleaning goes deep inside your furnace and AC unit to ensure every component runs like new.
+          </p>
+          <img src="/hvac-unit-cleaning.jpg" alt={`HVAC Coil Cleaning in ${displayCity}`} style={styles.image} />
+        </section>
 
-        .card-heading {
-          background-color: #0e1b4d;
-          color: white;
-          padding: 22px;
-          text-align: center;
-          font-size: 21px;
-          font-weight: 700;
-        }
+        {/* Section 2: Component-Specific Cleaning */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>What’s Included in Our Full System Clean?</h2>
+          <p style={styles.paragraph}>
+            Unlike standard duct cleaning, our HVAC system overhaul focuses on the "heart" of your home's comfort:
+          </p>
+          <ul style={styles.list}>
+            <li><strong>Evaporator Coil Cleaning:</strong> We remove the sticky biofilm that prevents heat transfer.</li>
+            <li><strong>Blower Motor Sanitization:</strong> Removing dust from the fan blades to ensure maximum airflow.</li>
+            <li><strong>Drain Pan & Line Treatment:</strong> Preventing algae growth and water damage inside your {displayCity} attic.</li>
+            <li><strong>Heat Exchanger Inspection:</strong> Checking for cracks while removing soot and debris.</li>
+          </ul>
+        </section>
 
-        .card-content {
-          padding: 35px;
-          font-size: 17px;
-          line-height: 1.7;
-          color: #444;
-        }
+        {/* Section 3: Process Box */}
+        <section style={styles.infoBox}>
+          <h2 style={styles.h2}>Our HVAC Restoration Protocol</h2>
+          <div style={styles.stepGrid}>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>Step 1: System Diagnostic</h3>
+                <p>We check airflow and temperature drops before starting the cleaning process.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>Step 2: Component Access</h3>
+                <p>Carefully opening the air handler to reach the coils and blower housing.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>Step 3: Precision Cleaning</h3>
+                <p>Using specialized self-rinsing foams and high-pressure air to dislodge buildup.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>Step 4: Anti-Microbial Seal</h3>
+                <p>Applying an EPA-registered coating to prevent future mold growth on damp surfaces.</p>
+            </div>
+          </div>
+        </section>
 
-        .card-content p { margin-bottom: 18px; }
+        {/* Section 4: Efficiency Savings */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Restore 99% Efficiency to Your {displayCity} Unit</h2>
+          <p style={styles.paragraph}>
+            A dirty HVAC system can consume up to 37% more electricity. In <strong>{displayCity}</strong>, where AC units run almost year-round, that’s a lot of wasted money. By restoring the heat-exchange surfaces of your unit, we help your AC reach the desired temperature faster, reducing runtime and significantly lowering your utility bills.
+          </p>
+        </section>
 
-        .service-bullets {
-          list-style: none;
-          margin-top: 20px;
-        }
-
-        .service-bullets li {
-          position: relative;
-          padding-left: 30px;
-          margin-bottom: 12px;
-          font-weight: 600;
-        }
-
-        .service-bullets li::before {
-          content: "✓";
-          position: absolute;
-          left: 0;
-          color: #c62828;
-          font-weight: bold;
-          font-size: 20px;
-        }
-
-        .cta-text { font-weight: bold; margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px; }
-        .red-brand { color: #c62828; }
-
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 992px) {
-          .overlay h1 { font-size: 32px; }
-          .container { flex-direction: column; text-align: center; }
-          .grid-wrapper { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 576px) {
-          .hero { min-height: 450px; }
-          .overlay h1 { font-size: 24px; }
-          .card-heading { font-size: 19px; }
-          .call-btn { width: 100%; font-size: 17px; }
-        }
-      `}</style>
+        {/* Section 5: Dynamic Area Links */}
+        <section style={styles.internalLinks}>
+          <h3 style={styles.h3}>HVAC Maintenance Areas Near {displayCity}</h3>
+          <div style={styles.linkGrid}>
+            <Link style={styles.footerLink} to="/hvac-clean/killeen-tx">Killeen Unit Service</Link>
+            <Link style={styles.footerLink} to="/hvac-clean/temple-tx">Temple Unit Service</Link>
+            <Link style={styles.footerLink} to="/hvac-clean/belton-tx">Belton Unit Service</Link>
+            <Link style={styles.footerLink} to="/hvac-clean/harker-heights-tx">Harker Heights</Link>
+            <Link style={styles.footerLink} to="/hvac-clean/georgetown-tx">Georgetown</Link>
+            <Link style={styles.footerLink} to="/hvac-clean/waco-tx">Waco Unit Service</Link>
+          </div>
+        </section>
+      </div>
     </div>
   );
+};
+
+const styles = {
+  container: { backgroundColor: '#f0f4f8', color: '#2c3e50', fontFamily: '"Montserrat", sans-serif' },
+  hero: { 
+    height: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', 
+    background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)', textAlign: 'center', color: 'white' 
+  },
+  heroOverlay: { padding: '30px', maxWidth: '1000px' },
+  h1: { fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: '700', marginBottom: '20px' },
+  subtext: { fontSize: '1.3rem', marginBottom: '40px', fontWeight: '300' },
+  btnGroup: { display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' },
+  ctaButton: { background: '#27ae60', color: 'white', padding: '16px 32px', textDecoration: 'none', borderRadius: '8px', fontWeight: 'bold' },
+  secondaryBtn: { background: 'white', color: '#1e3c72', padding: '16px 32px', textDecoration: 'none', borderRadius: '8px', fontWeight: 'bold' },
+  
+  contentWrapper: { maxWidth: '1140px', margin: '0 auto', padding: '50px 20px' },
+  section: { marginBottom: '70px' },
+  h2: { fontSize: '2.2rem', color: '#1e3c72', marginBottom: '20px', position: 'relative' },
+  paragraph: { fontSize: '1.1rem', lineHeight: '1.8', color: '#444' },
+  image: { width: '100%', borderRadius: '20px', marginTop: '30px', filter: 'brightness(0.9)' },
+  
+  list: { paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '2.2' },
+  infoBox: { background: '#fff', padding: '45px', borderRadius: '15px', boxShadow: '0 20px 40px rgba(0,0,0,0.05)', marginBottom: '70px' },
+  
+  stepGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '25px', marginTop: '35px' },
+  stepCard: { padding: '25px', background: '#eef2f7', borderRadius: '12px', borderLeft: '6px solid #27ae60' },
+  stepTitle: { color: '#1e3c72', marginBottom: '10px', fontSize: '1.25rem' },
+  
+  internalLinks: { background: '#1e3c72', color: 'white', padding: '50px', borderRadius: '15px' },
+  h3: { textAlign: 'center', marginBottom: '35px', fontSize: '1.8rem' },
+  linkGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '15px', textAlign: 'center' },
+  footerLink: { color: '#bdc3c7', textDecoration: 'none', fontSize: '1.1rem' }
 };
 
 export default Ductservice;

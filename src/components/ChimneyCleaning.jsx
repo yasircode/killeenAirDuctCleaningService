@@ -1,172 +1,153 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const ChimneyCleaning = () => {
-  // SEO Meta & Schema Setup
+  const { cityName } = useParams();
+
+  // Formatting location for display
+  const displayCity = cityName
+    ? cityName.split('-').map(word => word.toUpperCase()).join(' ').replace(' TX', ', TX')
+    : "Killeen, TX";
+
   useEffect(() => {
-    document.title = "Chimney Sweep & Cleaning in Killeen, TX | Killeen Air Duct Cleaning Company";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Professional chimney sweep and inspection services in Killeen, Temple, and Belton, TX. We remove creosote and prevent fire hazards. 1000+ happy customers.");
+    document.title = `Dryer Vent & Chimney Cleaning in ${displayCity} | Fire Prevention`;
+    window.scrollTo(0, 0);
+  }, [displayCity]);
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `Dryer Vent & Chimney Sweeping in ${displayCity}`,
+    "serviceType": "Fire Safety Cleaning",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "JY Safety Clean",
+      "address": { "@type": "PostalAddress", "addressLocality": displayCity, "addressRegion": "TX" },
+      "telephone": "(254) 998-3484"
     }
-
-    // Schema Markup for Local Business & Service
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Chimney Cleaning & Sweep Services",
-      "serviceType": "Chimney Maintenance",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Killeen Air Duct Cleaning Company",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Killeen",
-          "addressRegion": "TX",
-          "addressCountry": "US"
-        },
-        "telephone": "(254) 998-3484"
-      },
-      "areaServed": ["Killeen", "Temple", "Belton", "Harker Heights", "Copperas Cove"],
-      "description": "Expert chimney cleaning, creosote removal, and safety inspections for homeowners in Central Texas."
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.innerHTML = JSON.stringify(schemaData);
-    document.head.appendChild(script);
-
-    return () => document.head.removeChild(script);
-  }, []);
-
-  const cities = [
-    { name: "Temple", slug: "location/temple" },
-    { name: "Belton", slug: "location/belton" },
-    { name: "Harker Heights", slug: "location/harkerheights" },
-    { name: "Copperas Cove", slug: "location/copperascove" },
-    { name: "Georgetown", slug: "location/georgetown" },
-    { name: "Waco", slug: "location/waco" },
-    { name: "Jarrell", slug: "location/Jarrell" },
-    { name: "Nolanville", slug: "location/nolanville" },
-    { name: "Salado", slug: "location/salado" },
-    { name: "Liberty Hill", slug: "location/libertyhill" },
-    { name: "Lampasas", slug: "location/lampasas" },
-    { name: "Fort Cavazos", slug: "location/fortcavazos" }
-  ];
-
-  const styles = {
-    container: { fontFamily: "'Inter', sans-serif", color: '#2c3e50', maxWidth: '1200px', margin: '0 auto', padding: '20px', lineHeight: '1.8' },
-    hero: { textAlign: 'center', padding: '60px 0', borderBottom: '5px solid #c62828', marginBottom: '40px', backgroundColor: '#fdfdfd' },
-    h1: { fontSize: 'clamp(2rem, 6vw, 3.5rem)', color: '#0e1b4d', margin: '10px 0', fontWeight: 900, textTransform: 'uppercase' },
-    section: { marginBottom: '50px', padding: '20px' },
-    flexGroup: { display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'flex-start', marginBottom: '60px' },
-    textContent: { flex: '1 1 550px' },
-    imageContent: { flex: '1 1 400px', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.1)' },
-    img: { width: '100%', height: 'auto', display: 'block' },
-    subHeading: { fontSize: '2.2rem', color: '#0e1b4d', marginBottom: '20px', fontWeight: 700 },
-    highlight: { color: '#c62828', fontWeight: 'bold' },
-    citiesGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '15px', marginTop: '30px' },
-    cityLink: { textDecoration: 'none', backgroundColor: '#fff', border: '1px solid #ddd', padding: '12px', borderRadius: '8px', textAlign: 'center', color: '#333', fontWeight: '600', transition: '0.3s' }
   };
 
   return (
     <div style={styles.container}>
-      {/* 1️⃣ TITLE & H1 (SEO RULE) */}
-      <header style={styles.hero}>
-        <div style={{ color: '#c62828', fontWeight: 700, letterSpacing: '2px' }}>TOP-RATED IN CENTRAL TEXAS</div>
-        <h1 style={styles.h1}>Chimney Sweep & Cleaning in Killeen, TX</h1>
-        <p style={{ fontSize: '1.2rem', maxWidth: '850px', margin: '20px auto' }}>
-          Certified Fireplace Safety, Creosote Removal, and Full Inspections by **Killeen Air Duct Cleaning Company**.
-        </p>
-      </header>
+      <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
 
-      {/* 2️⃣ EXPANDED CONTENT (800+ WORDS TARGET) */}
-      <section style={styles.flexGroup}>
-        <div style={styles.textContent}>
-          <h2 style={styles.subHeading}>The Best Chimney Cleaning in Killeen & Temple</h2>
-          <p>
-            When the temperature drops in Central Texas, there is nothing like the warmth of a fireplace. However, residents in <span style={styles.highlight}>Killeen, TX</span> often forget that a chimney requires professional maintenance to stay safe. At <strong>Killeen Air Duct Cleaning Company</strong>, we specialize in deep-cleaning fireplaces to ensure your home remains hazard-free.
-          </p>
-          <p>
-            Our <Link to="/chimneycleaning">chimney sweep services</Link> are designed to tackle the toughest soot and creosote buildup. Creosote is a highly flammable substance that accumulates inside your chimney flue. If left uncleaned, it can ignite, causing a devastating chimney fire that can spread to the rest of your home in seconds.
-          </p>
-          <h3 style={{color: '#c62828'}}>Why Trust Killeen Air Duct Cleaning Company?</h3>
-          <p>
-            We don't just "brush" your chimney. We perform a multi-point safety inspection. We look for cracks in the flue liner, damaged masonry, and obstructions like bird nests or debris that are common in the <span style={styles.highlight}>Belton and Temple</span> areas. Our technicians use industrial-grade HEPA vacuums to ensure that not a single speck of dust enters your living room during the process.
-          </p>
-        </div>
-        <div style={styles.imageContent}>
-          <img src="038.jpeg" alt="Professional Chimney Sweep Service in Killeen TX" style={styles.img} />
+      {/* Hero Section - Focused on Safety */}
+      <section style={styles.hero}>
+        <div style={styles.heroOverlay}>
+          <h1 style={styles.h1}>Dryer Vent & Chimney Cleaning in {displayCity}</h1>
+          <p style={styles.subtext}>Protecting Your {displayCity} Home from Fire Hazards. Expert Lint & Creosote Removal Services.</p>
+          <div style={styles.btnGroup}>
+            <a href="tel:2549983484" style={styles.ctaButton}>Book Safety Inspection</a>
+            <Link to="/contact" style={styles.secondaryBtn}>Get Instant Quote</Link>
+          </div>
         </div>
       </section>
 
-      {/* 3️⃣ SERVICE DETAILS (EXPANDING WORD COUNT) */}
-      <section style={{ ...styles.section, backgroundColor: '#f9f9f9', borderRadius: '20px' }}>
-        <h2 style={styles.subHeading}>Comprehensive Fireplace Inspections in Harker Heights</h2>
-        <p>
-          Every chimney cleaning starts with a visual inspection. In <span style={styles.highlight}>Harker Heights and Copperas Cove</span>, we see a variety of fireplace types—from traditional wood-burning to modern gas inserts. Each requires a specific touch. 
-        </p>
+      <div style={styles.contentWrapper}>
         
-        <p>
-          Our <Link to="/location/harkerheights">Harker Heights experts</Link> check for:
-        </p>
-        <ul>
-          <li><strong>Creosote Levels:</strong> Identifying Level 1, 2, or 3 creosote glazed deposits.</li>
-          <li><strong>Flue Integrity:</strong> Ensuring smoke and carbon monoxide exit your home safely.</li>
-          <li><strong>Damper Operation:</strong> Making sure you aren't losing heat (and money) through a broken seal.</li>
-          <li><strong>Animal Obstructions:</strong> Removing squirrels, birds, or nests from your chimney stack.</li>
-        </ul>
-      </section>
-
-      {/* 4️⃣ LONG-FORM CONTENT ON BENEFITS */}
-      <section style={styles.flexGroup}>
-        <div style={styles.imageContent}>
-          <img src="039.jpeg" alt="Chimney Technician inspecting fireplace in Belton TX" style={styles.img} />
-        </div>
-        <div style={styles.textContent}>
-          <h2 style={styles.subHeading}>Saving Money with Regular Sweeps</h2>
-          <p>
-            Did you know that a clean chimney actually saves you money? When your chimney is free of debris, the air drafts more efficiently. This means your wood burns slower and hotter, providing more heat for your <span style={styles.highlight}>Salado or Georgetown</span> home without wasting fuel. 
+        {/* Section 1: The Danger of Neglect */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Prevent House Fires in {displayCity}</h2>
+          <p style={styles.paragraph}>
+            Did you know that dirty dryer vents and soot-filled chimneys are leading causes of household fires in <strong>{displayCity}</strong>? Over time, dryer vents become choked with highly flammable lint, while chimneys accumulate creosote—a tar-like substance that can ignite easily. Our specialized cleaning service doesn't just improve efficiency; it provides peace of mind for you and your family.
           </p>
-          <p>
-            Furthermore, routine cleaning prevents the need for expensive masonry repairs. Small cracks found during our inspection in <strong>Fort Cavazos</strong> can be fixed for a fraction of the cost of a full chimney rebuild. We take pride in being the most thorough chimney cleaning company in the Bell County area.
-          </p>
-          <p>
-            Residents of <strong>Waco and Jarrell</strong> have relied on us for years to prepare their homes for the winter. Our commitment to excellence and fire safety is what makes us the #1 choice for "chimney cleaning near me."
-          </p>
-        </div>
-      </section>
+          <img src="/vent-safety.jpg" alt={`Dryer Vent and Chimney Sweep in ${displayCity}`} style={styles.image} />
+        </section>
 
-      {/* 5️⃣ INTERNAL LINKS & CITIES GRID */}
-      <section style={styles.section}>
-        <h2 style={{ textAlign: 'center', color: '#0e1b4d' }}>Serving Killeen & Surrounding Texas Cities</h2>
-        <p style={{ textAlign: 'center' }}>We provide specialized chimney and air duct services to the following locations:</p>
-        <div style={styles.citiesGrid}>
-          <Link to="/location/killeen" style={{ ...styles.cityLink, backgroundColor: '#c62828', color: '#fff', borderColor: '#c62828' }}>
-            📍 Killeen, TX (Home)
-          </Link>
-          {cities.map((city, index) => (
-            <Link 
-              key={index} 
-              to={`/${city.slug}`} 
-              style={styles.cityLink}
-              onMouseOver={(e) => { e.currentTarget.style.backgroundColor = '#fff5f5'; e.currentTarget.style.borderColor = '#c62828'; }}
-              onMouseOut={(e) => { e.currentTarget.style.backgroundColor = '#fff'; e.currentTarget.style.borderColor = '#ddd'; }}
-            >
-              📍 {city.name}, TX
-            </Link>
-          ))}
-        </div>
-      </section>
+        {/* Section 2: Signs of Clogging */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Warning Signs You Need Cleaning</h2>
+          <p style={styles.paragraph}>
+            If you notice any of these red flags in your {displayCity} residence, call us immediately:
+          </p>
+          <ul style={styles.list}>
+            <li><strong>Long Drying Cycles:</strong> Clothes taking more than one cycle to dry completely.</li>
+            <li><strong>Burning Smell:</strong> A clear sign that lint or dust is overheating inside the system.</li>
+            <li><strong>Excessive Heat:</strong> The dryer or laundry room feels unusually hot during operation.</li>
+            <li><strong>Chimney Odors:</strong> A "camp-fire" smell coming from your fireplace even when not in use.</li>
+            <li><strong>Visible Debris:</strong> Lint appearing around the outside vent opening.</li>
+          </ul>
+        </section>
 
-      {/* 6️⃣ FINAL CALL TO ACTION */}
-      <footer style={{ textAlign: 'center', padding: '50px', background: '#0e1b4d', color: '#fff', borderRadius: '15px' }}>
-        <h2 style={{ color: '#fff' }}>Schedule Your Chimney Sweep Today</h2>
-        <p>Don't wait for a fire hazard to happen. Protect your family in Killeen, Temple, or Belton.</p>
-        <a href="tel:2549983484" style={{ fontSize: '2rem', color: '#ffd700', textDecoration: 'none', fontWeight: 800 }}>(254) 998-3484</a>
-      </footer>
+        {/* Section 3: Specialized Process */}
+        <section style={styles.infoBox}>
+          <h2 style={styles.h2}>Our High-Power Cleaning Methodology</h2>
+          <div style={styles.stepGrid}>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>Video Inspection</h3>
+                <p>We use flexible cameras to locate blockages and structural cracks deep inside vents and flues.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>Rotary Brushing</h3>
+                <p>Industrial-grade spinning brushes dislodge stubborn lint and hardened creosote buildup.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>HEPA Extraction</h3>
+                <p>High-suction vacuums capture all debris, ensuring no dust enters your {displayCity} home.</p>
+            </div>
+            <div style={styles.stepCard}>
+                <h3 style={styles.stepTitle}>Flow Testing</h3>
+                <p>We measure the backpressure and airflow to verify the system is 100% clear and safe.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: Efficiency & Performance */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Save Time and Money on Utilities</h2>
+          <p style={styles.paragraph}>
+            A clogged dryer vent forces your appliance to run longer, which can double your energy consumption per load and wear out the dryer's heating element. Similarly, a clean chimney improves draft, making your fireplace more efficient. Residents of <strong>{displayCity}</strong> can save hundreds of dollars in repair costs and energy bills by simply scheduling an annual professional cleaning.
+          </p>
+        </section>
+
+        {/* Section 5: Dynamic Geo-Links */}
+        <section style={styles.internalLinks}>
+          <h3 style={styles.h3}>Local Safety Services Around {displayCity}</h3>
+          <div style={styles.linkGrid}>
+            <Link style={styles.footerLink} to="/dryer-vent/killeen-tx">Killeen Safety Clean</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/temple-tx">Temple Vent Cleaning</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/belton-tx">Belton Chimney Sweep</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/harker-heights-tx">Harker Heights</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/copperas-cove-tx">Copperas Cove</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/waco-tx">Waco Vent Service</Link>
+          </div>
+        </section>
+      </div>
     </div>
   );
+};
+
+const styles = {
+  container: { backgroundColor: '#fffaf5', color: '#3e2723', fontFamily: '"Segoe UI", sans-serif' },
+  hero: { 
+    height: '65vh', display: 'flex', alignItems: 'center', justifyContent: 'center', 
+    background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/chimney-hero.jpg")', 
+    backgroundSize: 'cover', backgroundPosition: 'center', textAlign: 'center', color: 'white' 
+  },
+  heroOverlay: { padding: '20px', maxWidth: '900px' },
+  h1: { fontSize: 'clamp(1.8rem, 5vw, 3.2rem)', fontWeight: '800', marginBottom: '20px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' },
+  subtext: { fontSize: '1.2rem', marginBottom: '35px', fontWeight: '400' },
+  btnGroup: { display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' },
+  ctaButton: { background: '#d32f2f', color: 'white', padding: '16px 32px', textDecoration: 'none', borderRadius: '4px', fontWeight: 'bold', fontSize: '1.1rem' },
+  secondaryBtn: { background: 'white', color: '#d32f2f', padding: '16px 32px', textDecoration: 'none', borderRadius: '4px', fontWeight: 'bold' },
+  
+  contentWrapper: { maxWidth: '1100px', margin: '0 auto', padding: '60px 20px' },
+  section: { marginBottom: '70px' },
+  h2: { fontSize: '2.1rem', color: '#d32f2f', marginBottom: '20px', borderBottom: '2px solid #ffc107', display: 'inline-block', paddingBottom: '5px' },
+  paragraph: { fontSize: '1.15rem', lineHeight: '1.8', color: '#4e342e' },
+  image: { width: '100%', borderRadius: '12px', marginTop: '30px', boxShadow: '0 8px 16px rgba(0,0,0,0.1)' },
+  
+  list: { paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '2.2', marginTop: '15px' },
+  infoBox: { background: '#ffffff', padding: '45px', borderRadius: '15px', border: '1px solid #ffe0b2', marginBottom: '70px' },
+  
+  stepGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', marginTop: '30px' },
+  stepCard: { padding: '25px', background: '#fff3e0', borderRadius: '8px', textAlign: 'left' },
+  stepTitle: { color: '#e65100', marginBottom: '10px', fontSize: '1.3rem', fontWeight: 'bold' },
+  
+  internalLinks: { background: '#263238', color: 'white', padding: '50px', borderRadius: '15px' },
+  h3: { textAlign: 'center', marginBottom: '35px', fontSize: '1.8rem' },
+  linkGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '15px', textAlign: 'center' },
+  footerLink: { color: '#ffc107', textDecoration: 'none', fontSize: '1.1rem' }
 };
 
 export default ChimneyCleaning;

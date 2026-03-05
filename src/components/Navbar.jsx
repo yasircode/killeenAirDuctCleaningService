@@ -15,6 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className="nav-fixed-wrapper">
+      
       <div className="top-black-bar">
         <div className="top-bar-inner">
           <div className="info-item">📍 Serving Killeen, TX & Surrounding Areas</div>
@@ -49,8 +50,8 @@ const Navbar = () => {
                   <ul>
                     <li><Link to="/AirDuctCleaning" onClick={closeMenu}>Air Duct Cleaning</Link></li>
                     <li><Link to="/Commerciacleaning" onClick={closeMenu}>Air Duct Repair</Link></li>
-                    <li><Link to="/air-duct-replacement" onClick={closeMenu}>Air Duct Replacement</Link></li>
-                    <li><Link to="/hvac-cleaning" onClick={closeMenu}>HVAC System Cleaning</Link></li>
+                    <li><Link to="/DryerVentCleaning" onClick={closeMenu}>Air Duct Replacement</Link></li>
+                    <li><Link to="/Ductservice" onClick={closeMenu}>HVAC System Cleaning</Link></li>
                   </ul>
                 </li>
 
@@ -58,9 +59,9 @@ const Navbar = () => {
                 <li className="menu-category">
                   <span className="category-title">Chimney & Vents</span>
                   <ul>
-                    <li><Link to="/dryer-vent-cleaning" onClick={closeMenu}>Dryer Vent Cleaning</Link></li>
-                    <li><Link to="/chimney-sweep" onClick={closeMenu}>Chimney Sweep</Link></li>
-                    <li><Link to="/chimney-services" onClick={closeMenu}>Chimney Services</Link></li>
+                    <li><Link to="/ChimneyCleaning" onClick={closeMenu}>Dryer Vent Cleaning</Link></li>
+                    <li><Link to="/ChimneySweepPage" onClick={closeMenu}>Chimney Sweep</Link></li>
+                    <li><Link to="/ChimneyServicePage" onClick={closeMenu}>Chimney Services</Link></li>
                   </ul>
                 </li>
 
@@ -68,8 +69,8 @@ const Navbar = () => {
                 <li className="menu-category">
                   <span className="category-title">Home Comfort</span>
                   <ul>
-                    <li><Link to="/attic-insulation" onClick={closeMenu}>Attic Insulation</Link></li>
-                    <li><Link to="/uv-light-purification" onClick={closeMenu}>Indoor Air UV Light Purification</Link></li>
+                    <li><Link to="/AtticInsulation" onClick={closeMenu}>Attic Insulation</Link></li>
+                    <li><Link to="/UVLightInstallation" onClick={closeMenu}>Indoor Air UV Light Purification</Link></li>
                   </ul>
                 </li>
               </ul>
