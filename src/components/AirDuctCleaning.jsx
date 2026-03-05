@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
+
 const CityServicePage = () => {
   const { cityName } = useParams();
 
@@ -97,6 +98,7 @@ const CityServicePage = () => {
             This doesn't just lower your monthly bills; it extends the lifespan of your expensive AC unit.
           </p>
         </section>
+       
 
         {/* Section 5: Local Links */}
         <section style={styles.internalLinks}>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import MultiStepQuoteForm from './MultiStepQuoteForm';
 
 const DryerVentCleaning = () => {
   const { cityName } = useParams();
@@ -102,6 +103,7 @@ const DryerVentCleaning = () => {
             With the scorching Texas summers in <strong>{displayCity}</strong>, a faulty duct system is an expensive luxury. By replacing your outdated ductwork with high-efficiency alternatives, you reduce the workload on your AC compressor. This not only lowers your monthly electric bill but also extends the life of your entire HVAC system by several years.
           </p>
         </section>
+        <MultiStepQuoteForm/>
 
         {/* Section 5: Dynamic Geo-Links */}
         <section style={styles.internalLinks}>

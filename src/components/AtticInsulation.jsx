@@ -52,7 +52,7 @@ const AtticInsulation= () => {
             In the intense Texas summer, an under-insulated attic can reach temperatures of 150°F. Without a proper thermal barrier, that heat radiates directly into your living space. At JY Attic Solutions, we specialize in high-efficiency <strong>attic insulation in {displayCity}</strong>. Whether you need an "over-blow" of existing material or a complete removal and replacement of old, settled insulation, we ensure your home meets modern R-value standards.
           </p>
           
-          <img src="/profile3.jpeg" alt={`Blown-in insulation installation in ${displayCity}`} style={styles.image} />
+          <img src="/o8.jpeg" alt={`Blown-in insulation installation in ${displayCity}`} style={styles.image} />
         </section>
 
         {/* Section 2: Types of Insulation Offered */}

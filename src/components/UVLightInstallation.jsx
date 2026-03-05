@@ -55,7 +55,7 @@ const UVLightInstallation = () => {
             Standard filters trap dust, but they can't stop microscopic bacteria and viruses. In <strong>{displayCity}</strong>, the high humidity inside AC units creates a perfect breeding ground for mold on evaporator coils. Our <strong>UV-C Light Purification</strong> systems use specific germicidal wavelengths to scramble the DNA of organic contaminants, rendering them harmless. By installing UV lights directly into your HVAC system, you turn your existing ductwork into a 24/7 air sterilization chamber.
           </p>
           
-          <img src="/uv-light-install.jpg" alt={`UV-C Light Installation in ${displayCity}`} style={styles.image} />
+          <img src="/o7.jpeg" alt={`UV-C Light Installation in ${displayCity}`} style={styles.image} />
         </section>
 
         {/* Section 2: Benefits of UV Sterilization */}
