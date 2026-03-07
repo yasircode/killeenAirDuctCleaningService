@@ -29,6 +29,10 @@ const ChimneyCleaning = () => {
 
   return (
     <div style={styles.container}>
+      <br></br>
+        <br></br>
+<br></br>
+        <br></br>
       <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
 
       {/* Hero Section - Focused on Safety */}

@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-
+import './App.css';
 // Sare Imports
 import About from './components/About';
 import Contact from './components/Contact';
@@ -39,15 +39,20 @@ import DryerVentCleaning from './components/DryerVentCleaning';
 import Ductservice from './components/Ductservice';
 import HVACInstallation from './components/ChimneySweepPage';
 import ChimneyCleaning from './components/ChimneyCleaning';  
+import DryerVentInspection from './DryerVentInspection';
+import DryerVentRepair from './DryerVentRepair';
+import DryerVentInstallation from './components/DryerVentInstallation';
+import LintRemoval from './components/LintRemoval';
+import ChimneySweepPage from './components/ChimneySweepPage';
+import ChimneyServicePage from './components/ChimneyServicePage';
+import DryerVentBlockage from './DryerVentBlockage';
+import Dryerventflow from './components/Dryerventflow';
+
 
 import AtticInsulation from './components/AtticInsulation';
-import ACcleaning from './components/ChimneyServicePage';
 import UVLightInstallation from './components/UVLightInstallation';
 
-// ... baaqi services ke imports yahan karein
       
-
-
 // --- NEW IMPORT FOR LOCATION ---
 import Killeen from './components/Killeen';
 import HarkerHeights from './components/HarkerHeights';
@@ -70,9 +75,9 @@ import Jarrell from './components/Jarrell';
 
 
 
-import './App.css';
-import ChimneySweepPage from './components/ChimneySweepPage';
-import ChimneyServicePage from './components/ChimneyServicePage';
+
+
+
 
 const Home = () => (
   <>
@@ -124,7 +129,12 @@ function App() {
         <Route path="/commerciacleaning" element={<Commercialcleaning />} />
         <Route path="/dryerventcleaning" element={<DryerVentCleaning />} />
         <Route path="/ductservice" element={<Ductservice />} />
-
+        <Route path="/dryerventinspection" element={<DryerVentInspection />} />
+        <Route path="/dryerventrepair" element={<DryerVentRepair />} />
+        <Route path="/dryerventinstallation" element={<DryerVentInstallation />} />
+        <Route path="/LintRemoval" element={<LintRemoval/>} />
+        <Route path="/dryerventblockage" element={<DryerVentBlockage/>} />
+        <Route path="/dryerventflow" element={<Dryerventflow/>} />
 
 
 

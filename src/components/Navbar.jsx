@@ -60,12 +60,16 @@ const Navbar = () => {
                   <span className="category-title">Dryer Vent Cleaning</span>
                   <ul>  
                          <li><Link to="/ChimneyCleaning" onClick={closeMenu}>Dryer Air Vent Cleaning</Link></li>
-                     <li><Link to="/" onClick={closeMenu}>Dryer Vent Inspection </Link></li>
-                    <li><Link to="/" onClick={closeMenu}>Dryer Vent Repair</Link></li>
-                    <li><Link to="/" onClick={closeMenu}>Dryer Vent Installation</Link></li>
-                    <li><Link to="/" onClick={closeMenu}>Lint Removal Service </Link></li>
-                     <li><Link to="/" onClick={closeMenu}>Dryer Vent Blockage Removel </Link></li>
-                       <li><Link to="/" onClick={closeMenu}>Dryer Vent Airflow Testing</Link></li>
+
+
+                     <li><Link to="/dryerventinspection" onClick={closeMenu}>Dryer Vent Inspection </Link></li>
+                    <li><Link to="/dryerventrepair" onClick={closeMenu}>Dryer Vent Repair</Link></li>
+                    <li><Link to="/dryerventinstallation" onClick={closeMenu}>Dryer Vent Installation</Link></li>
+                    <li><Link to="/lintremoval" onClick={closeMenu}>Lint Removal Service </Link></li>
+                     <li><Link to="/dryerventblockage" onClick={closeMenu}>Dryer Vent Blockage Removel </Link></li>
+
+                       <li><Link to="/dryerventflow" onClick={closeMenu}>Dryer Vent Airflow Testing</Link></li>
+                       
                    
                   </ul>
                 </li>
