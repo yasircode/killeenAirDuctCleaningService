@@ -90,7 +90,7 @@ const CityServicePage = () => {
             <strong> Killeen Air Duct Cleaning</strong> is dedicated to providing cleaner, healthier indoor air for our local community. 
             Whether it's seasonal allergies or Texas dust, our deep-cleaning process ensures your HVAC system is operating at peak efficiency.
           </p>
-          <img src="/o5.jpeg" alt="Air Duct Cleaning Equipment in Action" style={styles.contentImage} />
+          <img src="/myman.jpeg" alt="Air Duct Cleaning Equipment in Action" style={styles.contentImage} />
         </section>
 
         {/* Section 2: Benefits List */}

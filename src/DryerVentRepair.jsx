@@ -59,7 +59,7 @@ const DryerVentRepair = () => {
           <p style={styles.paragraph}>
             Cleaning isn't always enough. In many <strong>{displayCity}</strong> homes, dryer vents suffer from physical damage, such as crushed foil pipes, disconnected joints behind walls, or rusted exterior hoods. A damaged vent leaks moist air and lint into your attic or crawlspace, leading to mold growth and severe fire risks. Our <strong>Dryer Vent Repair</strong> service fixes these structural issues using durable, code-compliant rigid metal ducting.
           </p>
-          <img src="/dryer-vent-repair-work.jpg" alt={`Dryer Vent Repair and Duct Sealing in ${displayCity}`} style={styles.image} />
+          {/* <img src="/dryer-vent-repair-work.jpg" alt={`Dryer Vent Repair and Duct Sealing in ${displayCity}`} style={styles.image} /> */}
         </section>
 
         {/* Section 2: When to Call for Repair */}

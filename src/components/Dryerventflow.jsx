@@ -59,7 +59,7 @@ const Dryerventflow = () => {
             Many homeowners in <strong>{displayCity}</strong> assume that if the dryer is running, the vent is fine. However, low airflow is a silent killer for dryer heating elements. Our <strong>Airflow Testing Service</strong> goes beyond a visual check. We measure the actual velocity (FPM) and volume (CFM) of the air exiting your vent. If the flow is below manufacturer specifications, your dryer works twice as hard, wasting energy and increasing the risk of a lint-fueled fire.
           </p>
           
-          <img src="/airflow-diagnostic-tool.jpg" alt={`Digital Airflow Velocity Test in ${displayCity}`} style={styles.image} />
+          {/* <img src="/airflow-diagnostic-tool.jpg" alt={`Digital Airflow Velocity Test in ${displayCity}`} style={styles.image} /> */}
         </section>
 
         {/* Section 2: Performance Metrics */}

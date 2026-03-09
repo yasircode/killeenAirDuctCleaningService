@@ -92,10 +92,10 @@ const ChimneyCleaning= () => {
         <section style={styles.section}>
           <h2 style={styles.h2}>Our Recent Work</h2>
           <div style={styles.imageGrid}>
-            <img src="/o11.jpeg" alt="Dryer Vent Cleaning 1" style={styles.galleryImage} />
+            <img src="/016.jpeg" alt="Dryer Vent Cleaning 1" style={styles.galleryImage} />
             <img src="/myman.jpeg" alt="Dryer Vent Cleaning 2" style={styles.galleryImage} />
-            <img src="/021.jpeg" alt="Dryer Vent Cleaning 3" style={styles.galleryImage} />
-            <img src="/016.jpeg" alt="Dryer Vent Cleaning 4" style={styles.galleryImage} />
+            <img src="/041.jpeg" alt="Dryer Vent Cleaning 3" style={styles.galleryImage} />
+            <img src="/023.jpeg" alt="Dryer Vent Cleaning 4" style={styles.galleryImage} />
           </div>
         </section>
 

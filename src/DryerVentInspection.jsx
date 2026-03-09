@@ -40,7 +40,7 @@ const DryerVentInspection = () => {
       <section style={styles.hero}>
         <video autoPlay loop muted playsInline style={styles.videoBg}>
           <source src="/dryer-inspection-bg.mp4" type="video/mp4" />
-          <img src="/dryer-vent-banner.jpg" alt="Dryer Vent Inspection" />
+          <img src="/o11.jpeg" alt="Dryer Vent Inspection" />
         </video>
         <div style={styles.heroOverlay}>
           <h1 style={styles.h1}>Expert Dryer Vent Inspection in {displayCity}</h1>
@@ -60,7 +60,9 @@ const DryerVentInspection = () => {
           <p style={styles.paragraph}>
             Most homeowners in <strong>{displayCity}</strong> overlook the most dangerous appliance in their home: the dryer vent. Over time, lint bypasses the filter and settles in the vent pipe, creating a highly flammable blockage. Our specialized inspection service uses high-definition cameras to scan your entire vent line, ensuring there are no hidden gaps or bird nests restricting airflow. A simple inspection today can save your home from a devastating fire tomorrow.
           </p>
-          <img src="/dryer-vent-camera-check.jpg" alt={`Professional Dryer Vent Camera Inspection in ${displayCity}`} style={styles.image} />
+          <img src="/o11.jpeg" alt={`Professional Dryer Vent Camera Inspection in ${displayCity}`} style={styles.image} />
+             <img src="/041.jpeg" alt={`Professional Dryer Vent Camera Inspection in ${displayCity}`} style={styles.image} />
+                <img src="/033.jpeg" alt={`Professional Dryer Vent Camera Inspection in ${displayCity}`} style={styles.image} />
         </section>
 
         {/* Section 2: Warning Signs */}

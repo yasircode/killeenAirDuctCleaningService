@@ -59,7 +59,7 @@ const DryerVentInstallation = () => {
           <p style={styles.paragraph}>
             A poorly installed dryer vent is one of the leading causes of residential fires. In <strong>{displayCity}</strong>, many DIY installations use flexible plastic or foil hoses that sag and trap lint. Our professional <strong>Dryer Vent Installation</strong> service ensures your system uses rigid heavy-gauge aluminum ducting. We follow all IRC (International Residential Code) guidelines, ensuring your vent is the correct length with the fewest possible bends for peak efficiency.
           </p>
-          <img src="/dryer-vent-installation-rigid.jpg" alt={`Professional Rigid Metal Dryer Vent Installation in ${displayCity}`} style={styles.image} />
+          {/* <img src="/dryer-vent-installation-rigid.jpg" alt={`Professional Rigid Metal Dryer Vent Installation in ${displayCity}`} style={styles.image} /> */}
         </section>
 
         {/* Section 2: Installation Scenarios */}

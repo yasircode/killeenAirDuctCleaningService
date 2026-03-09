@@ -58,7 +58,9 @@ const DryerVentBlockage = () => {
           <p style={styles.paragraph}>
             In <strong>{displayCity}</strong>, a blocked dryer vent is more than an inconvenience—it's a critical safety hazard. Sometimes, a simple cleaning isn't enough because the blockage is solid. Whether it's a <strong>bird's nest</strong> built during the spring, a <strong>rodent infestation</strong>, or <strong>"wet lint"</strong> that has turned into a cement-like plug, our team has the heavy-duty extraction tools to clear your lines completely without damaging your ductwork.
           </p>
-          <img src="/dryer-vent-blockage-nest.jpg" alt={`Removing Bird Nest Blockage from Dryer Vent in ${displayCity}`} style={styles.image} />
+          <img src="/040.jpeg" alt={`Removing Bird Nest Blockage from Dryer Vent in ${displayCity}`} style={styles.image} />
+          <img src="/o10.jpeg" alt={`Removing Bird Nest Blockage from Dryer Vent in ${displayCity}`} style={styles.image} />
+          <img src="/041.jpeg" alt={`Removing Bird Nest Blockage from Dryer Vent in ${displayCity}`} style={styles.image} />
         </section>
 
         {/* Section 2: Severe Symptoms */}

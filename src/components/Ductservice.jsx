@@ -53,6 +53,7 @@ const Ductservice = () => {
           </p>
           {/* Aap yahan apni pehli picture add kar sakte hain */}
           <img src="o6.jpeg" alt={`HVAC System Cleaning in ${displayCity}`} style={styles.image} />
+           <img src="yasir1.jpeg" alt={`HVAC System Cleaning in ${displayCity}`} style={styles.image} />
         </section>
 
         {/* Section 2: Component-Specific Cleaning */}
@@ -100,7 +101,9 @@ const Ductservice = () => {
             A dirty HVAC system can consume up to 37% more electricity. In <strong>{displayCity}</strong>, where AC units run almost year-round, that’s a lot of wasted money. By restoring the heat-exchange surfaces of your unit, we help your AC reach the desired temperature faster, reducing runtime and significantly lowering your utility bills. Regular maintenance also prevents the most common cause of compressor failure: overheating due to restricted airflow.
           </p>
           {/* Aap yahan apni dosri picture add kar sakte hain */}
-          <img src="profile3.jpeg" alt={`HVAC Efficiency Service ${displayCity}`} style={styles.image} />
+          <img src="/o5.jpeg" alt={`HVAC Efficiency Service ${displayCity}`} style={styles.image} />
+            <img src="/yasir5.jpeg" alt={`HVAC Efficiency Service ${displayCity}`} style={styles.image} />
+          
         </section>
       
 

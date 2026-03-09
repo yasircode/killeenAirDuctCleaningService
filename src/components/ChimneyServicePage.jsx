@@ -82,6 +82,7 @@ const ChimneyServicePage = () => {
             A chimney needs more than just a sweep; it needs structural integrity. In <strong>{displayCity}</strong>, heavy rain and temperature shifts can cause brickwork to crack and mortar to deteriorate. At <strong>Killeen Air Duct Cleaning</strong>, our Chimney Service covers everything from minor tuckpointing to full chimney rebuilds. We find the root cause of leaks and drafts to protect your property investment.
           </p>
           <img src="/039.jpeg" alt={`Chimney masonry repair in ${displayCity}`} style={styles.image} />
+              <img src="036.jpeg" alt={`Chimney masonry repair in ${displayCity}`} style={styles.image} />
         </section>
 
         {/* Section 2: Specialized Repairs */}
