@@ -108,20 +108,11 @@ const ServiceAreas = () => {
     <div style={styles.container}>
     
 
-      {/* BENEFITS SECTION */}
-      <div style={styles.benefitsBox}>
-        <h3 style={{ marginTop: 0, color: '#155724' }}>Why Choose Our HVAC Cleaning?</h3>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li>✔ **Efficiency:** Lower your monthly energy bills by up to 20%.</li>
-          <li>✔ **Health:** Eliminate allergens and musty odors from your air supply.</li>
-          <li>✔ **Reliability:** Prevent expensive mechanical breakdowns and coil freezing.</li>
-        </ul>
-      </div>
 
-      <hr style={{ border: '0', height: '1px', background: '#eee', margin: '60px 0' }} />
+    
 
       {/* SERVICE LOCATIONS GRID */}
-      <h2 style={{textAlign: 'center', color: '#004a99'}}>Our Service Areas for HVAC Cleaning</h2>
+      <h2 style={{textAlign: 'center', color: '#004a99'}}>Killeen Air Duct Cleaning Service Areas</h2>
       <div style={styles.citiesGrid}>
         {/* Killeen Primary */}
         <Link to="/location/killeen" style={{...styles.cityLink, backgroundColor: '#004a99', color: '#fff'}}>
