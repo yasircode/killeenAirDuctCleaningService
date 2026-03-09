@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-const ChimneyCleaning = () => {
+const ChimneyCleaning= () => {
   const { cityName } = useParams();
+  const [openFaq, setOpenFaq] = useState(null);
 
   // Formatting location for display
   const displayCity = cityName
@@ -10,110 +11,143 @@ const ChimneyCleaning = () => {
     : "Killeen, TX";
 
   useEffect(() => {
-    document.title = `Dryer Vent & Chimney Cleaning in ${displayCity} | Fire Prevention`;
+    document.title = `Professional Dryer Vent Cleaning in ${displayCity} | Killeen Air Duct Cleaning`;
     window.scrollTo(0, 0);
   }, [displayCity]);
 
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": `Dryer Vent & Chimney Sweeping in ${displayCity}`,
-    "serviceType": "Fire Safety Cleaning",
+    "name": `Professional Dryer Vent Cleaning in ${displayCity}`,
+    "serviceType": "Dryer Vent Maintenance",
     "provider": {
       "@type": "LocalBusiness",
-      "name": "JY Safety Clean",
+      "name": "Killeen Air Duct Cleaning",
       "address": { "@type": "PostalAddress", "addressLocality": displayCity, "addressRegion": "TX" },
       "telephone": "(254) 998-3484"
     }
   };
 
+  const faqs = [
+    {
+      q: "How often should I have my dryer vent cleaned?",
+      a: "For most homes in Killeen, we recommend a professional cleaning at least once a year. However, if you have a large family or do laundry daily, you might need it every 6 months."
+    },
+    {
+      q: "Can a clogged dryer vent really cause a fire?",
+      a: "Yes, absolutely. Lint is highly flammable. When it builds up, it restricts airflow, causing the dryer to overheat and potentially ignite the lint inside the vent line."
+    },
+    {
+      q: "How long does the cleaning process take?",
+      a: "Typically, a standard residential dryer vent cleaning takes between 45 minutes to 1.5 hours, depending on the length of the vent and the amount of debris."
+    },
+    {
+      q: "Will cleaning my vent lower my electric bill?",
+      a: "Yes. When your vent is clear, your dryer runs more efficiently and dries clothes faster, which significantly reduces energy consumption."
+    }
+  ];
+
   return (
     <div style={styles.container}>
-      <br></br>
-        <br></br>
-<br></br>
-        <br></br>
       <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
 
-      {/* Hero Section - Focused on Safety */}
+      {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.heroOverlay}>
-          <h1 style={styles.h1}>Dryer Vent & Chimney Cleaning in {displayCity}</h1>
-          <p style={styles.subtext}>Protecting Your {displayCity} Home from Fire Hazards. Expert Lint & Creosote Removal Services.</p>
+          <h1 style={styles.h1}>Expert Dryer Air Vent Cleaning in {displayCity}</h1>
+          <p style={styles.subtext}>Killeen Air Duct Cleaning: Reducing Fire Risks & Improving Efficiency for Your Home.</p>
           <div style={styles.btnGroup}>
-            <a href="tel:2549983484" style={styles.ctaButton}>Book Safety Inspection</a>
-            <Link to="/contact" style={styles.secondaryBtn}>Get Instant Quote</Link>
+            <a href="tel:2549983484" style={styles.ctaButton}>Call (254) 998-3484</a>
+            <Link to="/contact" style={styles.secondaryBtn}>Get a Free Quote</Link>
           </div>
         </div>
       </section>
 
       <div style={styles.contentWrapper}>
         
-        {/* Section 1: The Danger of Neglect */}
+        {/* Section 1: Importance of Cleaning */}
         <section style={styles.section}>
-          <h2 style={styles.h2}>Prevent House Fires in {displayCity}</h2>
+          <h2 style={styles.h2}>Why Dryer Vent Cleaning Matters</h2>
           <p style={styles.paragraph}>
-            Did you know that dirty dryer vents and soot-filled chimneys are leading causes of household fires in <strong>{displayCity}</strong>? Over time, dryer vents become choked with highly flammable lint, while chimneys accumulate creosote—a tar-like substance that can ignite easily. Our specialized cleaning service doesn't just improve efficiency; it provides peace of mind for you and your family.
+            At <strong>Killeen Air Duct Cleaning</strong>, we specialize in removing the hidden dangers lurking in your laundry room. A clogged dryer vent isn't just an inconvenience—it's a major fire hazard. Every year, thousands of structure fires are caused by lint buildup. Our professional service ensures that your vent is clear, your home is safe, and your dryer is performing at its peak.
           </p>
-          <img src="/vent-safety.jpg" alt={`Dryer Vent and Chimney Sweep in ${displayCity}`} style={styles.image} />
         </section>
 
-        {/* Section 2: Signs of Clogging */}
+        {/* Section 2: Warning Signs */}
         <section style={styles.section}>
-          <h2 style={styles.h2}>Warning Signs You Need Cleaning</h2>
+          <h2 style={styles.h2}>Signs Your Vent is Clogged</h2>
           <p style={styles.paragraph}>
-            If you notice any of these red flags in your {displayCity} residence, call us immediately:
+            Keep an eye out for these indicators that it’s time to call the experts at Killeen Air Duct Cleaning:
           </p>
           <ul style={styles.list}>
-            <li><strong>Long Drying Cycles:</strong> Clothes taking more than one cycle to dry completely.</li>
-            <li><strong>Burning Smell:</strong> A clear sign that lint or dust is overheating inside the system.</li>
-            <li><strong>Excessive Heat:</strong> The dryer or laundry room feels unusually hot during operation.</li>
-            <li><strong>Chimney Odors:</strong> A "camp-fire" smell coming from your fireplace even when not in use.</li>
-            <li><strong>Visible Debris:</strong> Lint appearing around the outside vent opening.</li>
+            <li><strong>Long Dry Times:</strong> Clothes take more than one cycle to dry.</li>
+            <li><strong>Hot Dryer:</strong> The top of your dryer feels hot to the touch during a cycle.</li>
+            <li><strong>Musty Odor:</strong> A damp or burning smell when the dryer is running.</li>
+            <li><strong>No Airflow:</strong> Little to no air coming out of the exterior vent flap.</li>
+            <li><strong>Excessive Lint:</strong> Finding lint behind or around the dryer unit.</li>
           </ul>
         </section>
 
-        {/* Section 3: Specialized Process */}
+        {/* New Image Gallery Section */}
+        <section style={styles.section}>
+          <h2 style={styles.h2}>Our Recent Work</h2>
+          <div style={styles.imageGrid}>
+            <img src="/o11.jpeg" alt="Dryer Vent Cleaning 1" style={styles.galleryImage} />
+            <img src="/myman.jpeg" alt="Dryer Vent Cleaning 2" style={styles.galleryImage} />
+            <img src="/021.jpeg" alt="Dryer Vent Cleaning 3" style={styles.galleryImage} />
+            <img src="/016.jpeg" alt="Dryer Vent Cleaning 4" style={styles.galleryImage} />
+          </div>
+        </section>
+
+        {/* Section 3: Our Process */}
         <section style={styles.infoBox}>
-          <h2 style={styles.h2}>Our High-Power Cleaning Methodology</h2>
+          <h2 style={styles.h2}>Our Professional Cleaning Process</h2>
           <div style={styles.stepGrid}>
             <div style={styles.stepCard}>
-                <h3 style={styles.stepTitle}>Video Inspection</h3>
-                <p>We use flexible cameras to locate blockages and structural cracks deep inside vents and flues.</p>
+                <h3 style={styles.stepTitle}>1. Inspection</h3>
+                <p>We check the airflow levels and use cameras to see the extent of the lint buildup.</p>
             </div>
             <div style={styles.stepCard}>
-                <h3 style={styles.stepTitle}>Rotary Brushing</h3>
-                <p>Industrial-grade spinning brushes dislodge stubborn lint and hardened creosote buildup.</p>
+                <h3 style={styles.stepTitle}>2. Agitation</h3>
+                <p>Using specialized rotating brushes, we break loose the trapped lint from the vent walls.</p>
             </div>
             <div style={styles.stepCard}>
-                <h3 style={styles.stepTitle}>HEPA Extraction</h3>
-                <p>High-suction vacuums capture all debris, ensuring no dust enters your {displayCity} home.</p>
+                <h3 style={styles.stepTitle}>3. Vacuuming</h3>
+                <p>High-powered HEPA vacuums extract all debris, leaving no mess in your home.</p>
             </div>
             <div style={styles.stepCard}>
-                <h3 style={styles.stepTitle}>Flow Testing</h3>
-                <p>We measure the backpressure and airflow to verify the system is 100% clear and safe.</p>
+                <h3 style={styles.stepTitle}>4. Final Test</h3>
+                <p>We verify the airflow once more to ensure your system is 100% clear and efficient.</p>
             </div>
           </div>
         </section>
 
-        {/* Section 4: Efficiency & Performance */}
+        {/* FAQ Section */}
         <section style={styles.section}>
-          <h2 style={styles.h2}>Save Time and Money on Utilities</h2>
-          <p style={styles.paragraph}>
-            A clogged dryer vent forces your appliance to run longer, which can double your energy consumption per load and wear out the dryer's heating element. Similarly, a clean chimney improves draft, making your fireplace more efficient. Residents of <strong>{displayCity}</strong> can save hundreds of dollars in repair costs and energy bills by simply scheduling an annual professional cleaning.
-          </p>
+          <h2 style={styles.h2}>Frequently Asked Questions</h2>
+          <div style={styles.faqContainer}>
+            {faqs.map((faq, index) => (
+              <div key={index} style={styles.faqItem} onClick={() => setOpenFaq(openFaq === index ? null : index)}>
+                <div style={styles.faqQuestion}>
+                  <strong>{faq.q}</strong>
+                  <span>{openFaq === index ? '-' : '+'}</span>
+                </div>
+                {openFaq === index && <p style={styles.faqAnswer}>{faq.a}</p>}
+              </div>
+            ))}
+          </div>
         </section>
 
-        {/* Section 5: Dynamic Geo-Links */}
+        {/* Internal Links */}
         <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Local Safety Services Around {displayCity}</h3>
+          <h3 style={styles.h3}>Serving Our Local Communities</h3>
           <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/dryer-vent/killeen-tx">Killeen Safety Clean</Link>
-            <Link style={styles.footerLink} to="/dryer-vent/temple-tx">Temple Vent Cleaning</Link>
-            <Link style={styles.footerLink} to="/dryer-vent/belton-tx">Belton Chimney Sweep</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/killeen-tx">Killeen</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/temple-tx">Temple</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/belton-tx">Belton</Link>
             <Link style={styles.footerLink} to="/dryer-vent/harker-heights-tx">Harker Heights</Link>
             <Link style={styles.footerLink} to="/dryer-vent/copperas-cove-tx">Copperas Cove</Link>
-            <Link style={styles.footerLink} to="/dryer-vent/waco-tx">Waco Vent Service</Link>
+            <Link style={styles.footerLink} to="/dryer-vent/salado-tx">Salado</Link>
           </div>
         </section>
       </div>
@@ -122,36 +156,43 @@ const ChimneyCleaning = () => {
 };
 
 const styles = {
-  container: { backgroundColor: '#fffaf5', color: '#3e2723', fontFamily: '"Segoe UI", sans-serif' },
+  container: { backgroundColor: '#f9f9f9', color: '#333', fontFamily: '"Arial", sans-serif' },
   hero: { 
-    height: '65vh', display: 'flex', alignItems: 'center', justifyContent: 'center', 
-    background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/chimney-hero.jpg")', 
+    height: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', 
+    background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("/dryer-vent-hero.jpg")', 
     backgroundSize: 'cover', backgroundPosition: 'center', textAlign: 'center', color: 'white' 
   },
-  heroOverlay: { padding: '20px', maxWidth: '900px' },
-  h1: { fontSize: 'clamp(1.8rem, 5vw, 3.2rem)', fontWeight: '800', marginBottom: '20px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' },
-  subtext: { fontSize: '1.2rem', marginBottom: '35px', fontWeight: '400' },
-  btnGroup: { display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' },
-  ctaButton: { background: '#d32f2f', color: 'white', padding: '16px 32px', textDecoration: 'none', borderRadius: '4px', fontWeight: 'bold', fontSize: '1.1rem' },
-  secondaryBtn: { background: 'white', color: '#d32f2f', padding: '16px 32px', textDecoration: 'none', borderRadius: '4px', fontWeight: 'bold' },
+  heroOverlay: { padding: '20px', maxWidth: '850px' },
+  h1: { fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '15px' },
+  subtext: { fontSize: '1.2rem', marginBottom: '30px' },
+  btnGroup: { display: 'flex', gap: '15px', justifyContent: 'center' },
+  ctaButton: { background: '#007bff', color: 'white', padding: '15px 30px', textDecoration: 'none', borderRadius: '5px', fontWeight: 'bold' },
+  secondaryBtn: { background: 'white', color: '#007bff', padding: '15px 30px', textDecoration: 'none', borderRadius: '5px', fontWeight: 'bold' },
   
-  contentWrapper: { maxWidth: '1100px', margin: '0 auto', padding: '60px 20px' },
-  section: { marginBottom: '70px' },
-  h2: { fontSize: '2.1rem', color: '#d32f2f', marginBottom: '20px', borderBottom: '2px solid #ffc107', display: 'inline-block', paddingBottom: '5px' },
-  paragraph: { fontSize: '1.15rem', lineHeight: '1.8', color: '#4e342e' },
-  image: { width: '100%', borderRadius: '12px', marginTop: '30px', boxShadow: '0 8px 16px rgba(0,0,0,0.1)' },
+  contentWrapper: { maxWidth: '1000px', margin: '0 auto', padding: '50px 20px' },
+  section: { marginBottom: '60px' },
+  h2: { fontSize: '2rem', color: '#0056b3', marginBottom: '20px', borderLeft: '5px solid #007bff', paddingLeft: '15px' },
+  paragraph: { fontSize: '1.1rem', lineHeight: '1.7' },
+  list: { paddingLeft: '20px', fontSize: '1.05rem', lineHeight: '2' },
+
+  // Style for the new image gallery
+  imageGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', marginTop: '20px' },
+  galleryImage: { width: '100%', height: '200px', objectFit: 'cover', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' },
   
-  list: { paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '2.2', marginTop: '15px' },
-  infoBox: { background: '#ffffff', padding: '45px', borderRadius: '15px', border: '1px solid #ffe0b2', marginBottom: '70px' },
-  
-  stepGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', marginTop: '30px' },
-  stepCard: { padding: '25px', background: '#fff3e0', borderRadius: '8px', textAlign: 'left' },
-  stepTitle: { color: '#e65100', marginBottom: '10px', fontSize: '1.3rem', fontWeight: 'bold' },
-  
-  internalLinks: { background: '#263238', color: 'white', padding: '50px', borderRadius: '15px' },
-  h3: { textAlign: 'center', marginBottom: '35px', fontSize: '1.8rem' },
-  linkGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '15px', textAlign: 'center' },
-  footerLink: { color: '#ffc107', textDecoration: 'none', fontSize: '1.1rem' }
+  infoBox: { background: '#e9f2ff', padding: '40px', borderRadius: '10px', marginBottom: '60px' },
+  stepGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '25px' },
+  stepCard: { padding: '20px', background: 'white', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' },
+  stepTitle: { color: '#007bff', marginBottom: '10px' },
+
+  faqContainer: { marginTop: '20px' },
+  faqItem: { borderBottom: '1px solid #ddd', padding: '15px 0', cursor: 'pointer' },
+  faqQuestion: { display: 'flex', justifyContent: 'space-between', fontSize: '1.1rem' },
+  faqAnswer: { marginTop: '10px', color: '#555', lineHeight: '1.5' },
+
+  internalLinks: { background: '#333', color: 'white', padding: '40px', borderRadius: '10px' },
+  h3: { textAlign: 'center', marginBottom: '25px' },
+  linkGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px', textAlign: 'center' },
+  footerLink: { color: '#66b2ff', textDecoration: 'none' }
 };
 
 export default ChimneyCleaning;

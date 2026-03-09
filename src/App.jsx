@@ -37,8 +37,8 @@ import AirDuctCleaning from './components/AirDuctCleaning';
 import Commercialcleaning from './components/Commerciacleaning';
 import DryerVentCleaning from './components/DryerVentCleaning';
 import Ductservice from './components/Ductservice';
-import HVACInstallation from './components/ChimneySweepPage';
-import ChimneyCleaning from './components/ChimneyCleaning';  
+
+import ChimneyCleaning from './components/ChimneyCleaning.jsx';  
 import DryerVentInspection from './DryerVentInspection';
 import DryerVentRepair from './DryerVentRepair';
 import DryerVentInstallation from './components/DryerVentInstallation';
@@ -129,12 +129,20 @@ function App() {
         <Route path="/commerciacleaning" element={<Commercialcleaning />} />
         <Route path="/dryerventcleaning" element={<DryerVentCleaning />} />
         <Route path="/ductservice" element={<Ductservice />} />
+
+
+
+
+
+
+  <Route path="/Chimneycleaning" element={<ChimneyCleaning/>} />
+
         <Route path="/dryerventinspection" element={<DryerVentInspection />} />
         <Route path="/dryerventrepair" element={<DryerVentRepair />} />
         <Route path="/dryerventinstallation" element={<DryerVentInstallation />} />
         <Route path="/LintRemoval" element={<LintRemoval/>} />
         <Route path="/dryerventblockage" element={<DryerVentBlockage/>} />
-        <Route path="/dryerventflow" element={<Dryerventflow/>} />
+        <Route path="/dryerventflow" element={<Dryerventflow />} />
 
 
 

@@ -10,36 +10,67 @@ const Commerciacleaning = () => {
 
   useEffect(() => {
     // SEO Title for Repair Service
-    document.title = `Professional Air Duct Repair in ${displayCity} | Fix Leaky Ducts`;
+    document.title = `Expert Air Duct Repair in ${displayCity} | Killeen Air Duct Cleaning`;
     window.scrollTo(0, 0);
   }, [displayCity]);
 
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": `Air Duct Repair & Sealing in ${displayCity}`,
-    "serviceType": "HVAC Repair",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "JY Air Duct Cleaning & Repair",
-      "address": { "@type": "PostalAddress", "addressLocality": displayCity, "addressRegion": "TX" },
-      "telephone": "(254) 998-3484"
-    }
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": `Air Duct Repair & Sealing in ${displayCity}`,
+        "serviceType": "HVAC Repair",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Killeen Air Duct Cleaning",
+          "address": { "@type": "PostalAddress", "addressLocality": displayCity, "addressRegion": "TX" },
+          "telephone": "(254) 998-3484"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": `Why is Killeen Air Duct Cleaning the best for repairs in ${displayCity}?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We use advanced diagnostic tools to find hidden leaks and high-grade mastic sealants to ensure a permanent fix for your HVAC system."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know if my air ducts need repair?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Common signs include skyrocketing energy bills, uneven temperatures in different rooms, and excessive dust buildup even after cleaning."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
     <div style={styles.container}>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
 
-      {/* Hero Section */}
+      {/* Hero Section with Image Background */}
       <section style={styles.hero}>
-        <video autoPlay loop muted playsInline style={styles.videoBg}>
-          <source src="/red.mp4" type="video/mp4" />
-          <img src="/red.mp4" alt={`Air Duct Repair Service in ${displayCity}`} />
-        </video>
+        <img 
+          src="/profile4.jpeg" 
+          alt={`Professional Air Duct Repair in ${displayCity}`} 
+          style={styles.imageBg} 
+        />
         <div style={styles.heroOverlay}>
-          <h1 style={styles.h1}>Certified Air Duct Repair in {displayCity}</h1>
-          <p style={styles.subtext}>Stop wasting energy! We fix leaks, crushed ducts, and disconnected vents across {displayCity}.</p>
+          <h1 style={styles.h1}>Killeen Air Duct Cleaning: Repair Specialists in {displayCity}</h1>
+          <p style={styles.subtext}>Stop wasting energy! Killeen Air Duct Cleaning fixes leaks, crushed ducts, and disconnected vents across {displayCity} for maximum efficiency.</p>
           <div style={styles.btnGroup}>
             <a href="tel:2549983484" style={styles.ctaButton}>Request Repair Now</a>
             <Link to="/contact" style={styles.secondaryBtn}>Free Inspection</Link>
@@ -49,68 +80,83 @@ const Commerciacleaning = () => {
 
       <div style={styles.contentWrapper}>
         
-        {/* Section 1: The Problem */}
+        {/* Section 1: The Problem (Expanded) */}
         <section style={styles.section}>
           <h2 style={styles.h2}>Is Your {displayCity} Home Losing Air Through Leaky Ducts?</h2>
           <p style={styles.paragraph}>
-            Did you know that the average home in <strong>{displayCity}</strong> loses up to 30% of its conditioned air through small holes and cracks in the ductwork? This means your AC is working harder, and you are paying for air that never even reaches your rooms. Our expert repair team identifies structural failures and provides long-term sealing solutions.
+            Did you know that the average home in <strong>{displayCity}</strong> loses up to 30% of its conditioned air through small holes, loose joints, and cracks in the ductwork? This means your AC is working double-time in the Texas heat, and you are paying for air that never reaches your living space. 
           </p>
-          <img src="/profile4.jpeg" alt={`Technician repairing air ducts in ${displayCity}`} style={styles.image} />
+          <p style={styles.paragraph}>
+            At <strong>Killeen Air Duct Cleaning</strong>, we don't just clean—we restore. Our repair specialists use thermal imaging and pressure testing to identify structural failures. By sealing these leaks, we help you lower your utility bills and improve the lifespan of your entire HVAC unit.
+          </p>
+          <img src="/033.jpeg" alt={`Technician from Killeen Air Duct Cleaning repairing vents in ${displayCity}`} style={styles.image} />
         </section>
 
-        {/* Section 2: Signs you need repair (Expanded Content) */}
+        {/* Section 2: Signs you need repair (Expanded) */}
         <section style={styles.infoBox}>
           <h2 style={styles.h2}>Common Signs You Need Air Duct Repair</h2>
-          <p style={styles.paragraph}>Residents of {displayCity} should look out for these red flags:</p>
+          <p style={styles.paragraph}>Residents of {displayCity} should look out for these critical red flags that indicate it's time to call Killeen Air Duct Cleaning:</p>
           <ul style={styles.list}>
-            <li><strong>Hot & Cold Spots:</strong> One room is freezing while another is burning.</li>
-            <li><strong>High Utility Bills:</strong> A sudden spike in your {displayCity} electric bill.</li>
-            <li><strong>Excessive Dust:</strong> Holes in ducts pull in attic dust and fiberglass.</li>
-            <li><strong>Noisy Vents:</strong> Rattling or whistling sounds often indicate loose joints.</li>
-            <li><strong>Pest Intrusion:</strong> Rodents often enter through broken duct sections.</li>
+            <li><strong>Hot & Cold Spots:</strong> If your bedroom is freezing but the living room is hot, a disconnected duct is likely the culprit.</li>
+            <li><strong>High Utility Bills:</strong> A sudden spike in your {displayCity} electric bill often means air is escaping into your attic or crawlspace.</li>
+            <li><strong>Excessive Dust:</strong> Holes in your ductwork pull in dirty attic air, fiberglass particles, and allergens into your home.</li>
+            <li><strong>Noisy Vents:</strong> Rattling, whistling, or vibration sounds usually mean a loose joint or a failing duct segment.</li>
+            <li><strong>Pest Intrusion:</strong> Rodents and insects often enter HVAC systems through broken sections, creating health hazards.</li>
           </ul>
         </section>
 
-        {/* Section 3: Technical Repair Process */}
+        {/* Section 3: Technical Repair Process (Expanded) */}
         <section style={styles.section}>
-          <h2 style={styles.h2}>Our Comprehensive Repair & Sealing Process</h2>
+          <h2 style={styles.h2}>Killeen Air Duct Cleaning Repair & Sealing Process</h2>
+          <p style={styles.paragraph}>Our multi-step repair methodology ensures your {displayCity} property remains energy efficient for years to come:</p>
           <div style={styles.stepGrid}>
             <div style={styles.stepCard}>
-              <h3>Pressure Testing</h3>
-              <p>We measure the airflow loss in your {displayCity} property to find the exact leak points.</p>
+              <h3>Thermal Inspection</h3>
+              <p>We use infrared cameras to see exactly where cold air is leaking behind your walls or in the attic.</p>
             </div>
             <div style={styles.stepCard}>
               <h3>Mastic Sealing</h3>
-              <p>Using professional-grade mastic sealant that never cracks or peels like duct tape.</p>
+              <p>Killeen Air Duct Cleaning uses industrial mastic sealant that remains flexible and airtight for decades.</p>
             </div>
             <div style={styles.stepCard}>
-              <h3>Duct Realignment</h3>
-              <p>Fixing disconnected pipes and crushed flex ducts in tight attic spaces.</p>
+              <h3>Structural Realignment</h3>
+              <p>Fixing disconnected pipes and replacing crushed flex ducts that restrict airflow in your {displayCity} home.</p>
             </div>
             <div style={styles.stepCard}>
-              <h3>Insulation Wrap</h3>
-              <p>Re-insulating repaired sections to prevent condensation and mold growth.</p>
+              <h3>Vapor Barrier Repair</h3>
+              <p>We restore the insulation wrap around your ducts to prevent condensation and toxic mold growth.</p>
             </div>
           </div>
         </section>
 
-        {/* Section 4: Local Impact */}
+        {/* Section 4: FAQ Section (High SEO Value) */}
         <section style={styles.section}>
-          <h2 style={styles.h2}>Why Choose JY for Duct Repair in {displayCity}?</h2>
-          <p style={styles.paragraph}>
-            We aren't just cleaners; we are air distribution specialists. We understand the specific HVAC challenges in Central Texas. Whether your home is in the heart of {displayCity} or the surrounding suburbs, we provide repairs that meet local building codes and improve your home’s overall "Health Score."
-          </p>
+          <h2 style={styles.h2}>Frequently Asked Questions in {displayCity}</h2>
+          <div style={styles.faqContainer}>
+            <div style={styles.faqItem}>
+              <h4 style={styles.faqQuestion}>How long does an air duct repair take?</h4>
+              <p style={styles.paragraph}>Most residential repairs in {displayCity} are completed within 3-5 hours, depending on the extent of the damage and accessibility.</p>
+            </div>
+            <div style={styles.faqItem}>
+              <h4 style={styles.faqQuestion}>Can't I just use duct tape for repairs?</h4>
+              <p style={styles.paragraph}>Actually, "duct tape" is not recommended for ducts! It dries out and peels off. Killeen Air Duct Cleaning uses specialized foil tape and mastic sealant for a permanent bond.</p>
+            </div>
+            <div style={styles.faqItem}>
+              <h4 style={styles.faqQuestion}>Will repairing my ducts improve my air quality?</h4>
+              <p style={styles.paragraph}>Absolutely. Sealing leaks prevents your HVAC system from sucking in dust, mold spores, and insulation from unconditioned spaces like your attic.</p>
+            </div>
+          </div>
         </section>
 
-        {/* Section 5: Internal City Links (SEO Power) */}
+        {/* Section 5: Internal City Links */}
         <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Duct Repair Services Near You</h3>
+          <h3 style={styles.h3}>Killeen Air Duct Cleaning: Local Repair Hubs</h3>
           <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/repair/killeen-tx">Killeen</Link>
+            <Link style={styles.footerLink} to="/repair/killeen-tx">Killeen Repair</Link>
             <Link style={styles.footerLink} to="/repair/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/repair/temple-tx">Temple</Link>
-            <Link style={styles.footerLink} to="/repair/belton-tx">Belton</Link>
-            <Link style={styles.footerLink} to="/repair/waco-tx">Waco</Link>
+            <Link style={styles.footerLink} to="/repair/temple-tx">Temple Repair</Link>
+            <Link style={styles.footerLink} to="/repair/belton-tx">Belton Repair</Link>
+            <Link style={styles.footerLink} to="/repair/waco-tx">Waco Repair</Link>
             <Link style={styles.footerLink} to="/repair/georgetown-tx">Georgetown</Link>
           </div>
         </section>
@@ -119,30 +165,32 @@ const Commerciacleaning = () => {
   );
 };
 
-// CSS styles same as provided before but reused for consistency
 const styles = {
   container: { backgroundColor: '#fff', color: '#333', fontFamily: '"Segoe UI", sans-serif' },
   hero: { position: 'relative', height: '65vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', textAlign: 'center', color: 'white' },
-  videoBg: { position: 'absolute', top: '50%', left: '50%', minWidth: '100%', minHeight: '100%', zIndex: '1', transform: 'translateX(-50%) translateY(-50%)', objectFit: 'cover' },
-  heroOverlay: { zIndex: '2', padding: '20px', background: 'rgba(0,0,0,0.6)', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' },
-  h1: { fontSize: 'clamp(1.8rem, 5vw, 3rem)', fontWeight: '800', margin: '0 0 20px' },
-  subtext: { fontSize: 'clamp(1rem, 2vw, 1.2rem)', maxWidth: '750px', marginBottom: '30px' },
+  imageBg: { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: '1', objectFit: 'cover' },
+  heroOverlay: { zIndex: '2', padding: '20px', background: 'rgba(0,0,0,0.65)', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' },
+  h1: { fontSize: 'clamp(1.6rem, 5vw, 2.8rem)', fontWeight: '800', margin: '0 0 20px', textTransform: 'uppercase' },
+  subtext: { fontSize: 'clamp(1rem, 2vw, 1.25rem)', maxWidth: '850px', marginBottom: '30px', lineHeight: '1.6' },
   btnGroup: { display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' },
   ctaButton: { background: '#e63946', color: 'white', padding: '15px 30px', textDecoration: 'none', borderRadius: '5px', fontWeight: 'bold' },
   secondaryBtn: { background: 'white', color: '#1d3557', padding: '15px 30px', textDecoration: 'none', borderRadius: '5px', fontWeight: 'bold' },
-  contentWrapper: { maxWidth: '1100px', margin: '0 auto', padding: '40px 20px' },
-  section: { marginBottom: '50px' },
-  h2: { fontSize: '1.8rem', color: '#1d3557', marginBottom: '15px', borderBottom: '3px solid #e63946', display: 'inline-block' },
-  paragraph: { fontSize: '1.1rem', lineHeight: '1.7', color: '#444' },
-  image: { width: '100%', borderRadius: '10px', marginTop: '20px' },
-  list: { paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '2' },
-  infoBox: { background: '#f1f4f9', padding: '30px', borderRadius: '15px', marginBottom: '50px' },
-  stepGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '25px' },
-  stepCard: { padding: '20px', background: 'white', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.05)' },
-  internalLinks: { background: '#1d3557', color: 'white', padding: '40px', borderRadius: '15px' },
-  h3: { textAlign: 'center', marginBottom: '25px' },
-  linkGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '15px', textAlign: 'center' },
-  footerLink: { color: '#f1faee', textDecoration: 'none' }
+  contentWrapper: { maxWidth: '1100px', margin: '0 auto', padding: '60px 20px' },
+  section: { marginBottom: '60px' },
+  h2: { fontSize: '2.1rem', color: '#1d3557', marginBottom: '20px', borderLeft: '6px solid #e63946', paddingLeft: '15px' },
+  paragraph: { fontSize: '1.1rem', lineHeight: '1.8', color: '#444', marginBottom: '15px' },
+  image: { width: '100%', borderRadius: '12px', marginTop: '25px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' },
+  list: { paddingLeft: '20px', fontSize: '1.1rem', lineHeight: '2.2', color: '#444' },
+  infoBox: { background: '#f8f9fa', padding: '40px', borderRadius: '20px', marginBottom: '60px', border: '1px solid #dee2e6' },
+  stepGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '25px', marginTop: '30px' },
+  stepCard: { padding: '25px', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', textAlign: 'center' },
+  faqContainer: { marginTop: '30px' },
+  faqItem: { marginBottom: '25px', paddingBottom: '15px', borderBottom: '1px solid #eee' },
+  faqQuestion: { color: '#e63946', fontSize: '1.25rem', marginBottom: '10px', fontWeight: '700' },
+  internalLinks: { background: '#1d3557', color: 'white', padding: '60px', borderRadius: '20px' },
+  h3: { textAlign: 'center', marginBottom: '35px', fontSize: '1.8rem' },
+  linkGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '15px', textAlign: 'center' },
+  footerLink: { color: '#f1faee', textDecoration: 'none', fontSize: '1.05rem', transition: '0.3s' }
 };
 
 export default Commerciacleaning;

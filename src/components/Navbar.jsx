@@ -72,7 +72,7 @@ const Navbar = () => {
                   </span>
                   {activeCategory === 'dryer' && (
                     <ul>  
-                      <li><Link to="/ChimneyCleaning" onClick={closeMenu}>Dryer Air Vent Cleaning</Link></li>
+                      <li><Link to="/Chimneycleaning" onClick={closeMenu}>Dryer Air Vent Cleaning</Link></li>
                       <li><Link to="/dryerventinspection" onClick={closeMenu}>Dryer Vent Inspection</Link></li>
                       <li><Link to="/dryerventrepair" onClick={closeMenu}>Dryer Vent Repair</Link></li>
                       <li><Link to="/dryerventinstallation" onClick={closeMenu}>Dryer Vent Installation</Link></li>
