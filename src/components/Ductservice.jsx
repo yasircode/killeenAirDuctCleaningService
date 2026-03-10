@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
 
 
 const Ductservice = () => {
@@ -131,18 +132,7 @@ const Ductservice = () => {
         </section>
         
 
-        {/* Section 6: Dynamic Area Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>HVAC Maintenance Areas Near {displayCity}</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/hvac-clean/killeen-tx">Killeen Unit Service</Link>
-            <Link style={styles.footerLink} to="/hvac-clean/temple-tx">Temple Unit Service</Link>
-            <Link style={styles.footerLink} to="/hvac-clean/belton-tx">Belton Unit Service</Link>
-            <Link style={styles.footerLink} to="/hvac-clean/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/hvac-clean/georgetown-tx">Georgetown</Link>
-            <Link style={styles.footerLink} to="/hvac-clean/waco-tx">Waco Unit Service</Link>
-          </div>
-        </section>
+      <ServiceAreas/>
       </div>
     </div>
   );

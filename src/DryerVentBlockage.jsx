@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './components/ServiceAreas';
 
 const DryerVentBlockage = () => {
   const { cityName } = useParams();
@@ -124,20 +125,7 @@ const DryerVentBlockage = () => {
           </div>
         </section>
 
-        {/* Section 5: Geo-Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Emergency Blockage Removal Near {displayCity}</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/blockage-removal/killeen-tx">Killeen Blockage</Link>
-            <Link style={styles.footerLink} to="/blockage-removal/temple-tx">Temple Blockage</Link>
-            <Link style={styles.footerLink} to="/blockage-removal/belton-tx">Belton Blockage</Link>
-            <Link style={styles.footerLink} to="/blockage-removal/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/blockage-removal/copperas-cove-tx">Copperas Cove</Link>
-            <Link style={styles.footerLink} to="/blockage-removal/waco-tx">Waco Blockage</Link>
-            <Link style={styles.footerLink} to="/blockage-removal/georgetown-tx">Georgetown Blockage</Link>
-            <Link style={styles.footerLink} to="/blockage-removal/salado-tx">Salado Blockage</Link>
-          </div>
-        </section>
+     <ServiceAreas/>
       </div>
     </div>
   );

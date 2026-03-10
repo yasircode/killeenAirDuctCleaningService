@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import MultiStepQuoteForm from './MultiStepQuoteForm';
+import ServiceAreas from './ServiceAreas';
 
 const DryerVentCleaning = () => {
   const { cityName } = useParams();
@@ -136,18 +137,7 @@ const DryerVentCleaning = () => {
 
         <MultiStepQuoteForm/>
 
-        {/* Section 5: Service Areas */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Killeen Air Duct Cleaning: Local Service Hubs</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/service/killeen-tx">Killeen Replacement</Link>
-            <Link style={styles.footerLink} to="/service/temple-tx">Temple Replacement</Link>
-            <Link style={styles.footerLink} to="/service/belton-tx">Belton Replacement</Link>
-            <Link style={styles.footerLink} to="/service/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/service/copperas-cove-tx">Copperas Cove</Link>
-            <Link style={styles.footerLink} to="/service/waco-tx">Waco Replacement</Link>
-          </div>
-        </section>
+     <ServiceAreas/>
       </div>
     </div>
   );

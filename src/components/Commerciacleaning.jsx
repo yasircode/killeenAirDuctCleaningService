@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
 
 const Commerciacleaning = () => {
   const { cityName } = useParams();
@@ -148,18 +149,7 @@ const Commerciacleaning = () => {
           </div>
         </section>
 
-        {/* Section 5: Internal City Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Killeen Air Duct Cleaning: Local Repair Hubs</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/repair/killeen-tx">Killeen Repair</Link>
-            <Link style={styles.footerLink} to="/repair/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/repair/temple-tx">Temple Repair</Link>
-            <Link style={styles.footerLink} to="/repair/belton-tx">Belton Repair</Link>
-            <Link style={styles.footerLink} to="/repair/waco-tx">Waco Repair</Link>
-            <Link style={styles.footerLink} to="/repair/georgetown-tx">Georgetown</Link>
-          </div>
-        </section>
+     <ServiceAreas/>
       </div>
     </div>
   );

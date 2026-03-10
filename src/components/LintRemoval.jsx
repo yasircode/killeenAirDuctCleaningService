@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
 
 const LintRemoval = () => {
   const { cityName } = useParams();
@@ -122,20 +123,7 @@ const LintRemoval = () => {
           </div>
         </section>
 
-        {/* Section 5: Geo-Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Local Lint Removal Specialists in {displayCity}</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/lint-removal/killeen-tx">Killeen Service</Link>
-            <Link style={styles.footerLink} to="/lint-removal/temple-tx">Temple Service</Link>
-            <Link style={styles.footerLink} to="/lint-removal/belton-tx">Belton Service</Link>
-            <Link style={styles.footerLink} to="/lint-removal/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/lint-removal/copperas-cove-tx">Copperas Cove</Link>
-            <Link style={styles.footerLink} to="/lint-removal/waco-tx">Waco Service</Link>
-            <Link style={styles.footerLink} to="/lint-removal/georgetown-tx">Georgetown Service</Link>
-            <Link style={styles.footerLink} to="/lint-removal/salado-tx">Salado Service</Link>
-          </div>
-        </section>
+      <ServiceAreas/>
       </div>
     </div>
   );

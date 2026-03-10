@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
 
 const DryerVentInstallation = () => {
   const { cityName } = useParams();
@@ -123,20 +124,7 @@ const DryerVentInstallation = () => {
           </div>
         </section>
 
-        {/* Section 5: Geo-Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Dryer Vent Installation Services Near You</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/dryer-vent-installation/killeen-tx">Killeen Installation</Link>
-            <Link style={styles.footerLink} to="/dryer-vent-installation/temple-tx">Temple Installation</Link>
-            <Link style={styles.footerLink} to="/dryer-vent-installation/belton-tx">Belton Installation</Link>
-            <Link style={styles.footerLink} to="/dryer-vent-installation/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/dryer-vent-installation/copperas-cove-tx">Copperas Cove</Link>
-            <Link style={styles.footerLink} to="/dryer-vent-installation/waco-tx">Waco Installation</Link>
-            <Link style={styles.footerLink} to="/dryer-vent-installation/georgetown-tx">Georgetown Installation</Link>
-            <Link style={styles.footerLink} to="/dryer-vent-installation/salado-tx">Salado Installation</Link>
-          </div>
-        </section>
+      <ServiceAreas/>
       </div>
     </div>
   );

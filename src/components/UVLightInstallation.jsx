@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
 
 const UVLightInstallation = () => {
   const { cityName } = useParams();
@@ -160,18 +161,7 @@ const UVLightInstallation = () => {
           </p>
         </section>
 
-        {/* Section 5: Area Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Killeen Air Duct Cleaning: Service Locations</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/uv-light/killeen-tx">Killeen UV Install</Link>
-            <Link style={styles.footerLink} to="/uv-light/temple-tx">Temple Air Quality</Link>
-            <Link style={styles.footerLink} to="/uv-light/belton-tx">Belton UV Service</Link>
-            <Link style={styles.footerLink} to="/uv-light/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/uv-light/georgetown-tx">Georgetown</Link>
-            <Link style={styles.footerLink} to="/uv-light/waco-tx">Waco Purification</Link>
-          </div>
-        </section>
+       <ServiceAreas/>
       </div>
     </div>
   );

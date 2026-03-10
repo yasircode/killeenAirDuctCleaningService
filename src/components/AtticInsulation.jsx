@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
 
 const AtticInsulation= () => {
   const { cityName } = useParams();
@@ -147,18 +148,7 @@ const AtticInsulation= () => {
           </p>
         </section>
 
-        {/* Section 5: Localized Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Killeen Air Duct Cleaning: Local Service Areas</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/attic-insulation/killeen-tx">Killeen Upgrades</Link>
-            <Link style={styles.footerLink} to="/attic-insulation/temple-tx">Temple Insulation</Link>
-            <Link style={styles.footerLink} to="/attic-insulation/belton-tx">Belton Attic Care</Link>
-            <Link style={styles.footerLink} to="/attic-insulation/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/attic-insulation/georgetown-tx">Georgetown</Link>
-            <Link style={styles.footerLink} to="/attic-insulation/waco-tx">Waco Energy Solutions</Link>
-          </div>
-        </section>
+    <ServiceAreas/>
       </div>
     </div>
   );

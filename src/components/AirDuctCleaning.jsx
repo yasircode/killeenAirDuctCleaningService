@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
+
+
+
 
 const CityServicePage = () => {
   const { cityName } = useParams();
@@ -79,6 +83,9 @@ const CityServicePage = () => {
         </div>
       </section>
 
+
+
+
       {/* Main Content Area */}
       <div style={styles.contentWrapper}>
         
@@ -119,18 +126,10 @@ const CityServicePage = () => {
           </div>
         </section>
 
-        {/* Section 4: Local Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Our Central Texas Service Areas</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/location/killeen-tx">Killeen</Link>
-            <Link style={styles.footerLink} to="/location/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/location/temple-tx">Temple</Link>
-            <Link style={styles.footerLink} to="/location/belton-tx">Belton</Link>
-            <Link style={styles.footerLink} to="/location/waco-tx">Waco</Link>
-            <Link style={styles.footerLink} to="/location/georgetown-tx">Georgetown</Link>
-          </div>
-        </section>
+     <ServiceAreas/>
+
+      
+   
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
 
 const Dryerventflow = () => {
   const { cityName } = useParams();
@@ -123,20 +124,7 @@ const Dryerventflow = () => {
           </div>
         </section>
 
-        {/* Section 5: Geo-Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Diagnostic Testing Services in Central Texas</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/airflow-testing/killeen-tx">Killeen Testing</Link>
-            <Link style={styles.footerLink} to="/airflow-testing/temple-tx">Temple Testing</Link>
-            <Link style={styles.footerLink} to="/airflow-testing/belton-tx">Belton Testing</Link>
-            <Link style={styles.footerLink} to="/airflow-testing/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/airflow-testing/copperas-cove-tx">Copperas Cove</Link>
-            <Link style={styles.footerLink} to="/airflow-testing/waco-tx">Waco Testing</Link>
-            <Link style={styles.footerLink} to="/airflow-testing/georgetown-tx">Georgetown Testing</Link>
-            <Link style={styles.footerLink} to="/airflow-testing/salado-tx">Salado Testing</Link>
-          </div>
-        </section>
+    <ServiceAreas/>
       </div>
     </div>
   );

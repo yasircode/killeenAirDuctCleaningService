@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ServiceAreas from './ServiceAreas';
 
 const ChimneySweepPage = () => {
   const { cityName } = useParams();
@@ -145,19 +146,7 @@ const ChimneySweepPage = () => {
             </div>
           </div>
         </section>
-
-        {/* Section 5: Area Links */}
-        <section style={styles.internalLinks}>
-          <h3 style={styles.h3}>Killeen Air Duct Cleaning: Chimney Service Areas</h3>
-          <div style={styles.linkGrid}>
-            <Link style={styles.footerLink} to="/chimney-sweep/killeen-tx">Killeen Sweep</Link>
-            <Link style={styles.footerLink} to="/chimney-sweep/temple-tx">Temple Sweep</Link>
-            <Link style={styles.footerLink} to="/chimney-sweep/belton-tx">Belton Chimney</Link>
-            <Link style={styles.footerLink} to="/chimney-sweep/harker-heights-tx">Harker Heights</Link>
-            <Link style={styles.footerLink} to="/chimney-sweep/georgetown-tx">Georgetown</Link>
-            <Link style={styles.footerLink} to="/chimney-sweep/waco-tx">Waco Chimney Pros</Link>
-          </div>
-        </section>
+<ServiceAreas/>
       </div>
     </div>
   );
