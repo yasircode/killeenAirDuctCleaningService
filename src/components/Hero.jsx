@@ -8,10 +8,10 @@ const Hero = () => {
         <section className="hero-box">
           {/* Main SEO Header */}
           <h1 className="hero-title">
-            Killeen 
+           
 <br className="mobile-only" /> 
-            <span>Air Duct Cleaners</span> <br /> 
-          <h4>Air Duct Cleaning in Killeen TX</h4> 
+            <span>Air Duct Cleaning in Killeen, TX</span> <br /> 
+          <h4>Professional Air Duct & Vent Cleaning in Killeen Texas</h4> 
           </h1>
 
           <p className="hero-tagline">
