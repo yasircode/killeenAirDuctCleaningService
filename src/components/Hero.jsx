@@ -10,7 +10,7 @@ const Hero = () => {
           <h1 className="hero-title">
            
 <br className="mobile-only" /> 
-            <span>Air Duct Cleaning in Killeen, TX</span> <br /> 
+          
           <h4>Professional Air Duct & Vent Cleaning in Killeen Texas</h4> 
           </h1>
 
