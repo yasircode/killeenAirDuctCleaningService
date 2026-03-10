@@ -1,173 +1,163 @@
-/* --- HERO WRAPPER --- */
+/* Root Variables for easy branding */
+:root {
+  --primary-color: #0056b3; /* Professional Blue */
+  --secondary-color: #ffcc00; /* Action Yellow */
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --overlay: rgba(0, 0, 0, 0.6);
+}
+
 .hero-wrapper {
   position: relative;
-  min-height: 100vh; /* Desktop par full height */
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Background Image */
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-              url('/profile4.jpeg') no-repeat center center;
-  background-size: cover;
-  padding: 40px 0; 
+  background: url('profile3.jpeg') no-repeat center center/cover; /* Add a high-quality HVAC image here */
+  background-attachment: fixed;
+  color: var(--text-light);
+  padding: 20px;
+}
+
+/* Dark Overlay for Readability (Crucial for SEO/UI) */
+.hero-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--overlay);
+  z-index: 1;
 }
 
 .hero-container {
-  max-width: 800px;
-  width: 90%;
-  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
   text-align: center;
 }
 
-/* --- GLASS EFFECT BOX --- */
 .hero-box {
-  max-width: 900px;
-  height: 400px; /* Desktop Height */
+  max-width: 850px;
   margin: 0 auto;
-  padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.1); 
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(7px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 25px;
-  box-shadow: 0 20px 40px rgba(20, 1, 1, 0.981);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
-/* --- TYPOGRAPHY --- */
+/* Typography SEO Optimized */
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.1;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 15px;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
 }
 
-.hero-title span {
-  color: #ffffff;
-  background-color: #0d47a1; 
-  padding: 2px 15px;
-  border-radius: 8px;
-  display: inline-block;
-  margin: 5px 0;
+.hero-title h4 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 10px;
+  color: var(--secondary-color);
 }
 
 .hero-tagline {
-  font-size: 1.4rem;
-  color: #f1f1f1;
-  margin-bottom: 35px;
-  font-weight: 500;
-  line-height: 1.5;
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
 }
 
-/* --- RATING SECTION --- */
+/* Rating Section */
 .hero-rating-section {
-  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 30px;
+  border-left: 4px solid var(--secondary-color);
 }
 
 .stars {
-  color: #ffb703; 
-  font-size: 1.8rem;
-  margin-bottom: 8px;
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
 }
 
 .rating-stars {
-  font-size: 1.3rem;
-  color: #ffffff;
-  font-weight: 700;
+  font-size: 1.1rem;
   margin: 5px 0;
 }
 
 .rating-subtitle {
-  font-size: 1rem;
-  color: #cccccc;
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
-/* --- BUTTONS --- */
+/* Buttons Group */
 .hero-button-group {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .cta-button {
-  padding: 18px 35px;
+  padding: 16px 32px;
   font-size: 1.1rem;
-  font-weight: 800;
-  border-radius: 50px;
+  font-weight: 700;
   text-decoration: none;
+  border-radius: 50px;
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
-  display: inline-block;
+  text-transform: uppercase;
 }
 
 .call-btn {
-  background-color: #0d47a1;
+  background-color: var(--primary-color);
   color: white;
-  box-shadow: 0 10px 20px rgba(13, 71, 161, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
 }
 
 .schedule-btn {
-  background-color: #ffffff;
-  color: #0d47a1;
-  border: 2px solid #ffffff;
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
 }
 
-/* --- RESPONSIVE DESIGN (MOBILE FIXES) --- */
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile Responsiveness (Best View) */
 @media (max-width: 768px) {
-  .hero-wrapper {
-    min-height: auto; /* Screen ki height kam karne ke liye */
-    padding: 110px 0;
-  }
-
-  .hero-box {
-    height: auto; /* 800px ko khatam kiya */
-    padding: 10px 15px;
-    width: 100%;
-    border-radius: 20px;
-  }
-
   .hero-title {
-    font-size: 1rem; /* Font size chota kiya */
-    line-height: 1;
+    font-size: 2rem;
   }
-
-  .hero-title span {
-    font-size: 1.5rem; /* "Air Duct Cleaners" ko chota kiya */
-    padding: 9px 8px;
-    white-space: nowrap; /* Text ek hi line mein rahay ga */
-    display: inline-block;
-    width: auto;
+  
+  .hero-title h4 {
+    font-size: 1.1rem;
   }
 
   .hero-tagline {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    padding: 0 10px;
-  }
-
-  .stars {
-    font-size: 1.4rem;
-  }
-
-  .rating-stars {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .hero-button-group {
     flex-direction: column;
-    gap: 12px;
+    width: 100%;
   }
 
   .cta-button {
     width: 100%;
-    padding: 14px 20px;
-    font-size: 1rem;
+    text-align: center;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none;
   }
 }
