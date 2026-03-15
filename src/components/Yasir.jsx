@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GoogleReviewBadge = () => {
+const Yasir = () => {
   // Styles Object
   const styles = {
     // Wrapper to center the badge on any screen
@@ -72,4 +72,4 @@ const GoogleReviewBadge = () => {
   );
 };
 
-export default GoogleReviewBadge;
+export default Yasir;

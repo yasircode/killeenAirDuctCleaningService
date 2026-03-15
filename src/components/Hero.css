@@ -1,158 +1,132 @@
-/* Root Variables */
-:root {
-  --primary-color: #0056b3;
-  --secondary-color: #ffcc00;
-  --text-dark: #1a1a1a;
-  --text-light: #ffffff;
-  /* Overlay color direct yahan handle hogi */
-  --overlay-gradient: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
-}
+/* Hero.css */
 
 .hero-wrapper {
-  position: relative;
-  min-height: 85vh; /* Desktop par thodi kam height */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Overlay aur Image ko ek saath lagaya hai taake mobile par loading issue na ho */
-  background: var(--overlay-gradient), url('profile3.jpeg') no-repeat center center/cover;
-  background-attachment: fixed; /* Parallax effect for desktop */
-  color: var(--text-light);
+  /* Background Image Settings */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                    url('./profile3.jpeg'); /* Make sure path is correct */
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Mobile friendly */
   padding: 20px;
-  text-align: center;
 }
 
 .hero-container {
-  max-width: 1200px;
+  max-width: 1100px;
   width: 100%;
-  z-index: 2;
 }
 
 .hero-box {
-  max-width: 850px;
-  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); /* Safari support */
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-align: left;
+  max-width: 750px;
 }
 
-/* Typography */
+.hero-subtitle {
+  color: #ffc107;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
 .hero-title {
-  font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive font size */
+  font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 15px;
-  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 
-.hero-title h4 {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  font-weight: 600;
-  margin-top: 10px;
-  color: var(--secondary-color);
-  text-transform: none;
+.highlight {
+  color: #00d4ff;
+  display: block;
 }
 
 .hero-tagline {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  margin-bottom: 30px;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  margin-bottom: 2rem;
   opacity: 0.9;
-  line-height: 1.5;
 }
 
-/* Rating Section */
-.hero-rating-section {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
-  padding: 20px;
-  border-radius: 12px;
-  display: inline-block;
-  margin-bottom: 35px;
-  border-left: 5px solid var(--secondary-color);
-}
-
+/* Star Rating */
 .stars {
-  color: var(--secondary-color);
+  color: #ffc107;
   font-size: 1.4rem;
-  letter-spacing: 3px;
 }
 
 .rating-stars {
   font-size: 1.1rem;
-  margin: 8px 0;
-  font-weight: 700;
+  margin: 5px 0;
 }
 
 .rating-subtitle {
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
-/* Buttons Group */
+/* Buttons */
 .hero-button-group {
   display: flex;
   gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .cta-button {
-  padding: 18px 35px;
-  font-size: 1.1rem;
+  padding: 15px 30px;
+  border-radius: 50px;
   font-weight: 700;
   text-decoration: none;
-  border-radius: 50px;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
+  transition: 0.3s ease-in-out;
   border: none;
-  text-transform: uppercase;
-  display: inline-block;
+  cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .call-btn {
-  background-color: var(--primary-color);
+  background: #007bff;
   color: white;
-  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.4);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
 }
 
 .schedule-btn {
-  background-color: var(--secondary-color);
-  color: var(--text-dark);
-  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+  background: white;
+  color: #333;
 }
 
 .cta-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+  filter: brightness(1.1);
 }
 
-/* --- Responsive Media Queries --- */
-
+/* --- MOBILE OPTIMIZATION --- */
 @media (max-width: 768px) {
   .hero-wrapper {
-    /* Mobile fix: 'fixed' ko hatana zaroori hai */
-    background-attachment: scroll; 
-    min-height: 100vh; /* Mobile screen full cover karega */
-    padding: 40px 15px;
+    background-position: center top; /* Image ko thoda upar shift karta hai mobile pe */
+    padding: 15px;
+  }
+
+  .hero-box {
+    text-align: center;
+    padding: 2rem 1.5rem;
   }
 
   .hero-button-group {
-    flex-direction: column;
+    flex-direction: column; /* Mobile par buttons ek ke niche ek aayenge */
     width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
   }
 
   .cta-button {
     width: 100%;
-    padding: 15px;
-  }
-
-  .desktop-only {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile-only {
-    display: none;
+    text-align: center;
   }
 }

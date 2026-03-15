@@ -28,6 +28,7 @@ import Management from './components/Management'
 import MultiStepQuoteForm from './components/MultiStepQuoteForm';
 import KilleenServicePage from './KilleenServicePage';
 import AirDuctnew from './components/AirDuctnew';
+import Yasir from './components/Yasir.jsx';
 
 // --- SERVICES IMPORTS ---
 import AirDuctCleaning from './components/AirDuctCleaning';
@@ -60,7 +61,9 @@ import Georgetown from './components/Georgetown';
 import LibertyHill from './components/LibertyHill';
 import Waco from './components/Waco';
 import Jarrell from './components/Jarrell';
-import Google from './components/google.jsx';
+
+
+
 
 
 const Home = () => {
@@ -116,7 +119,7 @@ const Home = () => {
       <Commercial />
       <DuctService />
       <DuctServiceFAQ />
-  <Google/>
+ <Yasir/>
       <br />
       <DuctLandingPage />
     </>
