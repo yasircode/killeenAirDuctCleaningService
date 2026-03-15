@@ -26,6 +26,10 @@ const IntroCard = () => {
           <img src="/google.png" alt="Google Review" className="trust-badge" />
           <img src="/angni.webp" alt="Angi Award" className="trust-badge" />
           <img src="/yelp.webp" alt="Yelp Rating" className="trust-badge" />
+           <img src="/logo2.webp" alt="Yelp Rating" className="trust-badge" />
+            <img src="/BBB.webp" alt="Yelp Rating" className="trust-badge" />
+            <img src="/logo5.png" alt="Yelp Rating" className="trust-badge" />
+
         </div>
       </div>
     </div>
