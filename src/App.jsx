@@ -60,6 +60,8 @@ import Georgetown from './components/Georgetown';
 import LibertyHill from './components/LibertyHill';
 import Waco from './components/Waco';
 import Jarrell from './components/Jarrell';
+import Google from './components/google.jsx';
+
 
 const Home = () => {
   // --- SCHEMA DATA FOR SEO ---
@@ -114,6 +116,7 @@ const Home = () => {
       <Commercial />
       <DuctService />
       <DuctServiceFAQ />
+  <Google/>
       <br />
       <DuctLandingPage />
     </>
