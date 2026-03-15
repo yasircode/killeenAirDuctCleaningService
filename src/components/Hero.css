@@ -1,39 +1,31 @@
-/* Root Variables for easy branding */
+/* Root Variables */
 :root {
-  --primary-color: #0056b3; /* Professional Blue */
-  --secondary-color: #ffcc00; /* Action Yellow */
+  --primary-color: #0056b3;
+  --secondary-color: #ffcc00;
   --text-dark: #1a1a1a;
   --text-light: #ffffff;
-  --overlay: rgba(0, 0, 0, 0.6);
+  /* Overlay color direct yahan handle hogi */
+  --overlay-gradient: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
 }
 
 .hero-wrapper {
   position: relative;
-  min-height: 80vh;
+  min-height: 85vh; /* Desktop par thodi kam height */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('profile3.jpeg') no-repeat center center/cover; /* Add a high-quality HVAC image here */
-  background-attachment: fixed;
+  /* Overlay aur Image ko ek saath lagaya hai taake mobile par loading issue na ho */
+  background: var(--overlay-gradient), url('profile3.jpeg') no-repeat center center/cover;
+  background-attachment: fixed; /* Parallax effect for desktop */
   color: var(--text-light);
   padding: 20px;
-}
-
-/* Dark Overlay for Readability (Crucial for SEO/UI) */
-.hero-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--overlay);
-  z-index: 1;
+  text-align: center;
 }
 
 .hero-container {
-  position: relative;
-  z-index: 2;
   max-width: 1200px;
   width: 100%;
-  text-align: center;
+  z-index: 2;
 }
 
 .hero-box {
@@ -41,9 +33,9 @@
   margin: 0 auto;
 }
 
-/* Typography SEO Optimized */
+/* Typography */
 .hero-title {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive font size */
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 15px;
@@ -51,43 +43,47 @@
 }
 
 .hero-title h4 {
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 600;
   margin-top: 10px;
   color: var(--secondary-color);
+  text-transform: none;
 }
 
 .hero-tagline {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   margin-bottom: 30px;
   opacity: 0.9;
+  line-height: 1.5;
 }
 
 /* Rating Section */
 .hero-rating-section {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  padding: 15px;
-  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  padding: 20px;
+  border-radius: 12px;
   display: inline-block;
-  margin-bottom: 30px;
-  border-left: 4px solid var(--secondary-color);
+  margin-bottom: 35px;
+  border-left: 5px solid var(--secondary-color);
 }
 
 .stars {
   color: var(--secondary-color);
   font-size: 1.4rem;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 .rating-stars {
   font-size: 1.1rem;
-  margin: 5px 0;
+  margin: 8px 0;
+  font-weight: 700;
 }
 
 .rating-subtitle {
   font-size: 0.9rem;
-  font-style: italic;
+  opacity: 0.8;
 }
 
 /* Buttons Group */
@@ -99,56 +95,55 @@
 }
 
 .cta-button {
-  padding: 16px 32px;
+  padding: 18px 35px;
   font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
   border-radius: 50px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
   border: none;
   text-transform: uppercase;
+  display: inline-block;
 }
 
 .call-btn {
   background-color: var(--primary-color);
   color: white;
-  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.4);
 }
 
 .schedule-btn {
   background-color: var(--secondary-color);
   color: var(--text-dark);
-  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Mobile Responsiveness (Best View) */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-title h4 {
-    font-size: 1.1rem;
-  }
+/* --- Responsive Media Queries --- */
 
-  .hero-tagline {
-    font-size: 1rem;
+@media (max-width: 768px) {
+  .hero-wrapper {
+    /* Mobile fix: 'fixed' ko hatana zaroori hai */
+    background-attachment: scroll; 
+    min-height: 100vh; /* Mobile screen full cover karega */
+    padding: 40px 15px;
   }
 
   .hero-button-group {
     flex-direction: column;
     width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
   }
 
   .cta-button {
     width: 100%;
-    text-align: center;
+    padding: 15px;
   }
 
   .desktop-only {
