@@ -271,3 +271,65 @@
   padding-left: 5px;
   transition: 0.3s;
 }
+
+
+/* Base Desktop Styles (Already exist in your code likely) */
+.main-nav-white {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.phone-icon-mobile {
+  display: none; /* Desktop par chupa rahe ga */
+}
+
+/* --- Mobile Specific Styles --- */
+@media (max-width: 768px) {
+  .main-nav-white {
+    display: flex;
+    justify-content: space-between; /* Hamburger left, Phone right */
+    align-items: center;
+  }
+
+  .mobile-menu-icon {
+    order: 1; /* Left side */
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-logo-container {
+    order: 2; /* Center side */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .phone-icon-mobile {
+    display: block;
+    order: 3; /* Right side */
+    font-size: 22px;
+  }
+
+  .phone-icon-mobile a {
+    text-decoration: none;
+    color: #000; /* Ya jo bhi aapka theme color ho */
+  }
+
+  .desktop-only-call {
+    display: none; /* Mobile par button chupa dein */
+  }
+
+  /* Dropdown positioning */
+  .nav-center-mobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    /* transition properties... */
+  }
+}

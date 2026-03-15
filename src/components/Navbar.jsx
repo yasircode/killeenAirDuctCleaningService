@@ -6,7 +6,6 @@ const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showService, setShowService] = useState(false);
   const [showLocation, setShowLocation] = useState(false);
-  // New state to track which category is selected
   const [activeCategory, setActiveCategory] = useState(null);
 
   const closeMenu = () => {
@@ -17,7 +16,6 @@ const Navbar = () => {
   };
 
   const toggleCategory = (category) => {
-    // Agar wahi category dobara click ho toh band ho jaye, warna nayi select ho
     setActiveCategory(activeCategory === category ? null : category);
   };
 
@@ -30,16 +28,26 @@ const Navbar = () => {
       </div>
 
       <div className="main-nav-white">
-        <div className="nav-left">
+        {/* Mobile Left: Hamburger Menu */}
+        <div className="mobile-menu-icon" onClick={() => setIsMobile(!isMobile)}>
+          {isMobile ? '✖' : '☰'}
+        </div>
+
+        {/* Center: Logo */}
+        <div className="nav-logo-container">
           <Link to="/" onClick={closeMenu}>
             <img src="/logom.jpeg" alt="Logo" className="site-logo" />
           </Link>
         </div>
 
-        <div className="mobile-menu-icon" onClick={() => setIsMobile(!isMobile)}>
-          {isMobile ? '✖' : '☰'}
+        {/* Mobile Right: Contact Icon */}
+        <div className="phone-icon-mobile">
+          <a href="tel:(254) 998-3484">
+            <span role="img" aria-label="phone">📞</span>
+          </a>
         </div>
 
+        {/* Navigation Menu */}
         <div className={`nav-center ${isMobile ? 'nav-center-mobile' : ''}`}>
           <ul className="nav-menu-list">
             <li><Link to="/" onClick={closeMenu} className="nav-link-item">HOME</Link></li>
@@ -50,7 +58,6 @@ const Navbar = () => {
               </div>
               
               <ul className="dropdown-menu mega-menu">
-                {/* Category 1: Air Duct */}
                 <li className="menu-category">
                   <span className="category-title" onClick={() => toggleCategory('airduct')}>
                     Air Duct Cleaning Services {activeCategory === 'airduct' ? '▴' : '▾'}
@@ -65,14 +72,13 @@ const Navbar = () => {
                   )}
                 </li>
 
-                {/* Category 2: Dryer Vent */}
                 <li className="menu-category">
                   <span className="category-title" onClick={() => toggleCategory('dryer')}>
                     Dryer Vent Cleaning {activeCategory === 'dryer' ? '▴' : '▾'}
                   </span>
                   {activeCategory === 'dryer' && (
                     <ul>  
-                      <li><Link to="/Chimneycleaning" onClick={closeMenu}>Dryer Air Vent Cleaning</Link></li>
+                      <li><Link to="/ChimneyCleaning" onClick={closeMenu}>Dryer Air Vent Cleaning</Link></li>
                       <li><Link to="/dryerventinspection" onClick={closeMenu}>Dryer Vent Inspection</Link></li>
                       <li><Link to="/dryerventrepair" onClick={closeMenu}>Dryer Vent Repair</Link></li>
                       <li><Link to="/dryerventinstallation" onClick={closeMenu}>Dryer Vent Installation</Link></li>
@@ -83,7 +89,6 @@ const Navbar = () => {
                   )}
                 </li>
 
-                {/* Category 3: Indoor Air Quality */}
                 <li className="menu-category">
                   <span className="category-title" onClick={() => toggleCategory('airquality')}>
                     Indoor Air Quality Services {activeCategory === 'airquality' ? '▴' : '▾'}
@@ -95,7 +100,6 @@ const Navbar = () => {
                   )}
                 </li>
 
-                {/* Category 4: Chimney */}
                 <li className="menu-category">
                   <span className="category-title" onClick={() => toggleCategory('chimney')}>
                     Chimney Services {activeCategory === 'chimney' ? '▴' : '▾'}
@@ -108,7 +112,6 @@ const Navbar = () => {
                   )}
                 </li>
 
-                {/* Category 5: Insulation */}
                 <li className="menu-category">
                   <span className="category-title" onClick={() => toggleCategory('insulation')}>
                     Insulation Service {activeCategory === 'insulation' ? '▴' : '▾'}
@@ -148,6 +151,7 @@ const Navbar = () => {
           </ul>
         </div>
 
+        {/* Desktop Call Button */}
         <div className="nav-right desktop-only-call">
           <a href="tel:(254) 998-3484" className="call-now-btn">
             (254) 998-3484
