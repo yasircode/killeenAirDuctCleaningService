@@ -1,26 +1,22 @@
 import React from 'react';
 import './Hero.css';
-import profileImg from './profile3.jpeg';
+// Image import (Make sure profile3.jpeg is in the same folder)
+import profileImg from './profile3.jpeg'; 
 
 const Hero = () => {
   return (
-   
-    <div className="hero-wrapper">
-      
+    <div 
+      className="hero-wrapper" 
+      style={{ 
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(${profileImg})` 
+      }}
+    >
       <div className="hero-container">
         <section className="hero-box">
-          {/* Main SEO Header */}
           <h1 className="hero-title">
-            <br></br>
-        <br></br>
-
-        <div className="hero-wrapper" style={{ 
-  backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(${profileImg})` 
-}}></div>
-         
-<br className="mobile-only" /> 
+            <br /><br />
             <span>Killeen Air Duct Cleaning & Vent Cleaning Services</span> <br /> 
-          <h4>Professional Air Duct & Vent Cleaning in Killeen Texas</h4> 
+            <h4>Professional Air Duct & Vent Cleaning in Killeen Texas</h4> 
           </h1>
 
           <p className="hero-tagline">
