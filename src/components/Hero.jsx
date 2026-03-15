@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import profileImg from './profile3.jpeg';
 
 const Hero = () => {
   return (
@@ -12,6 +13,10 @@ const Hero = () => {
           <h1 className="hero-title">
             <br></br>
         <br></br>
+
+        <div className="hero-wrapper" style={{ 
+  backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(${profileImg})` 
+}}></div>
          
 <br className="mobile-only" /> 
             <span>Killeen Air Duct Cleaning & Vent Cleaning Services</span> <br /> 
