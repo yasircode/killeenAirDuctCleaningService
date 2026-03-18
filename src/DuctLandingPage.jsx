@@ -81,8 +81,8 @@ const DuctLandingPage = () => {
                 <div className="s-icon fb">F</div>
               </a>
 
-              <a href="#" className="social-link">
-                <div className="s-icon tw">T</div>
+              <a href="Killeenair@gmail.com" className="social-link">
+                <div className="s-icon tw">M</div>
               </a>
 
               <a href="#" className="social-link">
