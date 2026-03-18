@@ -1,43 +1,124 @@
 import React from 'react';
-import './Hero.css';
-// Image import (Make sure profile3.jpeg is in the same folder)
-import profileImg from './profile3.jpeg'; 
 
 const Hero = () => {
+  // --- Inline CSS Styles ---
+  const styles = {
+    heroWrapper: {
+      position: 'relative',
+      minHeight: '100vh',
+      width: '100%',
+      // Yahan apni image ka link dalen
+      backgroundImage: `url('profile3.jpeg')`, 
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: 'Arial, sans-serif',
+    },
+    overlay: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.7)', // Image ko dark karne ke liye
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '20px',
+      textAlign: 'center',
+    },
+    contentBox: {
+      maxWidth: '800px',
+      width: '100%',
+    },
+    title: {
+      color: '#ffffff',
+      fontSize: 'clamp(1.5rem, 5vw, 2.8rem)', // Responsive font size
+      fontWeight: '900',
+      lineHeight: '1.2',
+      marginBottom: '20px',
+      textTransform: 'uppercase',
+      letterSpacing: '1px',
+    },
+    tagline: {
+      color: '#ffffff',
+      fontSize: 'clamp(0.9rem, 3vw, 1.3rem)',
+      fontWeight: '600',
+      marginBottom: '35px',
+      lineHeight: '1.4',
+    },
+    ratingSection: {
+      marginBottom: '30px',
+    },
+    ratingScore: {
+      color: '#FFB400', // Yellow/Gold
+      fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
+      fontWeight: 'bold',
+      margin: '0 0 5px 0',
+    },
+    ratingSubtitle: {
+      color: '#FFB400',
+      fontSize: '1.1rem',
+      fontWeight: '500',
+      margin: 0,
+    },
+    buttonGroup: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '15px',
+      width: '100%',
+      alignItems: 'center',
+    },
+    ctaButton: {
+      backgroundColor: '#A31D1D', // Dark Red
+      color: '#ffffff',
+      padding: '16px 0',
+      fontSize: '1.1rem',
+      fontWeight: 'bold',
+      border: 'none',
+      cursor: 'pointer',
+      width: '100%',
+      maxWidth: '450px',
+      textDecoration: 'none',
+      textAlign: 'center',
+      display: 'block',
+      textTransform: 'uppercase',
+      transition: '0.3s',
+    }
+  };
+
   return (
-    <div 
-      className="hero-wrapper" 
-      style={{ 
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(${profileImg})` 
-      }}
-    >
-      <div className="hero-container">
-        <section className="hero-box">
-          <h1 className="hero-title">
-            <br /><br />
-            <span>Killeen Air Duct Cleaning & Vent Cleaning Services</span> <br /> 
-            <h4>Professional Air Duct & Vent Cleaning in Killeen Texas</h4> 
+    <div style={styles.heroWrapper}>
+      <div style={styles.overlay}>
+        <section style={styles.contentBox}>
+          
+          <h1 style={styles.title}>
+            AMERICA AIR DUCT CLEANING <br />
+            SAN ANTONIO, TX
           </h1>
 
-          <p className="hero-tagline">
-            Improve Indoor Air Quality with our <br className="desktop-only" /> 
-            Professional Air Duct & Vent Cleaning
+          <p style={styles.tagline}>
+            Breathe Easy, Live Healthy - Exceptional Air Duct <br />
+            Solutions For Your Ultimate Indoor Comfort!
           </p>
 
-          <div className="hero-rating-section">
-            <div className="stars">★★★★★</div>
-            <h2 className="rating-stars">Rated 4.9 out of 5 Stars</h2>
-            <p className="rating-subtitle">Based On 328 customer reviews</p>
+          <div style={styles.ratingSection}>
+            <h2 style={styles.ratingScore}>Rated 4.9 out of 5 Stars</h2>
+            <p style={styles.ratingSubtitle}>Based On 328 customer reviews</p>
           </div>
 
-          <div className="hero-button-group">
-            <a href="tel:(254) 998-3484" className="cta-button call-btn">
-              CALL US: (254) 998-3484
+          <div style={styles.buttonGroup}>
+            <a href="tel:2107770616" style={styles.ctaButton}>
+              CALL US: (210) 777-0616
             </a>
-            <button className="cta-button schedule-btn">
+            <button style={styles.ctaButton}>
               SCHEDULE NOW
             </button>
           </div>
+
         </section>
       </div>
     </div>
