@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ServiceAreas from './ServiceAreas';
+import Yasir from './Yasir';
 
 const ChimneyCleaning= () => {
   const { cityName } = useParams();
@@ -138,6 +139,7 @@ const ChimneyCleaning= () => {
             ))}
           </div>
         </section>
+        <Yasir/>
 <ServiceAreas/>
       </div>
     </div>

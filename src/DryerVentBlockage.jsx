@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ServiceAreas from './components/ServiceAreas';
+import Yasir from './components/Yasir';
 
 const DryerVentBlockage = () => {
   const { cityName } = useParams();
@@ -124,7 +125,7 @@ const DryerVentBlockage = () => {
             </div>
           </div>
         </section>
-
+<Yasir/>
      <ServiceAreas/>
       </div>
     </div>

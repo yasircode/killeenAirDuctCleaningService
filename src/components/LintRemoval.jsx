@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ServiceAreas from './ServiceAreas';
+import Yasir from './Yasir';
+
 
 const LintRemoval = () => {
   const { cityName } = useParams();
@@ -122,6 +124,7 @@ const LintRemoval = () => {
             </div>
           </div>
         </section>
+        <Yasir/>
 
       <ServiceAreas/>
       </div>

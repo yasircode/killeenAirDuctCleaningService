@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ServiceAreas from './ServiceAreas';
+import Yasir from './Yasir';
+
 
 const UVLightInstallation = () => {
   const { cityName } = useParams();
@@ -160,7 +162,7 @@ const UVLightInstallation = () => {
             A cleaner HVAC unit is a more efficient one. When mold builds up on your cooling coils, it acts as an insulator, forcing your system to work harder to cool your <strong>{displayCity}</strong> home. UV lights installed by <strong>Killeen Air Duct Cleaning</strong> keep those coils pristine, maintaining optimal heat exchange and lowering your energy consumption.
           </p>
         </section>
-
+<Yasir/>
        <ServiceAreas/>
       </div>
     </div>

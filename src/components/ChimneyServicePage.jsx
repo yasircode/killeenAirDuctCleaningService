@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ServiceAreas from './ServiceAreas';
+import Yasir from './Yasir';
 
 const ChimneyServicePage = () => {
   const { cityName } = useParams();
@@ -146,7 +147,7 @@ const ChimneyServicePage = () => {
             Ignoring a small crack in your chimney today can lead to thousands of dollars in water damage tomorrow. Regular service by <strong>Killeen Air Duct Cleaning</strong> ensures that your fireplace remains safe and functional. Our team is trained in the latest masonry techniques to ensure your chimney lasts for decades.
           </p>
         </section>
-
+<Yasir/>
       <ServiceAreas/>
       </div>
     </div>

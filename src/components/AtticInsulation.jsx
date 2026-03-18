@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ServiceAreas from './ServiceAreas';
+import Yasir from './Yasir';
 
 const AtticInsulation= () => {
   const { cityName } = useParams();
@@ -147,7 +148,7 @@ const AtticInsulation= () => {
             Attic insulation is one of the few home improvements that actually pays for itself. By stabilizing your home's temperature, you reduce the workload on your HVAC system, leading to lower monthly bills and fewer repairs. Residents of <strong>{displayCity}</strong> often report a massive improvement in comfort immediately after an upgrade.
           </p>
         </section>
-
+<Yasir/>
     <ServiceAreas/>
       </div>
     </div>

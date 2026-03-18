@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ServiceAreas from './components/ServiceAreas';
+import Yasir from './components/Yasir';
 
 
 const DryerVentInspection = () => {
@@ -111,6 +112,7 @@ const DryerVentInspection = () => {
             A clogged dryer vent can increase your monthly electric bill by <strong>$15–$30</strong> because the dryer has to run twice as long. For residents in <strong>{displayCity}</strong>, regular inspections ensure your appliance operates at peak efficiency. Not only does this lower your energy costs, but it also extends the lifespan of your dryer, saving you thousands in replacement costs for heating elements and motors.
           </p>
         </section>
+        <Yasir/>
 
       
 <ServiceAreas/>
