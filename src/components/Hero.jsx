@@ -96,13 +96,11 @@ const Hero = () => {
         <section style={styles.contentBox}>
           
           <h1 style={styles.title}>
-            AMERICA AIR DUCT CLEANING <br />
-            SAN ANTONIO, TX
+            Killeen Air Duct Cleaning & Vent Cleaning Services
           </h1>
 
           <p style={styles.tagline}>
-            Breathe Easy, Live Healthy - Exceptional Air Duct <br />
-            Solutions For Your Ultimate Indoor Comfort!
+           Professional Air Duct & Vent Cleaning in Killeen, Texas
           </p>
 
           <div style={styles.ratingSection}>
@@ -112,7 +110,7 @@ const Hero = () => {
 
           <div style={styles.buttonGroup}>
             <a href="tel:2107770616" style={styles.ctaButton}>
-              CALL US: (210) 777-0616
+              CALL US: (254) 998-3484
             </a>
             <button style={styles.ctaButton}>
               SCHEDULE NOW
