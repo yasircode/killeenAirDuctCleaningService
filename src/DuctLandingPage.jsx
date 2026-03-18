@@ -56,6 +56,7 @@ const DuctLandingPage = () => {
             <h3 className="yellow-text">Killeen Air Duct Cleaners</h3>
             <h4 className="yellow-text">(254) 998-3484</h4>
             <h3>Killeen, TX,</h3>
+            <h3>killeenair@gmail.com</h3>
             
             <div className="payment-icons">
               <div className="card-visa">VISA</div>
