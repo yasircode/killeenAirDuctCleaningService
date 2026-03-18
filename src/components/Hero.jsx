@@ -109,7 +109,7 @@ const Hero = () => {
           </div>
 
           <div style={styles.buttonGroup}>
-            <a href="tel:2107770616" style={styles.ctaButton}>
+            <a href="tel:2549983484" style={styles.ctaButton}>
               CALL US: (254) 998-3484
             </a>
             <button style={styles.ctaButton}>
