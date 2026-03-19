@@ -105,7 +105,7 @@ const Hero = () => {
 
           <div style={styles.ratingSection}>
             <h2 style={styles.ratingScore}>Rated 4.9 out of 5 Stars</h2>
-            <p style={styles.ratingSubtitle}>Based On 328 customer reviews</p>
+            <p style={styles.ratingSubtitle}>Based On 30 customer reviews</p>
           </div>
 
           <div style={styles.buttonGroup}>
