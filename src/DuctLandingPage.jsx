@@ -18,7 +18,7 @@ const DuctLandingPage = () => {
 
   return (
     <div className="main-wrapper">
-      {/* CTA SECTION (Iska height kam karne ke liye padding adjust ki hai) */}
+      {/* CTA SECTION */}
       <section className="cta-section" style={{ padding: '20px 10px', minHeight: 'auto' }}>
         <h1 style={{ fontSize: '1.8rem', marginBottom: '10px' }}>Expert Air Duct Cleaning Services in Killeen, TX</h1>
         <div className="cta-text">
@@ -54,9 +54,9 @@ const DuctLandingPage = () => {
         <div className="footer-top">
           <div className="footer-col contact-col">
             <h3 className="yellow-text">Killeen Air Duct Cleaners</h3>
-            <h4 className="yellow-text">(254) 998-3484</h4>
+            <h4 className="yellow-text"><a href="tel:2549983484" style={{color: 'inherit', textDecoration: 'none'}}>(254) 998-3484</a></h4>
             <h3>Killeen, TX,</h3>
-            <h3>killeenair@gmail.com</h3>
+            <h3><a href="mailto:killeenair@gmail.com" style={{color: 'inherit', textDecoration: 'none'}}>killeenair@gmail.com</a></h3>
             
             <div className="payment-icons">
               <div className="card-visa">VISA</div>
@@ -68,7 +68,7 @@ const DuctLandingPage = () => {
 
           <div className="footer-col social-col">
             <div className="policy-links">
-              <span>Privacy Policy</span> | <span className="terms-trigger" onClick={() => setShowTerms(true)}>Terms and Conditions</span>
+              <span>Privacy Policy</span> | <span className="terms-trigger" onClick={() => setShowTerms(true)} style={{cursor: 'pointer'}}>Terms and Conditions</span>
             </div>
             
             <div className="social-row">
@@ -81,7 +81,7 @@ const DuctLandingPage = () => {
                 <div className="s-icon fb">F</div>
               </a>
 
-              <a href="Killeenair@gmail.com" className="social-link">
+              <a href="mailto:killeenair@gmail.com" className="social-link">
                 <div className="s-icon tw">M</div>
               </a>
 
@@ -92,24 +92,40 @@ const DuctLandingPage = () => {
           </div>
 
           <div className="footer-col map-col">
-            <div className="map-wrapper" style={{ overflow: 'hidden', borderRadius: '8px' }}>
+            {/* Map Wrapper with 100% width and clickable Overlay */}
+            <div className="map-wrapper" style={{ overflow: 'hidden', borderRadius: '8px', position: 'relative', height: '180px' }}>
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110123.456789!2d-97.7277!3d31.1171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86454bc5f2e8f77d%3A0x868b8b9b8b8b8b8b!2sKilleen%2C%20TX!5e0!3m2!1sen!2sus!4v1234567890" 
-                className="google-map-iframe"
-                width="%"
-                height="180" // Map ki height 300 se kam karke 180 kar di hai
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110143.12569527712!2d-97.80785165!3d31.1171194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8645494883307777%3A0x6335a16d764786!2sKilleen%2C%20TX!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
                 style={{ border: 0 }}
                 allowFullScreen="" 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Killeen Air Duct Cleaners Map"
               ></iframe>
+              {/* This link covers the map so it opens Google Maps on click */}
+              <a 
+                href="https://www.google.com/maps/search/Killeen+Air+Duct+Cleaners+Killeen+TX"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  zIndex: 10,
+                  cursor: 'pointer'
+                }}
+                aria-label="View on Google Maps"
+              ></a>
             </div>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>Copyright © 2026 <strong>Killeen Air Duct Cleaners  - All Rights Reserved.</strong></p>
+          <p>Copyright © 2026 <strong>Killeen Air Duct Cleaners - All Rights Reserved.</strong></p>
         </div>
       </footer>
 
@@ -122,7 +138,7 @@ const DuctLandingPage = () => {
             <div className="modal-body">
               <p>These terms and conditions govern your use of KILLEEN Air Duct Cleaning Services...</p>
               <ul>
-                <h6>Introduction</h6>
+                <li style={{fontWeight: 'bold'}}>Introduction</li>
                 <li>Welcome to our website. By accessing and using this website, you agree to adhere to the following Terms and Conditions.</li>
                 <br />
                 <li>Service estimates are subject to on-site inspection.</li>
