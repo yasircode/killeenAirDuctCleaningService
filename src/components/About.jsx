@@ -7,7 +7,11 @@ import MultiStepQuoteForm from "./MultiStepQuoteForm";
 const About = () => {
   return (
     <>
-     
+     <br></br>
+      <br></br>
+       <br></br>
+       <br></br>
+       
       <Unique />
       <br></br>
       <ImageComparison />
